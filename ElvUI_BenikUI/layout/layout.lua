@@ -46,7 +46,7 @@ end
 local menuFrame = CreateFrame('Frame', 'BuiGameClickMenu', E.UIParent, 'BackdropTemplate')
 menuFrame:SetTemplate('Transparent', true)
 
-function BuiGameMenu_OnMouseUp(self)
+function BuiGameMenu_OnMouseUp()
 	if InCombatLockdown() then return end
 	GameTooltip:Hide()
 	BUI:Dropmenu(menuList, menuFrame, BuiButton_2, 'tLeft', -SPACING, SPACING, 4)
@@ -63,9 +63,10 @@ local StatusList = {
 local StatusMenuFrame = CreateFrame('Frame', 'BuiStatusMenu', E.UIParent)
 StatusMenuFrame:SetTemplate('Transparent', true)
 
-function BuiStatusMenu_OnMouseUp(self)
+function BuiStatusMenu_OnMouseUp()
+	if InCombatLockdown() then return end
 	GameTooltip:Hide()
-	BUI:Dropmenu(StatusList, StatusMenuFrame, self:GetName(), 'tRight', SPACING, SPACING, 4)
+	BUI:Dropmenu(StatusList, StatusMenuFrame, BuiButton_3, 'tRight', SPACING, SPACING, 4)
 	PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF);
 end
 
