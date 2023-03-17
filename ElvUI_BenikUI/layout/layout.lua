@@ -18,9 +18,8 @@ local C_TimerAfter = C_Timer.After
 local GameMenuButtonAddons = GameMenuButtonAddons
 
 -- GLOBALS: hooksecurefunc, selectioncolor
--- GLOBALS: AddOnSkins, MAINMENU_BUTTON, LFG_TITLE, BuiLeftChatDTPanel
+-- GLOBALS: AddOnSkins, MAINMENU_BUTTON, BuiLeftChatDTPanel
 -- GLOBALS: BuiMiddleDTPanel, BuiRightChatDTPanel, BuiGameClickMenu
--- GLOBALS: EncounterJournal_LoadUI, EncounterJournal
 -- GLOBALS: MinimapPanel, Minimap
 -- GLOBALS: LeftChatPanel, RightChatPanel, CopyChatFrame
 
