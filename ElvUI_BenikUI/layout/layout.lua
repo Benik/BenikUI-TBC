@@ -65,7 +65,7 @@ StatusMenuFrame:SetTemplate('Transparent', true)
 function BuiStatusMenu_OnMouseUp()
 	if InCombatLockdown() then return end
 	GameTooltip:Hide()
-	BUI:Dropmenu(StatusList, StatusMenuFrame, BuiButton_3, 'tRight', SPACING, SPACING, 4)
+	BUI:Dropmenu(StatusList, StatusMenuFrame, BuiButton_4, 'tRight', SPACING, SPACING, 4)
 	PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF);
 end
 
