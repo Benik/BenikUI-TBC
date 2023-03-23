@@ -1,4 +1,4 @@
-local BUI, E, L, V, P, G = unpack(select(2, ...))
+local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Layout')
 local LO = E:GetModule('Layout')
 local DT = E:GetModule('DataTexts')
@@ -18,9 +18,8 @@ local C_TimerAfter = C_Timer.After
 local GameMenuButtonAddons = GameMenuButtonAddons
 
 -- GLOBALS: hooksecurefunc, selectioncolor
--- GLOBALS: AddOnSkins, MAINMENU_BUTTON, LFG_TITLE, BuiLeftChatDTPanel
+-- GLOBALS: AddOnSkins, MAINMENU_BUTTON, BuiLeftChatDTPanel
 -- GLOBALS: BuiMiddleDTPanel, BuiRightChatDTPanel, BuiGameClickMenu
--- GLOBALS: EncounterJournal_LoadUI, EncounterJournal
 -- GLOBALS: MinimapPanel, Minimap
 -- GLOBALS: LeftChatPanel, RightChatPanel, CopyChatFrame
 
@@ -46,7 +45,7 @@ end
 local menuFrame = CreateFrame('Frame', 'BuiGameClickMenu', E.UIParent, 'BackdropTemplate')
 menuFrame:SetTemplate('Transparent', true)
 
-function BuiGameMenu_OnMouseUp(self)
+function BuiGameMenu_OnMouseUp()
 	if InCombatLockdown() then return end
 	GameTooltip:Hide()
 	BUI:Dropmenu(menuList, menuFrame, BuiButton_2, 'tLeft', -SPACING, SPACING, 4)
@@ -63,9 +62,10 @@ local StatusList = {
 local StatusMenuFrame = CreateFrame('Frame', 'BuiStatusMenu', E.UIParent)
 StatusMenuFrame:SetTemplate('Transparent', true)
 
-function BuiStatusMenu_OnMouseUp(self)
+function BuiStatusMenu_OnMouseUp()
+	if InCombatLockdown() then return end
 	GameTooltip:Hide()
-	BUI:Dropmenu(StatusList, StatusMenuFrame, self:GetName(), 'tRight', SPACING, SPACING, 4)
+	BUI:Dropmenu(StatusList, StatusMenuFrame, BuiButton_4, 'tRight', SPACING, SPACING, 4)
 	PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF);
 end
 
