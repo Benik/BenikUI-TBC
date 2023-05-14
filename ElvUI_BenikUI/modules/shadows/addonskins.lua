@@ -6,8 +6,8 @@ local mod = BUI:GetModule('Shadows')
 function mod:TabShadowsAS(tab)
 	if not tab then return end
 
-	if tab.Backdrop then
-		tab.Backdrop:CreateSoftShadow()
+	if tab.backdrop then
+		tab.backdrop:CreateSoftShadow()
 	end
 end
 
@@ -15,8 +15,8 @@ function mod:DBMShadows()
 	if not BUI.AS then return end
 	local AS = unpack(AddOnSkins) -- this is needed cause it's ADDON_LOADED
 
-	local function SkinBars(self)
-		for bar in self:GetBarIterator() do
+	local function SkinBars(s)
+		for bar in s:GetBarIterator() do
 			if not bar.injected then
 				hooksecurefunc(bar, "Update", function()
 					local sparkEnabled = DBT.Options.Spark
@@ -33,14 +33,20 @@ function mod:DBMShadows()
 					local icon2 = _G[frame:GetName()..'BarIcon2']
 					local name = _G[frame:GetName()..'BarName']
 					local timer = _G[frame:GetName()..'BarTimer']
+					local iconSize = bar.enlarged and DBT.Options.HugeHeight or DBT.Options.Height
+					if AS:CheckOption('DBMSkinHalf') then
+						iconSize = iconSize * 2
+					end
 
 					AS:SkinTexture(icon1, true)
 					icon1:ClearAllPoints()
 					icon1:SetPoint('BOTTOMRIGHT', frame, 'BOTTOMLEFT', AS:AdjustForTheme(-2), 1)
+					icon1:SetSize(iconSize, iconSize)
 
 					AS:SkinTexture(icon2, true)
 					icon2:ClearAllPoints()
 					icon2:SetPoint('BOTTOMLEFT', frame, 'BOTTOMRIGHT', AS:AdjustForTheme(2), 1)
+					icon2:SetSize(iconSize, iconSize)
 
 					AS:SetInside(tbar, frame)
 
@@ -48,39 +54,25 @@ function mod:DBMShadows()
 					frame:CreateSoftShadow()
 
 					name:ClearAllPoints()
-					name:SetWidth(165)
-					name:SetHeight(8)
 					name:SetJustifyH('LEFT')
-					name:SetShadowColor(0, 0, 0, 0)
 
 					timer:ClearAllPoints()
 					timer:SetJustifyH('RIGHT')
-					timer:SetShadowColor(0, 0, 0, 0)
 
 					if AS:CheckOption('DBMSkinHalf') then
-						if (not DBT.Options.BarYOffset or DBT.Options.BarYOffset and DBT.Options.BarYOffset < 13) then
-							DBT.Options.BarYOffset = 13
-						end
-
-						if (not DBT.Options.HugeBarYOffset or DBT.Options.HugeBarYOffset and DBT.Options.HugeBarYOffset < 13) then
-							DBT.Options.HugeBarYOffset = 13
-						end
-
-						frame:SetHeight(DBT.Options.Height / 3)
 						name:SetPoint('BOTTOMLEFT', frame, 'TOPLEFT', 0, 3)
 						timer:SetPoint('BOTTOMRIGHT', frame, 'TOPRIGHT', -1, 1)
 					else
-						frame:SetHeight(DBT.Options.Height + 2)
 						name:SetPoint('LEFT', frame, 'LEFT', 4, 0)
 						timer:SetPoint('RIGHT', frame, 'RIGHT', -4, 0)
 					end
 
-					icon1.Backdrop:CreateSoftShadow()
-					icon2.Backdrop:CreateSoftShadow()
-
-					if DBT.Options.IconLeft then icon1.Backdrop:Show() else icon1.Backdrop:Hide() end
-					if DBT.Options.IconRight then icon2.Backdrop:Show() else icon2.Backdrop:Hide() end
-
+					if DBT.Options.IconLeft then icon1.backdrop:Show() else icon1.backdrop:Hide() end
+					if DBT.Options.IconRight then icon2.backdrop:Show() else icon2.backdrop:Hide() end
+					
+					icon1.backdrop:CreateSoftShadow()
+					icon2.backdrop:CreateSoftShadow()
+					
 					bar.injected = true
 				end)
 				bar:ApplyStyle()

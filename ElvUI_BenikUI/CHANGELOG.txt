@@ -1,3 +1,9 @@
+2.13 - May 14, 2023
+Patrons update
+Skin fix
+Fixes for AddonSkins
+Check for Eltruism skin and hide it on style
+
 2.12 - Mar 23, 2023
 Fixed Aura Shadows
 Fixed the Status Menu button
