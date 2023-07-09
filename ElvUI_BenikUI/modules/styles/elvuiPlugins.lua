@@ -90,4 +90,12 @@ function mod:stylePlugins()
 			bottomPanel:BuiStyle('Outside')
 		end
 	end
+
+	-- WrathArmory
+	if IsAddOnLoaded("ElvUI_WrathArmory") and E.db.benikui.Skins.elvuiAddons.wa then
+		if _G.WrathArmory_StatsPane then
+			_G.WrathArmory_StatsPane:BuiStyle("Outside")
+		end
+	end
+
 end
