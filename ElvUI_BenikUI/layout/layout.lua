@@ -42,8 +42,9 @@ elseif E.Classic then
 	menuList = BUI.MenuListClassic
 end
 
-local menuFrame = CreateFrame('Frame', 'BuiGameClickMenu', E.UIParent, 'BackdropTemplate')
+local menuFrame = CreateFrame('Frame', 'BuiGameClickMenu', E.UIParent)
 menuFrame:SetTemplate('Transparent', true)
+menuFrame:SetFrameStrata('DIALOG')
 
 function BuiGameMenu_OnMouseUp()
 	if InCombatLockdown() then return end
