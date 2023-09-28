@@ -1,6 +1,6 @@
 ## Interface: 30402
 ## Author: Benik
-## Version: 2.14
+## Version: 2.15
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r
 ## Notes: an ElvUI Wrath decorative/enhancement edit
 ## RequiredDeps: ElvUI

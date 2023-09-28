@@ -1,3 +1,12 @@
+2.15 - Sep 28, 2023
+toc updates
+Hide Questie in FlightMode. Credit: Tsxy
+Port Fixed chat glitch after exiting FlightMode from retail. Credit: thurin
+nil check backdrop and check for no backdrop. Credit: Eltreum
+Fix strata of Game Menu. Credit: thurin
+Add BenikUI style to WrathArmory. Credit: thurin
+nil check earlier since this function is for style. Credit: Eltreum
+
 2.14 - May 25, 2023
 Simpy did some changes to Debuff stuff.. so we need to take account. Credit: Merathilis
 
