@@ -193,8 +193,21 @@ function mod:styleWorldMap()
 		return
 	end
 
-	local mapFrame = _G.WorldMapFrame
-	if not mapFrame.style then
-		mapFrame:BuiStyle("Outside")
+	if E.Wrath then
+		local miniMapFrame = _G.WorldMapFrame.MiniBorderFrame.backdrop
+		if miniMapFrame and not miniMapFrame.style then
+			miniMapFrame:BuiStyle("Outside")
+		end
+
+		local bigMapFrame = _G.WorldMapFrame.BorderFrame.backdrop
+		if bigMapFrame and not bigMapFrame.style then
+			bigMapFrame:BuiStyle("Outside")
+		end
+	else
+		local mapFrame = _G.WorldMapFrame
+		if not mapFrame.style then
+			mapFrame:BuiStyle("Outside")
+		end
 	end
+
 end
