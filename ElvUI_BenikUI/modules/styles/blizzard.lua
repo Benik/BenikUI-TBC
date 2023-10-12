@@ -106,6 +106,7 @@ local function LoadSkin()
 		_G.BNToastFrame:BuiStyle("Outside")
 		_G.GameMenuFrame:BuiStyle("Outside")
 		if not E.Classic then
+			_G.QueueStatusFrame:BuiStyle("Outside")
 			_G.ReportFrame:BuiStyle("Outside")
 		end
 		_G.ReportCheatingDialog.backdrop:BuiStyle("Outside")
