@@ -110,6 +110,21 @@ local function SpellBookFrameShadows()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.spellbook ~= true then
 		return
 	end
+
+	local i = 1
+	local tab = _G['SpellBookFrameTabButton'..i]
+	while tab do
+		if not tab then return end
+
+		if tab.backdrop then
+			tab.backdrop:SetTemplate("Transparent")
+			tab.backdrop:CreateSoftShadow()
+		end
+
+		i = i + 1
+		tab = _G['SpellBookFrameTabButton'..i]
+	end
+
 	for j = 1, MAX_SKILLLINE_TABS do
 		local tab = _G['SpellBookSkillLineTab'..j]
 		tab:CreateSoftShadow()
