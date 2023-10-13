@@ -38,17 +38,6 @@ local function LoadSkin()
 
 	if db.character then
 		_G.CharacterFrame.backdrop:BuiStyle("Outside")
-		if E.Wrath then
-			_G.PVPFrame.backdrop:BuiStyle("Outside")
-			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
-			for i = 1, 2 do
-				local tab = _G["PVPParentFrameTab" .. i]
-				if tab and tab.backdrop then
-					tab.backdrop:SetTemplate("Transparent")
-					tab.backdrop:CreateSoftShadow()
-				end
-			end
-		end
 		hooksecurefunc('ReputationFrame_Update', repUpdate)
 	end
 
@@ -157,6 +146,17 @@ local function LoadSkin()
 
 	if db.pvp then
 		_G.PVPReadyDialog:BuiStyle("Outside")
+		if E.Wrath then
+			_G.PVPFrame.backdrop:BuiStyle("Outside")
+			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
+			for i = 1, 2 do
+				local tab = _G["PVPParentFrameTab" .. i]
+				if tab and tab.backdrop then
+					tab.backdrop:SetTemplate("Transparent")
+					tab.backdrop:CreateSoftShadow()
+				end
+			end
+		end
 	end
 
 	if db.quest then
