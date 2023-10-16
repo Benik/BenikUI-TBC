@@ -1,12 +1,12 @@
 ## Interface: 30402
 ## Author: Benik
-## Version: 2.15
+## Version: 2.16
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r
 ## Notes: an ElvUI Wrath decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
-## X-ElvuiVersion: 13.40
+## X-ElvuiVersion: 13.45
 
 locales\load_locales.xml
 media\load_media.xml

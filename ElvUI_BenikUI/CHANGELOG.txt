@@ -1,3 +1,18 @@
+2.16 - Oct 16, 2023
+Follow ElvUI changes for PVP Frames skins (credit: thurin)
+Fix talent frame side tab style (credit: thurin)
+Style Battlefield frame and bottom tabs (credit: thurin)
+Style Spellbook bottom tabs (credit: thurin)
+Style QueueStatusFrame (credit: thurin)
+Add Sidereal Essence and Defiler's Scourgestone to token dashboard (credit: Aflixion Starr)
+Style new wrath world maps (credit: thurin)
+Show tokens dashboard if the last currency has 0 amount (credit: Aflixion Starr)
+Wrath toc update (credit: thurin)
+Style new LFG (credit: thurin)
+Fix error when opening Collections (credit: thurin)
+Add Collections to DropMenu (credit: thurin)
+Fix LFG in DropMenu (credit: thurin)
+
 2.15 - Sep 28, 2023
 toc updates
 Hide Questie in FlightMode. Credit: Tsxy
