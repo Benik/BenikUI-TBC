@@ -38,9 +38,6 @@ local function LoadSkin()
 
 	if db.character then
 		_G.CharacterFrame.backdrop:BuiStyle("Outside")
-		if E.Wrath then
-			_G.PVPFrame.backdrop:BuiStyle("Outside")
-		end
 		hooksecurefunc('ReputationFrame_Update', repUpdate)
 	end
 
@@ -65,6 +62,12 @@ local function LoadSkin()
 
 	if db.help then
 		_G.HelpFrame.backdrop:BuiStyle("Outside")
+	end
+
+	if db.lfg then
+		if E.Wrath then
+			_G.PVEFrame:BuiStyle("Outside")
+		end
 	end
 
 	if db.loot then
@@ -100,6 +103,7 @@ local function LoadSkin()
 		_G.BNToastFrame:BuiStyle("Outside")
 		_G.GameMenuFrame:BuiStyle("Outside")
 		if not E.Classic then
+			_G.QueueStatusFrame:BuiStyle("Outside")
 			_G.ReportFrame:BuiStyle("Outside")
 		end
 		_G.ReportCheatingDialog.backdrop:BuiStyle("Outside")
@@ -142,6 +146,17 @@ local function LoadSkin()
 
 	if db.pvp then
 		_G.PVPReadyDialog:BuiStyle("Outside")
+		if E.Wrath then
+			_G.PVPFrame.backdrop:BuiStyle("Outside")
+			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
+			for i = 1, 2 do
+				local tab = _G["PVPParentFrameTab" .. i]
+				if tab and tab.backdrop then
+					tab.backdrop:SetTemplate("Transparent")
+					tab.backdrop:CreateSoftShadow()
+				end
+			end
+		end
 	end
 
 	if db.quest then
@@ -187,8 +202,21 @@ function mod:styleWorldMap()
 		return
 	end
 
-	local mapFrame = _G.WorldMapFrame
-	if not mapFrame.style then
-		mapFrame:BuiStyle("Outside")
+	if E.Wrath then
+		local miniMapFrame = _G.WorldMapFrame.MiniBorderFrame.backdrop
+		if miniMapFrame and not miniMapFrame.style then
+			miniMapFrame:BuiStyle("Outside")
+		end
+
+		local bigMapFrame = _G.WorldMapFrame.BorderFrame.backdrop
+		if bigMapFrame and not bigMapFrame.style then
+			bigMapFrame:BuiStyle("Outside")
+		end
+	else
+		local mapFrame = _G.WorldMapFrame
+		if not mapFrame.style then
+			mapFrame:BuiStyle("Outside")
+		end
 	end
+
 end

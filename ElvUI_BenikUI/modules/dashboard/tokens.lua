@@ -45,6 +45,8 @@ local Currency = {
 	101, -- Emblem of Heroism
 	301, -- Emblem of Triumph
 	102, -- Emblem of Valor
+	2589, -- Sidereal Essence
+	2711, -- Defiler's Scourgestone
 }
 
 local function Icon_OnEnter(self)
@@ -118,6 +120,7 @@ function mod:UpdateTokens()
 		end
 	end)
 
+	local atLeastOneToken = false
 	for _, id in pairs(Currency) do
 		local name, amount, icon, weeklyMax, totalMax, isDiscovered = mod:GetTokenInfo(id)
 		if name then
@@ -200,12 +203,13 @@ function mod:UpdateTokens()
 					self.tokenFrame.name = name
 
 					tinsert(BUI.TokensDB, self.tokenFrame)
-				else
-					holder:Hide()
+					atLeastOneToken = true
 				end
 			end
 		end
 	end
+
+	if atLeastOneToken == false then holder:Hide() end
 
 	tsort(BUI.TokensDB, sortFunction)
 

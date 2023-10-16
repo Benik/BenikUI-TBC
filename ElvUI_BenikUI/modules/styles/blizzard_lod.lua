@@ -218,9 +218,13 @@ local function style_Collections()
 	end
 
 	_G.CollectionsJournal:BuiStyle("Outside")
-	_G.WardrobeFrame:BuiStyle("Outside")
-	_G.WardrobeOutfitEditFrame.backdrop:BuiStyle("Outside")
-	if E.private.skins.blizzard.tooltip then
+	if _G.WardrobeFrame then
+		_G.WardrobeFrame:BuiStyle("Outside")
+	end
+	if _G.WardrobeOutfitEditFrame then
+		_G.WardrobeOutfitEditFrame:BuiStyle("Outside")
+	end
+	if E.private.skins.blizzard.tooltip and _G.PetJournalPrimaryAbilityTooltip then
 		_G.PetJournalPrimaryAbilityTooltip.backdrop:BuiStyle("Outside")
 	end
 end
@@ -789,13 +793,10 @@ local function style_TalentUI()
 	end
 
 	_G.PlayerTalentFrame.backdrop:BuiStyle("Outside")
-	for i = 1, 2 do
+	for i = 1, 3 do
 		local tab = _G["PlayerSpecTab" .. i]
 		if tab then
-			tab:BuiStyle("Inside")
-			tab.style:SetFrameLevel(5)
-			tab:GetNormalTexture():SetTexCoord(unpack(BUI.TexCoords))
-			tab:GetNormalTexture():SetInside()
+			tab:CreateSoftShadow()
 		end
 	end
 end

@@ -30,6 +30,8 @@ local dungeonTokens = {
 	101, -- Emblem of Heroism
 	301, -- Emblem of Triumph
 	102, -- Emblem of Valor
+	2589, -- Sidereal Essence
+	2711, -- Defiler's Scourgestone
 }
 
 local pvpTokens = {

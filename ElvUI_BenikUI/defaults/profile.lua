@@ -268,6 +268,7 @@ P['benikui'] = {
 			['pa'] = true,
 			['mer'] = true,
 			['elv'] = true,
+			['wa'] = true,
 		},
 
 		['addonSkins'] = {
