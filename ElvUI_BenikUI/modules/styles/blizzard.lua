@@ -202,7 +202,7 @@ function mod:styleWorldMap()
 		return
 	end
 
-	if BUI:IsAddOnEnabled('Leatrix_Maps') then return end
+	if BUI:IsAddOnEnabled('Leatrix_Maps') and _G.LeaMapsDB["UseDefaultMap"] == "Off" then return end
 	local miniMapFrame = _G.WorldMapFrame.MiniBorderFrame.backdrop
 	if miniMapFrame and not miniMapFrame.style then
 		miniMapFrame:BuiStyle("Outside")
