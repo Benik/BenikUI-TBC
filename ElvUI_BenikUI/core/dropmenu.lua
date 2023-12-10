@@ -56,6 +56,7 @@ BUI.MenuList = {
 	{text = TIMEMANAGER_TITLE, func = function() ToggleFrame(TimeManagerFrame) end},
 	{text = SOCIAL_BUTTON, func = function() ToggleFriendsFrame() end},
 	{text = LFG_TITLE, func = function() PVEFrame_ToggleFrame('GroupFinderFrame', _G.LFDParentFrame); end},
+	{text = PLAYER_V_PLAYER, func = function() TogglePVPFrame() end},
 	{text = MAINMENU_BUTTON,
 	func = function()
 		if ( not GameMenuFrame:IsShown() ) then

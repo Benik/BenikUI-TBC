@@ -202,21 +202,14 @@ function mod:styleWorldMap()
 		return
 	end
 
-	if E.Wrath then
-		local miniMapFrame = _G.WorldMapFrame.MiniBorderFrame.backdrop
-		if miniMapFrame and not miniMapFrame.style then
-			miniMapFrame:BuiStyle("Outside")
-		end
-
-		local bigMapFrame = _G.WorldMapFrame.BorderFrame.backdrop
-		if bigMapFrame and not bigMapFrame.style then
-			bigMapFrame:BuiStyle("Outside")
-		end
-	else
-		local mapFrame = _G.WorldMapFrame
-		if not mapFrame.style then
-			mapFrame:BuiStyle("Outside")
-		end
+	if BUI:IsAddOnEnabled('Leatrix_Maps') and _G.LeaMapsDB["UseDefaultMap"] == "Off" then return end
+	local miniMapFrame = _G.WorldMapFrame.MiniBorderFrame.backdrop
+	if miniMapFrame and not miniMapFrame.style then
+		miniMapFrame:BuiStyle("Outside")
 	end
 
+	local bigMapFrame = _G.WorldMapFrame.BorderFrame.backdrop
+	if bigMapFrame and not bigMapFrame.style then
+		bigMapFrame:BuiStyle("Outside")
+	end
 end
