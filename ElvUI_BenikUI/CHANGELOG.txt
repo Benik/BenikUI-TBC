@@ -1,3 +1,10 @@
+2.17 - Dec 10, 2023
+Prevent a Calendar error when TitanPanel is loaded
+missed the toc update
+Disable Map Style when Leatrix Maps is loaded. Cannot style Leatrix map frame, since no frame name is used.
+Let ElvUI handle the Chat Font Size
+Added PvP in the Game Menu
+
 2.16 - Oct 16, 2023
 Follow ElvUI changes for PVP Frames skins (credit: thurin)
 Fix talent frame side tab style (credit: thurin)
