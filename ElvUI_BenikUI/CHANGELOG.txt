@@ -1,3 +1,9 @@
+2.18 - Feb 15, 2024
+Licence update
+Update chat.lua. Credit: E-Tsx
+Fixed a possible error with Castbar Icon
+ABs 13-15 can be styled on Classic too
+
 2.17 - Dec 10, 2023
 Prevent a Calendar error when TitanPanel is loaded
 missed the toc update
