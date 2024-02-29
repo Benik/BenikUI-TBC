@@ -41,11 +41,10 @@ local function LoadSkin()
 		hooksecurefunc('ReputationFrame_Update', repUpdate)
 	end
 
-		local function engUpdate()
+	local function engUpdate()
 		if _G.EngravingFrame then
 			if not _G.EngravingFrame.backdrop.style then
 				_G.EngravingFrame.backdrop:BuiStyle("Outside")
-				print("Test")
 			end
 		end
 	end
@@ -53,7 +52,7 @@ local function LoadSkin()
 	if (db.engraving and E.ClassicSOD) then 
 		_G.CharacterFrame:HookScript('OnShow', engUpdate)
 	end
-	
+
 	if db.dressingroom then
 		_G.DressUpFrame.backdrop:BuiStyle("Outside")
 	end
