@@ -113,7 +113,6 @@ end
 
 -- Arena
 function BU:ArenaInfoPanelColor()
-	if E.Classic then return end
 	local bar = LSM:Fetch("statusbar", E.db.benikui.unitframes.infoPanel.texture)
 	for i = 1, 5 do
 		local unitbutton = _G["ElvUF_Arena"..i]

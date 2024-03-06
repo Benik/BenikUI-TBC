@@ -48,7 +48,7 @@ local function LoadSkin()
 			end
 		end
 	end
-	
+
 	if (db.engraving and E.ClassicSOD) then 
 		_G.CharacterFrame:HookScript('OnShow', engUpdate)
 	end

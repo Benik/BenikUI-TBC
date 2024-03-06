@@ -75,6 +75,9 @@ local function SetupLayout(layout)
 	E.db["benikui"]["Databars"]["reputation"]["buttonStyle"] = "DEFAULT"
 	E.db["benikui"]["Databars"]["reputation"]["notifiers"]["position"] = "LEFT"
 	E.db["benikui"]["Databars"]["experience"]["buiStyle"] = false
+	E.db["benikui"]["Databars"]["petExperience"]["buttonStyle"] = "DEFAULT"
+	E.db["benikui"]["Databars"]["petExperience"]["notifiers"]["position"] = "LEFT"
+
 	E.db["benikui"]["general"]["auras"] = false
 	E.db["benikui"]["datatexts"]["chat"]["enable"] = true
 

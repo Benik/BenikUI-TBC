@@ -26,6 +26,10 @@ local databarsTbl = {
 	{'ElvUI_ThreatBar', 'threat', L["Threat"]}
 }
 
+if E.myclass == 'HUNTER' then
+	tinsert(databarsTbl, 2, {'ElvUI_PetExperienceBar', 'petExperience', L['Pet XP Bar']})
+end
+
 local textFormatValues = {
 	NONE = L["NONE"],
 	PERCENT = L["Percent"],
@@ -120,6 +124,14 @@ local function injectElvUIDatabarOptions()
 		type = "execute",
 		name = BUI.Title..XPBAR_LABEL,
 		func = function() LibStub("AceConfigDialog-3.0-ElvUI"):SelectGroup("ElvUI", "benikui", "benikuiDatabars", "experience") end,
+	}
+
+	-- petxp
+	E.Options.args.databars.args.petExperience.args.gotobenikui = {
+		order = -1,
+		type = "execute",
+		name = BUI.Title..L['Pet XP Bar'],
+		func = function() LibStub("AceConfigDialog-3.0-ElvUI"):SelectGroup("ElvUI", "benikui", "benikuiDatabars", "petExperience") end,
 	}
 
 	-- reputation
