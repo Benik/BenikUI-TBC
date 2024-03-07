@@ -38,6 +38,9 @@ local function SetupLayout(layout)
 	E.db["databars"]["experience"]["height"] = 5
 	E.db["databars"]["experience"]["orientation"] = "HORIZONTAL"
 	E.db["databars"]["experience"]["fontSize"] = 10
+	E.db["databars"]["petExperience"]["height"] = 150
+	E.db["databars"]["petExperience"]["orientation"] = "VERTICAL"
+	E.db["databars"]["petExperience"]["width"] = 8
 	E.db["databars"]["reputation"]["enable"] = true
 	E.db["databars"]["reputation"]["height"] = 150
 	E.db["databars"]["reputation"]["orientation"] = 'VERTICAL'
@@ -76,7 +79,7 @@ local function SetupLayout(layout)
 	E.db["benikui"]["Databars"]["reputation"]["notifiers"]["position"] = "LEFT"
 	E.db["benikui"]["Databars"]["experience"]["buiStyle"] = false
 	E.db["benikui"]["Databars"]["petExperience"]["buttonStyle"] = "DEFAULT"
-	E.db["benikui"]["Databars"]["petExperience"]["notifiers"]["position"] = "LEFT"
+	E.db["benikui"]["Databars"]["petExperience"]["notifiers"]["position"] = "RIGHT"
 
 	E.db["benikui"]["general"]["auras"] = false
 	E.db["benikui"]["datatexts"]["chat"]["enable"] = true
@@ -110,6 +113,7 @@ local function SetupLayout(layout)
 	E.db["movers"]["VehicleSeatMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,155,-81"
 	E.db["movers"]["WatchFrameMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-122,-292"
 	E.db["movers"]["tokenHolderMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,4,-123"
+	E.db["movers"]["PetExperienceBarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,415,22"
 
 	if layout == 'classic' then
 		E.db["general"]["font"] = "Bui Prototype"
