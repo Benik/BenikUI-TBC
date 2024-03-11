@@ -8,6 +8,7 @@ local _G = _G
 
 local function OnClick(self)
 	if self.template == 'NoBackdrop' then return end
+	if InCombatLockdown() then return end
 	ToggleCharacter("ReputationFrame")
 end
 

@@ -125,6 +125,9 @@ function mod:Initialize()
 	self:LoadXP()
 	self:LoadRep()
 	self:LoadThreat()
+	if E.myclass == 'HUNTER' then
+		self:LoadPetXP()
+	end
 end
 
 BUI:RegisterModule(mod:GetName())

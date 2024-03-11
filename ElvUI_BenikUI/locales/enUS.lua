@@ -167,6 +167,7 @@ L['Use DataTexts font'] = true
 L['Notifiers'] = true
 L['Button Backdrop'] = true
 L['Without Backdrop'] = true
+L['Pet XP Bar'] = true
 
 -- Skins Options
 L['AddOnSkins'] = true

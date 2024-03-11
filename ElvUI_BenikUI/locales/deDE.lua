@@ -166,6 +166,7 @@ L['Use DataTexts font'] = "Benutze Infotext Schriftart"
 L['Notifiers'] = "Benachrichtigungen"
 L['Button Backdrop'] = "Tasten Hintergrund"
 L['Without Backdrop'] = "Ohne Hintergrund"
+L['Pet XP Bar'] = true
 
 -- Skins Options
 L['AddOnSkins'] = true --No need to translate

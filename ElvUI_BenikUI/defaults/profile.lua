@@ -308,6 +308,16 @@ P['benikui'] = {
 			},
 		},
 
+		['petExperience'] = {
+			['enable'] = true,
+			['buiStyle'] = true,
+			['buttonStyle'] = "TRANSPARENT",
+			['notifiers'] = {
+				['enable'] = true,
+				['position'] = 'RIGHT',
+			},
+		},
+
 		['reputation'] = {
 			['enable'] = true,
 			['buiStyle'] = true,
