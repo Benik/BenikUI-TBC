@@ -1,6 +1,6 @@
 ## Interface: 11501
 ## Author: Benik
-## Version: 2.18
+## Version: 2.19
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bClassic|r
 ## Notes: an ElvUI Wrath decorative/enhancement edit
 ## RequiredDeps: ElvUI

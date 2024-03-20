@@ -1,3 +1,11 @@
+2.19 - Mar 20, 2024
+added pet xp bar
+added pet XP bar style
+prevent error when clicking rep bar in combat
+add BuiStyle to EngravingFrame in SOD
+prevent error when hiding/unhiding right embed, same as retail
+Prevent an error in Classic
+
 2.18 - Feb 15, 2024
 Licence update
 Update chat.lua. Credit: E-Tsx
