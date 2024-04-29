@@ -45,11 +45,11 @@ local versionString
 --	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 --	versionString = "for WotLK"
 if E.Classic then
-	linkString = 'https://github.com/Benik/BenikUI-Classic/issues'
+	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Classic"
 elseif E.Cata then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
-	versionString = "for Cata"
+	versionString = "for Cataclysm"
 end
 
 local classColor = E:ClassColor(E.myclass, true)

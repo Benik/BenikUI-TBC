@@ -119,6 +119,18 @@ local function style_AzeriteRespecUI()
 end
 S:AddCallbackForAddon("Blizzard_AzeriteRespecUI", "BenikUI_AzeriteRespecUI", style_AzeriteRespecUI)
 
+-- ReforgingFrame
+local function style_ReforgingUI()
+	if E.private.skins.blizzard.reforge ~= true or E.private.skins.blizzard.enable ~= true or
+			E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+
+	_G.ReforgingFrame:BuiStyle("Outside")
+end
+S:AddCallbackForAddon("Blizzard_ReforgingUI", "BenikUI_ReforgingUI", style_ReforgingUI)
+
 -- BarberShop
 local function style_BarberShop()
 	if E.private.skins.blizzard.barber ~= true or E.private.skins.blizzard.enable ~= true or
@@ -244,14 +256,19 @@ local function style_Communities()
 	if frame then
 		frame:BuiStyle("Outside")
 		if E.Cata then
-			frame.NotificationSettingsDialog:BuiStyle("Outside")
-		else
-			frame.NotificationSettingsDialog.backdrop:BuiStyle("Outside")
+			frame.GuildMemberDetailFrame:BuiStyle("Outside")
 		end
+		frame.NotificationSettingsDialog:BuiStyle("Outside")
 	end
-
-	_G.CommunitiesSettingsDialog.backdrop:BuiStyle("Outside")
-	_G.CommunitiesAvatarPickerDialog.backdrop:BuiStyle("Outside")
+	if E.Cata then
+		_G.CommunitiesGuildLogFrame:BuiStyle("Outside")
+	end
+	_G.CommunitiesSettingsDialog:BuiStyle("Outside")
+	_G.CommunitiesAvatarPickerDialog:BuiStyle("Outside")
+	if E.Cata then
+		_G.ClubFinderCommunityAndGuildFinderFrame.RequestToJoinFrame:BuiStyle("Outside")
+		_G.ClubFinderGuildFinderFrame.RequestToJoinFrame:BuiStyle("Outside")
+	end
 end
 S:AddCallbackForAddon("Blizzard_Communities", "BenikUI_Communities", style_Communities)
 
