@@ -200,7 +200,7 @@ end
 
 local function UpdateAllDashboards()
 	if E.db.benikui.dashboards.professions.enableProfessions then BUID:UpdateProfessionSettings(); end
-	if E.Wrath and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
+	if E.Cata and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
 	if E.db.benikui.dashboards.system.enableSystem then BUID:UpdateSystemSettings(); end
 	if E.db.benikui.dashboards.reputations.enableReputations then BUID:UpdateReputationSettings(); end
 end
@@ -775,7 +775,7 @@ tinsert(BUI.Config, UpdateReputationOptions)
 
 tinsert(BUI.Config, dashboardsTable)
 tinsert(BUI.Config, UpdateSystemOptions)
-if E.Wrath then
+if E.Cata then
 	tinsert(BUI.Config, injectTokenSettings)
 	tinsert(BUI.Config, UpdateTokenOptions)
 end

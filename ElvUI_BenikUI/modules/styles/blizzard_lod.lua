@@ -243,7 +243,11 @@ local function style_Communities()
 	local frame = _G.CommunitiesFrame
 	if frame then
 		frame:BuiStyle("Outside")
-		frame.NotificationSettingsDialog.backdrop:BuiStyle("Outside")
+		if E.Cata then
+			frame.NotificationSettingsDialog:BuiStyle("Outside")
+		else
+			frame.NotificationSettingsDialog.backdrop:BuiStyle("Outside")
+		end
 	end
 
 	_G.CommunitiesSettingsDialog.backdrop:BuiStyle("Outside")
@@ -547,8 +551,11 @@ local function style_GuildControlUI()
 	then
 		return
 	end
-
-	_G.GuildControlUI.backdrop:BuiStyle("Outside")
+	if E.Cata then
+		_G.GuildControlUI:BuiStyle("Outside")
+	else
+		_G.GuildControlUI.backdrop:BuiStyle("Outside")
+	end
 end
 S:AddCallbackForAddon("Blizzard_GuildControlUI", "BenikUI_GuildControlUI", style_GuildControlUI)
 

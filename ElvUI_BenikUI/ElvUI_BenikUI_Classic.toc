@@ -2,7 +2,7 @@
 ## Author: Benik
 ## Version: 2.19
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bClassic|r
-## Notes: an ElvUI Wrath decorative/enhancement edit
+## Notes: an ElvUI Classic decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka

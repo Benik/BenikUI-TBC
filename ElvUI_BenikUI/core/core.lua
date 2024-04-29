@@ -41,12 +41,15 @@ BUI.ZG = BUI:IsAddOnEnabled('ZygorGuidesViewer')
 
 local linkString
 local versionString
-if E.Wrath then
-	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
-	versionString = "for WotLK"
-elseif E.Classic then
+--if E.Wrath then
+--	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
+--	versionString = "for WotLK"
+if E.Classic then
 	linkString = 'https://github.com/Benik/BenikUI-Classic/issues'
 	versionString = "for Classic"
+elseif E.Cata then
+	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
+	versionString = "for Cata"
 end
 
 local classColor = E:ClassColor(E.myclass, true)
