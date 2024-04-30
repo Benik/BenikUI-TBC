@@ -224,7 +224,7 @@ function mod:Initialize()
 	mod:LoadSystem()
 	mod:LoadProfessions()
 	mod:LoadReputations()
-	if E.Wrath then mod:LoadTokens() end
+	if E.Cata then mod:LoadTokens() end
 end
 
 BUI:RegisterModule(mod:GetName())
