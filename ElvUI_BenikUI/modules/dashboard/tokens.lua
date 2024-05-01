@@ -47,6 +47,8 @@ local Currency = {
 	102, -- Emblem of Valor
 	2589, -- Sidereal Essence
 	2711, -- Defiler's Scourgestone
+	395, -- Justice Points
+	396, -- Valor Points
 }
 
 local function Icon_OnEnter(self)
