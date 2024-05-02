@@ -41,9 +41,6 @@ BUI.ZG = BUI:IsAddOnEnabled('ZygorGuidesViewer')
 
 local linkString
 local versionString
---if E.Wrath then
---	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
---	versionString = "for WotLK"
 if E.Classic then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Classic"
