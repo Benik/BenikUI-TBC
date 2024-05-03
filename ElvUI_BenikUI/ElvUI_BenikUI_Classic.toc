@@ -1,12 +1,12 @@
-## Interface: 11501
+## Interface: 11502
 ## Author: Benik
-## Version: 2.19
+## Version: 2.20
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bClassic|r
 ## Notes: an ElvUI Classic decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
-## X-ElvuiVersion: 13.56
+## X-ElvuiVersion: 13.63
 
 locales\load_locales.xml
 media\load_media.xml

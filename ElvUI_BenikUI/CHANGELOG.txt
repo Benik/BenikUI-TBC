@@ -1,3 +1,6 @@
+2.20 - May 3, 2024
+Compatible for Cataclysm Classic. Credits: thurin, Tsxy
+
 2.19 - Mar 20, 2024
 added pet xp bar
 added pet XP bar style
