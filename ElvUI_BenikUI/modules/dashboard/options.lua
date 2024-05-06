@@ -13,11 +13,6 @@ local CALENDAR_TYPE_DUNGEON, CALENDAR_TYPE_RAID, PLAYER_V_PLAYER, SECONDARY_SKIL
 
 local boards = {L["FPS"], L["MS"], L["Durability"], L["Bags"], L["Volume"]}
 
-local iconOrientationValues = {
-	['LEFT'] = L['Left'],
-	['RIGHT'] = L['Right'],
-}
-
 local textAlignValues = {
 	['CENTER'] = L['Center'],
 	['LEFT'] = L['Left'],
@@ -137,35 +132,54 @@ local function UpdateProfessionOptions()
 		args = {
 		},
 	}
-
-	local hasSecondary = false
-	for skillIndex = 1, GetNumSkillLines() do
-		local skillName, isHeader, _, skillRank, _, skillModifier, skillMaxRank, isAbandonable = GetSkillLineInfo(skillIndex)
-
-		if hasSecondary and isHeader then
-			hasSecondary = false
+	if E.Cata then
+		local proftable = { GetProfessions() }
+		for _, id in pairs(proftable) do
+			local pname, icon = GetProfessionInfo(id)
+			if pname then
+				E.Options.args.benikui.args.dashboards.args.professions.args.chooseProfessions.args[pname] = {
+					order = optionOrder + 1,
+					type = 'toggle',
+					name = '|T'..icon..':18|t '..pname,
+					desc = format('%s %s', L['Enable/Disable'], pname),
+					get = function(info) return E.private.dashboards.professions.chooseProfessions[id] end,
+					set = function(info, value) E.private.dashboards.professions.chooseProfessions[id] = value
+						BUID:UpdateCataProfessions()
+						BUID:UpdateCataProfessionSettings()
+					end,
+				}
+			end
 		end
+	else
+		local hasSecondary = false
+		for skillIndex = 1, GetNumSkillLines() do
+			local skillName, isHeader, _, skillRank, _, skillModifier, skillMaxRank, isAbandonable = GetSkillLineInfo(skillIndex)
 
-		if (skillName and isAbandonable) or hasSecondary then
-			E.Options.args.benikui.args.dashboards.args.professions.args.chooseProfessions.args[skillName] = {
-				order = optionOrder + 1,
-				type = 'toggle',
-				name = skillName,
-				desc = L['Enable/Disable '] .. skillName,
-				get = function(info)
-					return E.private.dashboards.professions.chooseProfessions[skillIndex]
-				end,
-				set = function(info, value)
-					E.private.dashboards.professions.chooseProfessions[skillIndex] = value;
-					BUID:UpdateProfessions();
-					BUID:UpdateProfessionSettings();
-				end,
-			}
-		end
+			if hasSecondary and isHeader then
+				hasSecondary = false
+			end
 
-		if isHeader then
-			if skillName == BUI.SecondarySkill then
-				hasSecondary = true
+			if (skillName and isAbandonable) or hasSecondary then
+				E.Options.args.benikui.args.dashboards.args.professions.args.chooseProfessions.args[skillName] = {
+					order = optionOrder + 1,
+					type = 'toggle',
+					name = skillName,
+					desc = L['Enable/Disable '] .. skillName,
+					get = function(info)
+						return E.private.dashboards.professions.chooseProfessions[skillIndex]
+					end,
+					set = function(info, value)
+						E.private.dashboards.professions.chooseProfessions[skillIndex] = value;
+						BUID:UpdateProfessions();
+						BUID:UpdateProfessionSettings();
+					end,
+				}
+			end
+
+			if isHeader then
+				if skillName == BUI.SecondarySkill then
+					hasSecondary = true
+				end
 			end
 		end
 	end
@@ -462,14 +476,6 @@ local function dashboardsTable()
 								get = function(info) return E.db.benikui.dashboards.tokens[ info[#info] ] end,
 								set = function(info, value) E.db.benikui.dashboards.tokens[ info[#info] ] = value; BUID:UpdateHolderDimensions(BUI_TokensDashboard, 'tokens', BUI.TokensDB); BUID:UpdateTokenSettings(); end,
 							},
-							iconPosition = {
-								order = 2,
-								type = 'select',
-								name = L['Icon Position'],
-								get = function(info) return E.db.benikui.dashboards.tokens[ info[#info] ] end,
-								set = function(info, value) E.db.benikui.dashboards.tokens[ info[#info] ] = value; BUID:UpdateTokens(); BUID:UpdateTokenSettings(); end,
-								values = iconOrientationValues,
-							},
 							barHeight = {
 								order = 3,
 								type = 'range',
@@ -579,15 +585,7 @@ local function dashboardsTable()
 								min = 120, max = 520, step = 1,
 								get = function(info) return E.db.benikui.dashboards.professions[ info[#info] ] end,
 								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateHolderDimensions(BUI_ProfessionsDashboard, 'professions', BUI.ProfessionsDB); BUID:UpdateProfessionSettings(); end,
-							},
-							iconPosition = {
-								order = 2,
-								type = 'select',
-								name = L['Icon Position'],
-								get = function(info) return E.db.benikui.dashboards.professions[ info[#info] ] end,
-								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateProfessions(); BUID:UpdateProfessionSettings(); end,
-								values = iconOrientationValues,
-							},
+							},					
 							barHeight = {
 								order = 3,
 								type = 'range',
