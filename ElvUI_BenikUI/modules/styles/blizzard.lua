@@ -185,7 +185,11 @@ local function LoadSkin()
 	end
 
 	if db.stable then
-		_G.PetStableFrame.backdrop:BuiStyle("Outside")
+		if E.Cata then
+			_G.PetStableFrame:BuiStyle("Outside")
+		else	
+			_G.PetStableFrame.backdrop:BuiStyle("Outside")
+		end
 	end
 
 	if db.spellbook then
