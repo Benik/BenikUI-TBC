@@ -123,8 +123,8 @@ function mod:UpdateCataProfessionSettings()
 end
 
 function mod:CataProfessionsEvents()
-	self:RegisterEvent('SKILL_LINES_CHANGED', 'UpdateProfessions')
-	self:RegisterEvent('CHAT_MSG_SKILL', 'UpdateProfessions')
+	self:RegisterEvent('SKILL_LINES_CHANGED', 'UpdateCataProfessions')
+	self:RegisterEvent('CHAT_MSG_SKILL', 'UpdateCataProfessions')
 end
 
 function mod:CreateCataProfessionsDashboard()
