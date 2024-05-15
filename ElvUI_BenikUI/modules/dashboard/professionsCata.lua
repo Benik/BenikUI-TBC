@@ -51,6 +51,18 @@ function mod:UpdateCataProfessions()
 
 	if db.professions.mouseover then holder:SetAlpha(0) else holder:SetAlpha(1) end
 
+	holder:SetScript('OnEnter', function(self)
+		if db.professions.mouseover then
+			E:UIFrameFadeIn(self, 0.2, self:GetAlpha(), 1)
+		end
+	end)
+
+	holder:SetScript('OnLeave', function(self)
+		if db.professions.mouseover then
+			E:UIFrameFadeOut(self, 0.2, self:GetAlpha(), 0)
+		end
+	end)
+
 	local prof1, prof2, archy, fishing, cooking, firstAid = GetProfessions()
 	if (prof1 or prof2 or archy or fishing or cooking or firstAid) then
 		local proftable = { GetProfessions() }
@@ -96,6 +108,18 @@ function mod:UpdateCataProfessions()
 					bar.rank = rank
 					bar.maxRank = maxRank
 					bar.rankModifier = rankModifier
+
+					bar:SetScript('OnEnter', function(self)
+						if db.professions.mouseover then
+							E:UIFrameFadeIn(holder, 0.2, holder:GetAlpha(), 1)
+						end
+					end)
+
+					bar:SetScript('OnLeave', function(self)
+						if db.professions.mouseover then
+							E:UIFrameFadeOut(holder, 0.2, holder:GetAlpha(), 0)
+						end
+					end)
 
 					tinsert(BUI.ProfessionsDB, bar)
 				end
