@@ -32,12 +32,14 @@ local Currency = {
 	201, -- Venture Coin
 	125, -- Warsong Gulch Mark of Honor
 	126, -- Wintergrasp Mark of Honor
+	391, -- Tol Barad Commendation
 
 	-- Miscellaneous
 	42, -- Badge of Justice
 	241, -- Champion's Seal
 	81, -- Dalaran Cooking Award
 	61, -- Dalaran Jewelcrafter's Token
+	361, -- Illustrious Jewelcrafter's Token
 
 	-- Dungeon and Raid
 	221, -- Emblem of Conquest
