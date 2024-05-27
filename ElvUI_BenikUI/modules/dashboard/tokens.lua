@@ -32,12 +32,14 @@ local Currency = {
 	201, -- Venture Coin
 	125, -- Warsong Gulch Mark of Honor
 	126, -- Wintergrasp Mark of Honor
+	391, -- Tol Barad Commendation
 
 	-- Miscellaneous
 	42, -- Badge of Justice
 	241, -- Champion's Seal
 	81, -- Dalaran Cooking Award
 	61, -- Dalaran Jewelcrafter's Token
+	361, -- Illustrious Jewelcrafter's Token
 
 	-- Dungeon and Raid
 	221, -- Emblem of Conquest
@@ -139,13 +141,13 @@ function mod:UpdateTokens()
 
 					self.tokenFrame = self:CreateDashboard(holder, 'tokens', true)
 
-					if totalMax == 0 then
-						self.tokenFrame.Status:SetMinMaxValues(0, amount)
+					if db.weekly and weeklyMax > 0 then
+						self.tokenFrame.Status:SetMinMaxValues(0, weeklyMax)
 					else
-						if db.weekly and weeklyMax > 0 then
-							self.tokenFrame.Status:SetMinMaxValues(0, weeklyMax)
-						else
+						if totalMax > 0 then
 							self.tokenFrame.Status:SetMinMaxValues(0, totalMax)
+						else
+							self.tokenFrame.Status:SetMinMaxValues(0, amount)
 						end
 					end
 					self.tokenFrame.Status:SetValue(amount)
@@ -156,13 +158,13 @@ function mod:UpdateTokens()
 						self.tokenFrame.Status:SetStatusBarColor(E.db.benikui.dashboards.customBarColor.r, E.db.benikui.dashboards.customBarColor.g, E.db.benikui.dashboards.customBarColor.b)
 					end
 
-					if totalMax == 0 then
-						self.tokenFrame.Text:SetFormattedText('%s', BreakUpLargeNumbers(amount))
+					if db.weekly and weeklyMax > 0 then
+						self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax)
 					else
-						if db.weekly and weeklyMax > 0 then
-							self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax)
-						else
+						if totalMax > 0 then
 							self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), totalMax)
+						else
+							self.tokenFrame.Text:SetFormattedText('%s', BreakUpLargeNumbers(amount))
 						end
 					end
 
@@ -186,13 +188,13 @@ function mod:UpdateTokens()
 					end)
 
 					self.tokenFrame:SetScript('OnLeave', function(self)
-						if totalMax == 0 then
-							self.Text:SetFormattedText('%s', BreakUpLargeNumbers(amount))
+						if db.weekly and weeklyMax > 0 then
+							self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax)
 						else
-							if db.weekly and weeklyMax > 0 then
-								self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax)
-							else
+							if totalMax > 0 then
 								self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), totalMax)
+							else
+								self.Text:SetFormattedText('%s', BreakUpLargeNumbers(amount))
 							end
 						end
 						GameTooltip:Hide()
