@@ -1,9 +1,9 @@
 ﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<script file="dashboards.lua"/>
 	<script file="system.lua"/>
-	<Script file="professions.lua"/>
+	<Script file="professionsCata.lua"/>
 	<Script file="reputations.lua"/>
 	<Script file="tokens.lua"/>
-	<Script file="options.lua"/>
+	<Script file="optionsCata.lua"/>
 	<Include file="panels\load_panels.xml"/>
 </Ui>
