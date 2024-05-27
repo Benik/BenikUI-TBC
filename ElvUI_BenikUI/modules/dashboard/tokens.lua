@@ -24,20 +24,25 @@ local Currency = {
 	121, -- Alterac Valley Mark of Honor
 	122, -- Arathi Basin Mark of Honor
 	103, -- Arena Points
+	390, -- Conquest Points
 	123, -- Eye of the Storm Mark of Honor
 	104, -- Honor Points
+	1901, -- Honor Points
 	321, -- Isle of Conquest Mark of Honor
 	161, -- Stone Keeper's Shard
 	124, -- Strand of the Ancients Mark of Honor
 	201, -- Venture Coin
 	125, -- Warsong Gulch Mark of Honor
 	126, -- Wintergrasp Mark of Honor
+	391, -- Tol Barad Commendation
 
 	-- Miscellaneous
 	42, -- Badge of Justice
 	241, -- Champion's Seal
 	81, -- Dalaran Cooking Award
 	61, -- Dalaran Jewelcrafter's Token
+	361, -- Illustrious Jewelcrafter's Token
+	402, -- Chef's Award
 
 	-- Dungeon and Raid
 	221, -- Emblem of Conquest
@@ -47,6 +52,8 @@ local Currency = {
 	102, -- Emblem of Valor
 	2589, -- Sidereal Essence
 	2711, -- Defiler's Scourgestone
+	614, -- Mote of Darkness
+	615, -- Essence of Corrupted Deathwing
 	395, -- Justice Points
 	396, -- Valor Points
 }
