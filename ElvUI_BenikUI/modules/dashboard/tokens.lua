@@ -97,7 +97,7 @@ end
 function mod:GetTokenInfo(id)
 	local info = C_CurrencyInfo_GetCurrencyInfo(id)
 	if info then
-		return info.name, info.quantity, info.iconFileID, info.maxWeeklyQuantity, info.maxQuantity, info.discovered
+		return info.name, info.quantity, info.iconFileID, info.maxWeeklyQuantity, info.maxQuantity, info.discovered, info.quantityEarnedThisWeek
 	else
 		return
 	end
@@ -131,7 +131,7 @@ function mod:UpdateTokens()
 
 	local atLeastOneToken = false
 	for _, id in pairs(Currency) do
-		local name, amount, icon, weeklyMax, totalMax, isDiscovered = mod:GetTokenInfo(id)
+		local name, amount, icon, weeklyMax, totalMax, isDiscovered, earnedWeekly = mod:GetTokenInfo(id)
 		if name then
 			if isDiscovered == false then E.private.dashboards.tokens.chooseTokens[id] = nil end
 
@@ -163,8 +163,12 @@ function mod:UpdateTokens()
 						self.tokenFrame.Status:SetStatusBarColor(E.db.benikui.dashboards.customBarColor.r, E.db.benikui.dashboards.customBarColor.g, E.db.benikui.dashboards.customBarColor.b)
 					end
 
+					if earnedWeekly then
+						earnedWeekly = earnedWeekly / 100
+					end
+
 					if db.weekly and weeklyMax > 0 then
-						self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax)
+						self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax - earnedWeekly)
 					else
 						if totalMax > 0 then
 							self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), totalMax)
@@ -194,7 +198,7 @@ function mod:UpdateTokens()
 
 					self.tokenFrame:SetScript('OnLeave', function(self)
 						if db.weekly and weeklyMax > 0 then
-							self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax)
+							self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax - earnedWeekly)
 						else
 							if totalMax > 0 then
 								self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), totalMax)
