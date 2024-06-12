@@ -97,7 +97,7 @@ end
 function mod:GetTokenInfo(id)
 	local info = C_CurrencyInfo_GetCurrencyInfo(id)
 	if info then
-		return info.name, info.quantity, info.iconFileID, info.maxWeeklyQuantity, info.maxQuantity, info.discovered, info.quantityEarnedThisWeek
+		return info.name, info.quantity, info.iconFileID, info.maxWeeklyQuantity, info.maxQuantity, info.discovered, info.quantityEarnedThisWeek, info.totalEarned, info.useTotalEarnedForMaxQty
 	else
 		return
 	end
@@ -131,7 +131,7 @@ function mod:UpdateTokens()
 
 	local atLeastOneToken = false
 	for _, id in pairs(Currency) do
-		local name, amount, icon, weeklyMax, totalMax, isDiscovered, earnedWeekly = mod:GetTokenInfo(id)
+		local name, amount, icon, weeklyMax, totalMax, isDiscovered, earnedWeekly, totalEarned, useTotalEarnedForMaxQty = mod:GetTokenInfo(id)
 		if name then
 			if isDiscovered == false then E.private.dashboards.tokens.chooseTokens[id] = nil end
 
@@ -146,6 +146,12 @@ function mod:UpdateTokens()
 
 					self.tokenFrame = self:CreateDashboard(holder, 'tokens', true)
 
+					-- To display progress toward total cap for currencies with a growing weekly cap
+					local displayAmount = amount
+					if totalEarned > 0 then
+						displayAmount = totalEarned
+					end
+
 					if db.weekly and weeklyMax > 0 then
 						self.tokenFrame.Status:SetMinMaxValues(0, weeklyMax)
 					else
@@ -155,7 +161,7 @@ function mod:UpdateTokens()
 							self.tokenFrame.Status:SetMinMaxValues(0, amount)
 						end
 					end
-					self.tokenFrame.Status:SetValue(amount)
+					self.tokenFrame.Status:SetValue(displayAmount)
 
 					if E.db.benikui.dashboards.barColor == 1 then
 						self.tokenFrame.Status:SetStatusBarColor(classColor.r, classColor.g, classColor.b)
@@ -167,11 +173,18 @@ function mod:UpdateTokens()
 						earnedWeekly = earnedWeekly / 100
 					end
 
+					-- Display remaining earnable tokens instead of the total max
+					-- Accounts for currencies with a growing weekly cap
+					local displayMax = totalMax
+					if useTotalEarnedForMaxQty then
+						displayMax = totalMax - totalEarned
+					end
+
 					if db.weekly and weeklyMax > 0 then
 						self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax - earnedWeekly)
 					else
 						if totalMax > 0 then
-							self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), totalMax)
+							self.tokenFrame.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), displayMax)
 						else
 							self.tokenFrame.Text:SetFormattedText('%s', BreakUpLargeNumbers(amount))
 						end
@@ -201,7 +214,7 @@ function mod:UpdateTokens()
 							self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), weeklyMax - earnedWeekly)
 						else
 							if totalMax > 0 then
-								self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), totalMax)
+								self.Text:SetFormattedText('%s / %s', BreakUpLargeNumbers(amount), displayMax)
 							else
 								self.Text:SetFormattedText('%s', BreakUpLargeNumbers(amount))
 							end
