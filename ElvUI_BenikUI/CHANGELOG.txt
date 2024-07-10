@@ -1,3 +1,20 @@
+2.22 - Jul 10, 2024
+fix guild skin on era/sync elvui changes
+Merge pull request #31 from E-Tsx/development
+update for changes in dev to elvui uf changes(needs 13.68)
+Fixed token display for growing weekly cap currencies
+Display remaining earnable weekly tokens instead of max weekly quantity in token dashboard
+Merge pull request #27 from E-Tsx/development
+Added Cata JC token and Tol Barad Commendation to dashboard
+Fixed display logic of tokens with weekly maximums
+Add JC token and Tol Barad Commendation to token dashboard
+Disabled Details profile
+update status report to match ElvUI for Other Addons Enabled
+add cooking, honor, conquest, ds raid tokens
+proposed profession fix cata
+fix professions cata
+tie event to the right function for cata :p
+
 2.21 - May 9, 2024
 Adjust to new pet frame skin in elvui. Credit: Tsxy
 Professions Dashboard for Cata
