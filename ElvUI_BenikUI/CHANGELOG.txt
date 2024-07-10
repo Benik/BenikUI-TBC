@@ -1,3 +1,41 @@
+2.22 - Jul 10, 2024
+fix guild skin on era/sync elvui changes
+Merge pull request #31 from E-Tsx/development
+update for changes in dev to elvui uf changes(needs 13.68)
+Fixed token display for growing weekly cap currencies
+Display remaining earnable weekly tokens instead of max weekly quantity in token dashboard
+Merge pull request #27 from E-Tsx/development
+Added Cata JC token and Tol Barad Commendation to dashboard
+Fixed display logic of tokens with weekly maximums
+Add JC token and Tol Barad Commendation to token dashboard
+Disabled Details profile
+update status report to match ElvUI for Other Addons Enabled
+add cooking, honor, conquest, ds raid tokens
+proposed profession fix cata
+fix professions cata
+tie event to the right function for cata :p
+
+2.21 - May 9, 2024
+Adjust to new pet frame skin in elvui. Credit: Tsxy
+Professions Dashboard for Cata
+
+2.20 - May 3, 2024
+Compatible for Cataclysm Classic. Credits: thurin, Tsxy
+
+2.19 - Mar 20, 2024
+added pet xp bar
+added pet XP bar style
+prevent error when clicking rep bar in combat
+add BuiStyle to EngravingFrame in SOD
+prevent error when hiding/unhiding right embed, same as retail
+Prevent an error in Classic
+
+2.18 - Feb 15, 2024
+Licence update
+Update chat.lua. Credit: E-Tsx
+Fixed a possible error with Castbar Icon
+ABs 13-15 can be styled on Classic too
+
 2.17 - Dec 10, 2023
 Prevent a Calendar error when TitanPanel is loaded
 missed the toc update

@@ -1,6 +1,7 @@
 ﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">	
 	<script file="databars.lua"/>
 	<script file="experience.lua"/>
+	<script file="pet.lua"/>
 	<script file="reputation.lua"/>
 	<script file="threat.lua"/>
 	<script file="options.lua"/>

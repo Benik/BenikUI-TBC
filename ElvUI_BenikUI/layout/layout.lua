@@ -36,7 +36,7 @@ local Bui_dchat = CreateFrame('Frame', 'BuiDummyChat', E.UIParent, 'BackdropTemp
 local Bui_deb = CreateFrame('Frame', 'BuiDummyEditBoxHolder', E.UIParent, 'BackdropTemplate')
 
 local menuList
-if E.Wrath then
+if E.Cata then
 	menuList = BUI.MenuList
 elseif E.Classic then
 	menuList = BUI.MenuListClassic
@@ -76,10 +76,6 @@ local function ChatButton_OnClick(self)
 	if E.db[self.parent:GetName()..'Faded'] then
 		E.db[self.parent:GetName()..'Faded'] = nil
 		E:UIFrameFadeIn(self.parent, 0.2, self.parent:GetAlpha(), 1)
-		if BUI.AS then
-			local AS = unpack(AddOnSkins) or nil
-			if AS.db.EmbedSystem or AS.db.EmbedSystemDual then AS:Embed_Show() end
-		end
 	else
 		E.db[self.parent:GetName()..'Faded'] = true
 		E:UIFrameFadeOut(self.parent, 0.2, self.parent:GetAlpha(), 0)

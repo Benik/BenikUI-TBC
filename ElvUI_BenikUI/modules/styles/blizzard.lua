@@ -37,8 +37,25 @@ local function LoadSkin()
 	end
 
 	if db.character then
-		_G.CharacterFrame.backdrop:BuiStyle("Outside")
+		if E.Cata then
+			_G.CharacterFrame:BuiStyle("Outside")
+		end
+		if not E.Cata then
+			_G.CharacterFrame.backdrop:BuiStyle("Outside")
+		end
 		hooksecurefunc('ReputationFrame_Update', repUpdate)
+	end
+
+	local function engUpdate()
+		if _G.EngravingFrame then
+			if not _G.EngravingFrame.backdrop.style then
+				_G.EngravingFrame.backdrop:BuiStyle("Outside")
+			end
+		end
+	end
+
+	if (db.engraving and E.ClassicSOD) then 
+		_G.CharacterFrame:HookScript('OnShow', engUpdate)
 	end
 
 	if db.dressingroom then
@@ -53,7 +70,7 @@ local function LoadSkin()
 
 	if db.gossip then
 		_G.GossipFrame.backdrop:BuiStyle("Outside")
-		_G.ItemTextFrame:BuiStyle("Outside")
+		_G.ItemTextFrame.backdrop:BuiStyle("Outside")
 	end
 
 	if db.guildregistrar then
@@ -65,7 +82,7 @@ local function LoadSkin()
 	end
 
 	if db.lfg then
-		if E.Wrath then
+		if E.Cata then
 			_G.PVEFrame:BuiStyle("Outside")
 		end
 	end
@@ -146,9 +163,9 @@ local function LoadSkin()
 
 	if db.pvp then
 		_G.PVPReadyDialog:BuiStyle("Outside")
-		if E.Wrath then
-			_G.PVPFrame.backdrop:BuiStyle("Outside")
-			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
+		if E.Cata then
+			_G.PVPFrame:BuiStyle("Outside")
+--			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
 			for i = 1, 2 do
 				local tab = _G["PVPParentFrameTab" .. i]
 				if tab and tab.backdrop then
@@ -162,17 +179,25 @@ local function LoadSkin()
 	if db.quest then
 		_G.QuestFrame.backdrop:BuiStyle("Outside")
 		_G.QuestLogFrame.backdrop:BuiStyle("Outside")
-		if E.Wrath then
+		if E.Cata then
 			_G.QuestLogDetailFrame.backdrop:BuiStyle("Outside")
 		end
 	end
 
 	if db.stable then
-		_G.PetStableFrame.backdrop:BuiStyle("Outside")
+		if E.Cata then
+			_G.PetStableFrame:BuiStyle("Outside")
+		else	
+			_G.PetStableFrame.backdrop:BuiStyle("Outside")
+		end
 	end
 
 	if db.spellbook then
-		_G.SpellBookFrame.backdrop:BuiStyle("Outside")
+		if E.Cata then
+			_G.SpellBookFrame:BuiStyle("Outside")
+		else
+			_G.SpellBookFrame.backdrop:BuiStyle("Outside")
+		end
 	end
 
 	if db.tabard then

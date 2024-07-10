@@ -50,6 +50,8 @@ BUI.MenuList = {
 	{text = PET_JOURNAL, func = function() ToggleCollectionsJournal(2) end},
 	{text = TOY_BOX, func = function() ToggleCollectionsJournal(3) end},
 	{text = HEIRLOOMS, func = function() ToggleCollectionsJournal(4) end},
+	{text = WARDROBE, func = function() ToggleCollectionsJournal(5) end},
+	{text = ENCOUNTER_JOURNAL, func = function() if not IsAddOnLoaded('Blizzard_EncounterJournal') then UIParentLoadAddOn('Blizzard_EncounterJournal') end ToggleFrame(_G.EncounterJournal) end},
 	{text = REPUTATION, func = function() ToggleCharacter('ReputationFrame') end},
 	{text = COMMUNITIES_FRAME_TITLE, func = function() ToggleGuildFrame() end},
 	{text = MACROS, func = function() GameMenuButtonMacros:Click() end},
@@ -123,7 +125,7 @@ local function sortFunction(a, b)
 	return a.text < b.text
 end
 
-if E.Wrath then
+if E.Cata then
 	table.sort(BUI.MenuList, sortFunction)
 elseif E.Classic then
 	table.sort(BUI.MenuListClassic, sortFunction)

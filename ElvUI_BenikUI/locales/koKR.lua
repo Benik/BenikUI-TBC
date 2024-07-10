@@ -215,6 +215,7 @@ L["Threat"] = "위협"
 L['Use DataTexts font'] = 'DataTexts 글꼴 사용'
 L['Notifiers'] = '알리미'
 L['Without Backdrop'] = '배경 없음'
+L['Pet XP Bar'] = true
 L['Filter Capped'] = '완성된 기술 숨기기'
 L['Show/Hide Professions that are skill capped'] = '전문기술을 모두 올렸을 때 표시/숨기기'
 L['Change the Professions Dashboard width.'] = '직업 대시 보드 너비를 변경.' -- 새로운

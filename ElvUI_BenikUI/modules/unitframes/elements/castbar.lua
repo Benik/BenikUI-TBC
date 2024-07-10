@@ -73,14 +73,14 @@ local function ConfigureCastbarShadow(unit, unitframe)
 	if not db.iconAttached and db.icon then
 		local attachPoint = db.iconAttachedTo == "Frame" and unitframe or unitframe.Castbar
 		local anchorPoint = db.iconPosition
-		castbar.Icon.bg:ClearAllPoints()
-		castbar.Icon.bg:Point(INVERT_ANCHORPOINT[anchorPoint], attachPoint, anchorPoint, db.iconXOffset, db.iconYOffset)
+		castbar.ButtonIcon.bg:ClearAllPoints()
+		castbar.ButtonIcon.bg:Point(INVERT_ANCHORPOINT[anchorPoint], attachPoint, anchorPoint, db.iconXOffset, db.iconYOffset)
 	elseif(db.icon) then
-		castbar.Icon.bg:ClearAllPoints()
+		castbar.ButtonIcon.bg:ClearAllPoints()
 		if unitframe.ORIENTATION == "RIGHT" then
-			castbar.Icon.bg:Point("LEFT", castbar, "RIGHT", (UF.SPACING*3), 0)
+			castbar.ButtonIcon.bg:Point("LEFT", castbar, "RIGHT", (UF.SPACING*3), 0)
 		else
-			castbar.Icon.bg:Point("RIGHT", castbar, "LEFT", -(UF.SPACING*3), 0)
+			castbar.ButtonIcon.bg:Point("RIGHT", castbar, "LEFT", -(UF.SPACING*3), 0)
 		end
 	end
 end

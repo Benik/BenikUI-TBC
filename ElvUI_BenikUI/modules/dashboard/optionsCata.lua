@@ -27,6 +27,8 @@ local dungeonTokens = {
 	102, -- Emblem of Valor
 	2589, -- Sidereal Essence
 	2711, -- Defiler's Scourgestone
+	614, -- Mote of Darkness
+	615, -- Essence of Corrupted Deathwing
 	395, -- Justice Points
 	396, -- Valor Points
 }
@@ -35,8 +37,10 @@ local pvpTokens = {
 	121, -- Alterac Valley Mark of Honor
 	122, -- Arathi Basin Mark of Honor
 	--103, -- Arena Points
+	390, -- Conquest Points
 	123, -- Eye of the Storm Mark of Honor
 	--104, -- Honor Points
+	1901, -- Honor Points (Cata)
 	321, -- Isle of Conquest Mark of Honor
 	161, -- Stone Keeper's Shard
 	124, -- Strand of the Ancients Mark of Honor
@@ -52,6 +56,7 @@ local miscTokens = {
 	81, -- Dalaran Cooking Award
 	61, -- Dalaran Jewelcrafter's Token
 	361, -- Illustrious Jewelcrafter's Token
+	402, -- Chef's Award
 }
 
 local currencyTables = {
@@ -172,8 +177,8 @@ local function UpdateProfessionOptions()
 					end,
 					set = function(info, value)
 						E.private.dashboards.professions.chooseProfessions[skillIndex] = value;
-						BUID:UpdateProfessions();
-						BUID:UpdateProfessionSettings();
+						BUID:UpdateCataProfessions();
+						BUID:UpdateCataProfessionSettings();
 					end,
 				}
 			end
@@ -217,7 +222,7 @@ local function UpdateReputationOptions()
 end
 
 local function UpdateAllDashboards()
-	if E.db.benikui.dashboards.professions.enableProfessions then BUID:UpdateProfessionSettings(); end
+	if E.db.benikui.dashboards.professions.enableProfessions then BUID:UpdateCataProfessionSettings(); end
 	if E.Cata and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
 	if E.db.benikui.dashboards.system.enableSystem then BUID:UpdateSystemSettings(); end
 	if E.db.benikui.dashboards.reputations.enableReputations then BUID:UpdateReputationSettings(); end
@@ -586,7 +591,7 @@ local function dashboardsTable()
 								desc = L['Change the Professions Dashboard width.'],
 								min = 120, max = 520, step = 1,
 								get = function(info) return E.db.benikui.dashboards.professions[ info[#info] ] end,
-								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateHolderDimensions(BUI_ProfessionsDashboard, 'professions', BUI.ProfessionsDB); BUID:UpdateProfessionSettings(); end,
+								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateHolderDimensions(BUI_ProfessionsDashboard, 'professions', BUI.ProfessionsDB); BUID:UpdateCataProfessionSettings(); end,
 							},					
 							barHeight = {
 								order = 3,
@@ -625,7 +630,7 @@ local function dashboardsTable()
 								desc = L['Show/Hide Professions that are skill capped'],
 								type = 'toggle',
 								get = function(info) return E.db.benikui.dashboards.professions[ info[#info] ] end,
-								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateProfessions(); BUID:UpdateProfessionSettings(); end,
+								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateCataProfessions(); BUID:UpdateCataProfessionSettings(); end,
 							},
 							combat = {
 								order = 2,
@@ -641,7 +646,7 @@ local function dashboardsTable()
 								desc = L['The frame is not shown unless you mouse over the frame.'],
 								type = 'toggle',
 								get = function(info) return E.db.benikui.dashboards.professions[ info[#info] ] end,
-								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateProfessions(); BUID:UpdateProfessionSettings(); end,
+								set = function(info, value) E.db.benikui.dashboards.professions[ info[#info] ] = value; BUID:UpdateCataProfessions(); BUID:UpdateCataProfessionSettings(); end,
 							},
 						},
 					},
