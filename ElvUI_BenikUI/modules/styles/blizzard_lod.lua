@@ -568,11 +568,7 @@ local function style_GuildControlUI()
 	then
 		return
 	end
-	if E.Cata then
-		_G.GuildControlUI:BuiStyle("Outside")
-	else
-		_G.GuildControlUI.backdrop:BuiStyle("Outside")
-	end
+	_G.GuildControlUI:BuiStyle("Outside")
 end
 S:AddCallbackForAddon("Blizzard_GuildControlUI", "BenikUI_GuildControlUI", style_GuildControlUI)
 
