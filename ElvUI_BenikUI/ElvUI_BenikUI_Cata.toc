@@ -1,6 +1,6 @@
 ## Interface: 40400
 ## Author: Benik
-## Version: 2.23
+## Version: 2.24
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bCataclysm|r
 ## Notes: an ElvUI Cataclysm decorative/enhancement edit
 ## RequiredDeps: ElvUI

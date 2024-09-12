@@ -1,3 +1,6 @@
+2.24 - Sep 12, 2024
+Update ProjectAzilroka.lua. Credit: Tsxy
+
 2.23 - Aug 15, 2024
 Enable Details
 
