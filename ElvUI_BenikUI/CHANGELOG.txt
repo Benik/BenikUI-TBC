@@ -1,3 +1,9 @@
+2.24 - Sep 12, 2024
+Update ProjectAzilroka.lua. Credit: Tsxy
+
+2.23 - Aug 15, 2024
+Enable Details
+
 2.22 - Jul 10, 2024
 fix guild skin on era/sync elvui changes
 Merge pull request #31 from E-Tsx/development

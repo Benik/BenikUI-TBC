@@ -1,12 +1,12 @@
 ## Interface: 40400
 ## Author: Benik
-## Version: 2.22
+## Version: 2.24
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bCataclysm|r
 ## Notes: an ElvUI Cataclysm decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
-## X-ElvuiVersion: 13.68
+## X-ElvuiVersion: 13.74
 
 locales\load_locales.xml
 media\load_media.xml
