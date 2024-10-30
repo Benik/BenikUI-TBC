@@ -52,6 +52,7 @@ local Currency = {
 	102, -- Emblem of Valor
 	2589, -- Sidereal Essence
 	2711, -- Defiler's Scourgestone
+	3148, -- Fissure Stone Fragment
 	614, -- Mote of Darkness
 	615, -- Essence of Corrupted Deathwing
 	395, -- Justice Points
