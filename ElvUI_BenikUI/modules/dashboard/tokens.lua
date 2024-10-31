@@ -56,6 +56,7 @@ local Currency = {
 	615, -- Essence of Corrupted Deathwing
 	395, -- Justice Points
 	396, -- Valor Points
+	3148, -- Fissure Stone Fragment
 }
 
 local function Icon_OnEnter(self)
