@@ -1,3 +1,11 @@
+2.25 - Nov 6, 2024
+toc update
+fix open gamemenu cata/era (Tsxy)
+Add Fissure Stone Fragment token (d3xavier)
+Merge pull request #35 from E-Tsx/development
+Style fixes (Tsxy)
+Use the unit's class instead of statusbar color (Eltreum)
+
 2.24 - Sep 12, 2024
 Update ProjectAzilroka.lua. Credit: Tsxy
 

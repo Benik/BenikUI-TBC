@@ -61,19 +61,14 @@ BUI.MenuList = {
 	{text = PLAYER_V_PLAYER, func = function() TogglePVPFrame() end},
 	{text = MAINMENU_BUTTON,
 	func = function()
-		if ( not GameMenuFrame:IsShown() ) then
-			if ( VideoOptionsFrame:IsShown() ) then
-					VideoOptionsFrameCancel:Click();
-			elseif ( AudioOptionsFrame:IsShown() ) then
-					AudioOptionsFrameCancel:Click();
-			elseif ( InterfaceOptionsFrame:IsShown() ) then
-					InterfaceOptionsFrameCancel:Click();
-			end
-			CloseMenus();
+		if not _G.GameMenuFrame:IsShown() then
+			CloseMenus()
 			CloseAllWindows()
-			ShowUIPanel(GameMenuFrame);
+			PlaySound(850) --IG_MAINMENU_OPEN
+			ShowUIPanel(_G.GameMenuFrame)
 		else
-			HideUIPanel(GameMenuFrame);
+			PlaySound(854) --IG_MAINMENU_QUIT
+			HideUIPanel(_G.GameMenuFrame)
 			MainMenuMicroButton_SetNormal();
 		end
 	end},
@@ -102,19 +97,14 @@ BUI.MenuListClassic = {
 	end},
 	{text = MAINMENU_BUTTON,
 	func = function()
-		if ( not GameMenuFrame:IsShown() ) then
-			if ( VideoOptionsFrame:IsShown() ) then
-					VideoOptionsFrameCancel:Click();
-			elseif ( AudioOptionsFrame:IsShown() ) then
-					AudioOptionsFrameCancel:Click();
-			elseif ( InterfaceOptionsFrame:IsShown() ) then
-					InterfaceOptionsFrameCancel:Click();
-			end
-			CloseMenus();
+		if not _G.GameMenuFrame:IsShown() then
+			CloseMenus()
 			CloseAllWindows()
-			ShowUIPanel(GameMenuFrame);
+			PlaySound(850) --IG_MAINMENU_OPEN
+			ShowUIPanel(_G.GameMenuFrame)
 		else
-			HideUIPanel(GameMenuFrame);
+			PlaySound(854) --IG_MAINMENU_QUIT
+			HideUIPanel(_G.GameMenuFrame)
 			MainMenuMicroButton_SetNormal();
 		end
 	end},
