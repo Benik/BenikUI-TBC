@@ -119,6 +119,24 @@ local function RXPGuides()
 	hooksecurefunc(RXP, 'SetStep', SkinStepFrames)
 end
 
+local function Baganator() --credits go to plusmouse here https://github.com/Benik/BenikUI/issues/62
+	if BUI:IsAddOnEnabled('Baganator') and E.db.benikui.general.benikuiStyle and E.db.benikui.Skins.variousSkins.ba then
+		_G["Baganator"].API.Skins.RegisterListener(function(details)
+			if details.regionType == "ButtonFrame" and _G["Baganator"].API.Skins.GetCurrentSkin() == "elvui" then
+				details.region:BuiStyle('Outside')
+			end
+		end)
+		if _G["Baganator"].API.Skins.GetCurrentSkin() == "elvui" then
+			for _, details in ipairs(_G["Baganator"].API.Skins.GetAllFrames()) do
+				if details.regionType == "ButtonFrame" then
+					details.region:BuiStyle('Outside')
+				end
+			end
+		end
+	end
+end
+
+
 function mod:LoD_AddOns(_, addon)
 	if addon == "DBM-GUI" then
 		StyleDBM_Options()
@@ -131,5 +149,6 @@ end
 
 function mod:StyleAddons()
 	KalielsTracker()
+	Baganator()
 	if BUI:IsAddOnEnabled('RXPGuides') then RXPGuides() end
 end
