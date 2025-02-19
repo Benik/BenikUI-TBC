@@ -159,6 +159,12 @@ local function SkinTable()
 				name = L['RXPGuides'],
 				disabled = function() return not IsAddOnLoaded('RXPGuides') end,
 			},
+			ba = {
+				order = 4,
+				type = 'toggle',
+				name = L['Baganator'],
+				disabled = function() return not IsAddOnLoaded('Baganator') end,
+			},
 		},
 	}
 

@@ -1,3 +1,12 @@
+2.27 - Feb 19, 2025
+bump toc update for Cata
+Avoid a skin error (thurin)
+
+2.26 - Dec 20, 2024
+Add baganator skin (Credit: Tsxy)
+Update tooltip.lua (Credit: Tsxy)
+Fix some decors (Credit: Tsxy)
+
 2.25 - Nov 6, 2024
 toc update
 fix open gamemenu cata/era (Tsxy)
