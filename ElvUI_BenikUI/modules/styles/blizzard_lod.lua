@@ -72,7 +72,8 @@ local function style_AuctionHouseUI()
 
 	local frame = _G.AuctionHouseFrame
 	frame:BuiStyle("Outside")
-	frame.WoWTokenResults.GameTimeTutorial.backdrop:BuiStyle("Outside")
+	-- todo update this once ElvUI starts skinning it again
+	--frame.WoWTokenResults.GameTimeTutorial:BuiStyle("Outside")
 end
 S:AddCallbackForAddon("Blizzard_AuctionHouseUI", "BenikUI_AuctionHouseUI", style_AuctionHouseUI)
 
