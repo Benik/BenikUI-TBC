@@ -1,3 +1,7 @@
+2.27 - Feb 19, 2025
+bump toc update for Cata
+Avoid a skin error (thurin)
+
 2.26 - Dec 20, 2024
 Add baganator skin (Credit: Tsxy)
 Update tooltip.lua (Credit: Tsxy)
