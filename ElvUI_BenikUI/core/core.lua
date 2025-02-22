@@ -50,7 +50,6 @@ elseif E.Cata then
 end
 
 local classColor = E:ClassColor(E.myclass, true)
---local customClassColor = 
 
 local function PrintURL(url) -- Credit: Azilroka
 	return format("|cFF00c0fa[|Hurl:%s|h%s|h]|r", url, url)
