@@ -50,6 +50,7 @@ elseif E.Cata then
 end
 
 local classColor = E:ClassColor(E.myclass, true)
+--local customClassColor = 
 
 local function PrintURL(url) -- Credit: Azilroka
 	return format("|cFF00c0fa[|Hurl:%s|h%s|h]|r", url, url)
@@ -122,8 +123,10 @@ function BUI:UpdateStyleColors()
 				r, g, b = BUI:unpackColor(E.db.benikui.colors.customStyleColor)
 			elseif E.db.benikui.colors.StyleColor == 3 then
 				r, g, b = BUI:unpackColor(E.db.general.valuecolor)
-			else
+			elseif E.db.benikui.colors.StyleColor == 4 then
 				r, g, b = BUI:unpackColor(E.db.general.backdropcolor)
+			else
+				r, g, b = BUI:unpackColor(E.db.general.classColors[E.myclass])
 			end
 			frame:SetBackdropColor(r, g, b, E.db.benikui.colors.styleAlpha or 1)
 		else
@@ -224,6 +227,7 @@ function BUI:Initialize()
 
 	hooksecurefunc(E, "UpdateMedia", BUI.UpdateSoftGlowColor)
 	hooksecurefunc(BUI, "SetupColorThemes", BUI.UpdateStyleColors)
+
 	if E:IsAddOnEnabled("ElvUI_BenikUI_TBC") then
 		DisableAddOn("ElvUI_BenikUI_TBC")
 	end
