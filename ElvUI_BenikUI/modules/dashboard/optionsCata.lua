@@ -32,6 +32,7 @@ local dungeonTokens = {
 	395, -- Justice Points
 	396, -- Valor Points
 	3148, -- Fissure Stone Fragment
+	3281, -- Obsidian Fragment
 }
 
 local pvpTokens = {
