@@ -1,3 +1,7 @@
+2.28 - Mar 9, 2025
+Added obsidian fragment tracking
+Added Custom Class Color support
+
 2.27 - Feb 19, 2025
 bump toc update for Cata
 Avoid a skin error (thurin)
