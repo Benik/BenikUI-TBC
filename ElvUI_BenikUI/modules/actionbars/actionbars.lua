@@ -86,8 +86,10 @@ function mod:StyleColor()
 				r, g, b = BUI:unpackColor(db.customAbStyleColor)
 			elseif db.abStyleColor == 3 then
 				r, g, b = BUI:unpackColor(E.db.general.valuecolor)
-			else
+			elseif E.db.benikui.colors.StyleColor == 4 then
 				r, g, b = BUI:unpackColor(E.db.general.backdropcolor)
+			else
+				r, g, b = BUI:unpackColor(E.db.general.classColors[E.myclass])
 			end
 			bar.backdrop.style:SetBackdropColor(r, g, b, db.abAlpha or 1)
 		end
@@ -102,8 +104,10 @@ function mod:StyleColor()
 			r, g, b = BUI:unpackColor(db.customAbStyleColor)
 		elseif db.abStyleColor == 3 then
 			r, g, b = BUI:unpackColor(E.db.general.valuecolor)
-		else
+		elseif E.db.benikui.colors.StyleColor == 4 then
 			r, g, b = BUI:unpackColor(E.db.general.backdropcolor)
+		else
+			r, g, b = BUI:unpackColor(E.db.general.classColors[E.myclass])
 		end
 		if name then
 			name:SetBackdropColor(r, g, b, db.abAlpha or 1)
