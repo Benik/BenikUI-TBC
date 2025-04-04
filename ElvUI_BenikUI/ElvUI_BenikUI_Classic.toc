@@ -7,6 +7,7 @@
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
 ## X-ElvuiVersion: 13.84
+## X-Wago-ID: anKWx3GE
 
 locales\load_locales.xml
 media\load_media.xml
