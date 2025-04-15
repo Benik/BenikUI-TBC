@@ -89,8 +89,8 @@ E.PopupDialogs["BENIKUI_VERSION_MISMATCH"] = {
 		self.editBox.width = self.editBox:GetWidth()
 		self.editBox:Width(280)
 		self.editBox:AddHistoryLine("text")
-		self.editBox.temptxt = "https://www.tukui.org/classic-wotlk-addons.php?id=2"
-		self.editBox:SetText("https://www.tukui.org/classic-wotlk-addons.php?id=2")
+		self.editBox.temptxt = "https://tukui.org/elvui"
+		self.editBox:SetText("https://tukui.org/elvui")
 		self.editBox:HighlightText()
 		self.editBox:SetJustifyH("CENTER")
 	end,
