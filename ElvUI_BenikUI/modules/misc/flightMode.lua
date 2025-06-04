@@ -29,7 +29,7 @@ local UNKNOWN = UNKNOWN
 -- GLOBALS: ObjectiveTrackerFrame, ZoneTextFrame
 
 local menuList
-if E.Cata or E.Mists then
+if not E.Classic then
 	menuList = BUI.MenuList
 elseif E.Classic then
 	menuList = BUI.MenuListClassic

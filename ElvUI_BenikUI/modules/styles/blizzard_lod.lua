@@ -256,17 +256,17 @@ local function style_Communities()
 	local frame = _G.CommunitiesFrame
 	if frame then
 		frame:BuiStyle("Outside")
-		if E.Cata or E.Mists then
+		if not E.Classic then
 			frame.GuildMemberDetailFrame:BuiStyle("Outside")
 		end
 		frame.NotificationSettingsDialog:BuiStyle("Outside")
 	end
-	if E.Cata or E.Mists then
+	if not E.Classic then
 		_G.CommunitiesGuildLogFrame:BuiStyle("Outside")
 	end
 	_G.CommunitiesSettingsDialog:BuiStyle("Outside")
 	_G.CommunitiesAvatarPickerDialog:BuiStyle("Outside")
-	if E.Cata or E.Mists then
+	if not E.Classic then
 		_G.ClubFinderCommunityAndGuildFinderFrame.RequestToJoinFrame:BuiStyle("Outside")
 		_G.ClubFinderGuildFinderFrame.RequestToJoinFrame:BuiStyle("Outside")
 	end
@@ -814,9 +814,11 @@ local function style_TalentUI()
 	then
 		return
 	end
-	
-	if not E.Mists then
+
+	if E.Classic then
 		_G.PlayerTalentFrame.backdrop:BuiStyle("Outside")
+	else
+		_G.PlayerTalentFrame:BuiStyle("Outside")
 	end
 	
 	for i = 1, 3 do

@@ -36,10 +36,9 @@ local function LoadSkin()
 	end
 
 	if db.character then
-		if (E.Cata or E.Mists) then
+		if not E.Classic then
 			_G.CharacterFrame:BuiStyle("Outside")
-		end
-		if not (E.Mists or E.Cata) then
+		else
 			_G.CharacterFrame.backdrop:BuiStyle("Outside")
 		end
 		hooksecurefunc('ReputationFrame_Update', repUpdate)
@@ -81,7 +80,7 @@ local function LoadSkin()
 	end
 
 	if db.lfg then
-		if E.Cata or E.Mists then
+		if not E.Classic then
 			_G.PVEFrame:BuiStyle("Outside")
 		end
 	end
@@ -162,7 +161,7 @@ local function LoadSkin()
 
 	if db.pvp then
 		_G.PVPReadyDialog:BuiStyle("Outside")
-		if E.Cata or E.Mists then
+		if not E.Classic then
 			_G.PVPFrame:BuiStyle("Outside")
 --			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
 			for i = 1, 2 do
@@ -186,13 +185,13 @@ local function LoadSkin()
 		if not E.Mists then
 			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
 		end
-		if E.Cata or E.Mists then
+		if not E.Classic then
 			_G.QuestLogDetailFrame.backdrop:BuiStyle("Outside")
 		end
 	end
 
 	if db.stable then
-		if E.Cata or E.Mists then
+		if not E.Classic then
 			_G.PetStableFrame:BuiStyle("Outside")
 		else	
 			_G.PetStableFrame.backdrop:BuiStyle("Outside")
@@ -200,7 +199,7 @@ local function LoadSkin()
 	end
 
 	if db.spellbook then
-		if E.Cata or E.Mists then
+		if not E.Classic then
 			_G.SpellBookFrame:BuiStyle("Outside")
 		else
 			_G.SpellBookFrame.backdrop:BuiStyle("Outside")
