@@ -223,7 +223,7 @@ end
 function mod:Initialize()
 	mod:LoadSystem()
 	mod:LoadReputations()
-	if E.Cata then
+	if E.Cata or E.Mists then
 		mod:LoadTokens()
 		mod:LoadCataProfessions()
 	else

@@ -16,6 +16,9 @@ local UnitOnTaxi, IsAddOnLoaded = UnitOnTaxi, IsAddOnLoaded
 local GetRealZoneText, GetMinimapZoneText, GetZonePVPInfo = GetRealZoneText, GetMinimapZoneText, GetZonePVPInfo
 local C_Map_GetBestMapForUnit = C_Map.GetBestMapForUnit
 local C_Map_GetPlayerMapPosition = C_Map.GetPlayerMapPosition
+local IsAddOnLoaded = C_AddOns.IsAddOnLoaded or IsAddOnLoaded
+local GetZonePVPInfo = (C_PvP and C_PvP.GetZonePVPInfo) or GetZonePVPInfo
+local LoadAddOn = C_AddOns.LoadAddOn
 local GetScreenWidth = GetScreenWidth
 local InCombatLockdown = InCombatLockdown
 local UIFrameFadeIn, UIFrameFadeOut, PlaySound = UIFrameFadeIn, UIFrameFadeOut, PlaySound
@@ -26,7 +29,7 @@ local UNKNOWN = UNKNOWN
 -- GLOBALS: ObjectiveTrackerFrame, ZoneTextFrame
 
 local menuList
-if E.Cata then
+if E.Cata or E.Mists then
 	menuList = BUI.MenuList
 elseif E.Classic then
 	menuList = BUI.MenuListClassic
@@ -827,10 +830,10 @@ function mod:Initialize()
 	hooksecurefunc(M, "SetSmallWorldMap", mod.SetFrameParent)
 	
 	-- force databars parent. This should fix databars showing after a Pet Battle
-	E.FrameLocks['ElvUI_ExperienceBar'] = { parent = E.UIParent }
-	E.FrameLocks['ElvUI_ReputationBar'] = { parent = E.UIParent }
-	E.FrameLocks['ElvUI_HonorBar'] = { parent = E.UIParent }
-	E.FrameLocks['ElvUI_AzeriteBar'] = { parent = E.UIParent }
+--	E.FrameLocks['ElvUI_ExperienceBar'] = { parent = E.UIParent }
+--	E.FrameLocks['ElvUI_ReputationBar'] = { parent = E.UIParent }
+--	E.FrameLocks['ElvUI_HonorBar'] = { parent = E.UIParent }
+--	E.FrameLocks['ElvUI_AzeriteBar'] = { parent = E.UIParent }
 end
 
 BUI:RegisterModule(mod:GetName())

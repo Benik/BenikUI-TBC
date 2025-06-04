@@ -115,7 +115,7 @@ local function sortFunction(a, b)
 	return a.text < b.text
 end
 
-if E.Cata then
+if E.Cata or E.Mists then
 	table.sort(BUI.MenuList, sortFunction)
 elseif E.Classic then
 	table.sort(BUI.MenuListClassic, sortFunction)

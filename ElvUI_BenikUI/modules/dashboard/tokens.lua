@@ -35,6 +35,7 @@ local Currency = {
 	125, -- Warsong Gulch Mark of Honor
 	126, -- Wintergrasp Mark of Honor
 	391, -- Tol Barad Commendation
+	789, -- Bloody Coins
 
 	-- Miscellaneous
 	42, -- Badge of Justice
@@ -43,6 +44,9 @@ local Currency = {
 	61, -- Dalaran Jewelcrafter's Token
 	361, -- Illustrious Jewelcrafter's Token
 	402, -- Chef's Award
+	515, -- Darkmoon Prize Ticket
+	698, -- Zen Jewelcrafter's Token
+	777, -- Timeless Coin
 
 	-- Dungeon and Raid
 	221, -- Emblem of Conquest
@@ -58,6 +62,10 @@ local Currency = {
 	396, -- Valor Points
 	3148, -- Fissure Stone Fragment
 	3281, -- Obsidian Fragment
+	697, -- Elder Charm of Good Fortune (msv/hof/toes Coinroll)
+	752, -- Mogu Rune of Fate (ToT Coinroll)
+	776, -- Warforged Seal (SoO Coinroll)
+	3350, -- August Stone Fragment (Celestial Dungeon Finder)
 }
 
 local function Icon_OnEnter(self)
