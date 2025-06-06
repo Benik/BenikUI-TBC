@@ -5,8 +5,8 @@ local LSM = E.Libs.LSM
 local _G = _G
 local pairs, print, tinsert, strjoin, lower, next, wipe = pairs, print, table.insert, strjoin, strlower, next, wipe
 local format = string.format
-local GetAddOnMetadata = GetAddOnMetadata
-local GetAddOnEnableState = GetAddOnEnableState
+local GetAddOnMetadata = C_AddOns.GetAddOnMetadata
+local GetAddOnEnableState = C_AddOns.GetAddOnEnableState
 local DisableAddOn = DisableAddOn
 local EnableAddOn = EnableAddOn
 local GetAddOnInfo = GetAddOnInfo
@@ -26,7 +26,7 @@ BUI.AddonProfileKey = '';
 BINDING_HEADER_BENIKUI = BUI.Title
 
 function BUI:IsAddOnEnabled(addon) -- Credit: Azilroka
-	return GetAddOnEnableState(E.myname, addon) == 2
+	return C_AddOns.GetAddOnEnableState(addon, E.myname) == 2
 end
 
 -- Check other addons
@@ -47,6 +47,9 @@ if E.Classic then
 elseif E.Cata then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Cataclysm"
+elseif E.Mists then
+	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
+	versionString = "for Mists of Pandaria"
 end
 
 local classColor = E:ClassColor(E.myclass, true)
