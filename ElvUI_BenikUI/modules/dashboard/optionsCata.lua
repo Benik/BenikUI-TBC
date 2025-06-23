@@ -64,6 +64,7 @@ local miscTokens = {
 	61, -- Dalaran Jewelcrafter's Token
 	361, -- Illustrious Jewelcrafter's Token
 	402, -- Chef's Award
+	416, -- Mark of the World Tree
 	515, -- Darkmoon Prize Ticket
 	698, -- Zen Jewelcrafter's Token
 	777, -- Timeless Coin
