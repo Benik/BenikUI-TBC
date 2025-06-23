@@ -68,7 +68,11 @@ local function LoadSkin()
 
 	if db.gossip then
 		_G.GossipFrame.backdrop:BuiStyle("Outside")
-		_G.ItemTextFrame.backdrop:BuiStyle("Outside")
+		if not E.Mists then
+			_G.ItemTextFrame.backdrop:BuiStyle("Outside")
+		else
+			_G.ItemTextFrame:BuiStyle("Outside")
+		end
 	end
 
 	if db.guildregistrar then
