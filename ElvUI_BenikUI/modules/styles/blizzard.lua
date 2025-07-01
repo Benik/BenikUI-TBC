@@ -215,7 +215,11 @@ local function LoadSkin()
 	end
 
 	if db.taxi then
-		_G.TaxiFrame.backdrop:BuiStyle("Outside")
+		if E.Mists then
+			_G.TaxiFrame:BuiStyle("Outside")
+		else 
+			_G.TaxiFrame.backdrop:BuiStyle("Outside")
+		end
 	end
 
 	if db.trade then
