@@ -1,3 +1,6 @@
+2.29 - Jul 4, 2025
+Update for MoP. Credit: Tsxy
+
 2.28 - Mar 9, 2025
 Added obsidian fragment tracking
 Added Custom Class Color support
