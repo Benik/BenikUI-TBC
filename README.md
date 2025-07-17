@@ -1,7 +1,7 @@
 # BenikUI-TBC
-BenikUI is an external ElvUI mod, adding different frame style and new features like detatched portraits, dashboards and many more, also available for WoW Classic and WotLK. 
+BenikUI is an external ElvUI mod, adding different frame style and new features like detatched portraits, dashboards and many more, also available for WoW Classic and MoP. 
 
-All game versions require ElvUI v13.27+ installed.
+All game versions require ElvUI v13.93+ installed.
 
 Installation:
 
@@ -16,7 +16,7 @@ Support:
 Ultra Fast: Find me at BenikUI Discord Server or at TukUI Discord Server
 Fast: Report any issues by creating a ticket in Github Ticket Tracker
 
-Please try to reproduce any issues with only ElvUI, ElvUI_Options, ElvUI_BenikUI enabled.
+Please try to reproduce any issues with only ElvUI, ElvUI_Libraries, ElvUI_Options and ElvUI_BenikUI enabled.
 Suggestions, recommendations, things to add/remove or to say thanks, at BenikUI site in TukUI.org or on the comments section.
  
 Recommended addons:
