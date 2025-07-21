@@ -95,8 +95,7 @@ local function LoadSkin()
 	end
 
 	if db.mail then
---		_G.MailFrame.backdrop:BuiStyle("Outside")
-		_G.OpenMailFrame:BuiStyle("Outside")
+		_G.MailFrame:BuiStyle("Outside")
 	end
 
 	if db.merchant then
