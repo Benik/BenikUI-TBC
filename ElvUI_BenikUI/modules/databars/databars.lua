@@ -125,7 +125,7 @@ function mod:Initialize()
 	self:LoadXP()
 	self:LoadRep()
 	self:LoadThreat()
-	if E.myclass == 'HUNTER' then
+	if (E.myclass == 'HUNTER' and E.Classic) then
 		self:LoadPetXP()
 	end
 end
