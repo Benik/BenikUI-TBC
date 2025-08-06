@@ -67,6 +67,7 @@ local miscTokens = {
 	416, -- Mark of the World Tree
 	515, -- Darkmoon Prize Ticket
 	698, -- Zen Jewelcrafter's Token
+	738, -- Lesser Charm of Good Fortune
 	777, -- Timeless Coin
 }
 
