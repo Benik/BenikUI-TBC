@@ -26,7 +26,7 @@ local databarsTbl = {
 	{'ElvUI_ThreatBar', 'threat', L["Threat"]}
 }
 
-if E.myclass == 'HUNTER' then
+if (E.myclass == 'HUNTER'and E.Classic) then
 	tinsert(databarsTbl, 2, {'ElvUI_PetExperienceBar', 'petExperience', L['Pet XP Bar']})
 end
 
