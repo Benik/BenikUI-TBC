@@ -176,7 +176,7 @@ local function style_BlackMarketUI()
 		return
 	end
 
-	_G.BlackMarketFrame.backdrop:BuiStyle("Outside")
+	_G.BlackMarketFrame:BuiStyle("Outside")
 end
 S:AddCallbackForAddon("Blizzard_BlackMarketUI", "BenikUI_BlackMarketUI", style_BlackMarketUI)
 
@@ -943,8 +943,8 @@ local function style_TrainerUI()
 end
 S:AddCallbackForAddon("Blizzard_TrainerUI", "BenikUI_TrainerUI", style_TrainerUI)
 
--- VoidStorageUI
-local function style_VoidStorageUI()
+-- VoidStorageUI Seems this won't be in mop, and probably never as it's gone in Retail.
+--[[local function style_VoidStorageUI()
 	if E.private.skins.blizzard.voidstorage ~= true or E.private.skins.blizzard.enable ~= true or
 		E.db.benikui.general.benikuiStyle ~= true
 	then
@@ -962,7 +962,7 @@ local function style_VoidStorageUI()
 		end
 	end
 end
-S:AddCallbackForAddon("Blizzard_VoidStorageUI", "BenikUI_VoidStorageUI", style_VoidStorageUI)
+S:AddCallbackForAddon("Blizzard_VoidStorageUI", "BenikUI_VoidStorageUI", style_VoidStorageUI)]]--
 
 -- WarboardUI
 local function style_WarboardUI()
