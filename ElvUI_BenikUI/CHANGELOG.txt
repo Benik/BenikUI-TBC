@@ -1,3 +1,17 @@
+2.30 - Aug 9, 2025
+Various fixes (Credit: Tsxy)
+Fix mailbox skin on era (Credit: Tsxy)
+Skin bmah on mists (Credit: Tsxy)
+Also exclude pet xp bar options from mop (Credit: Tsxy)
+Add lesser charms to tokens (Credit: Tsxy)
+Pet XP bar gone from mop (Credit: Tsxy)
+Shadows and decor (Credit: Tsxy)
+Dont shadow buttons in baganator (Credit: Tsxy)
+Fix mailbox decor (Credit: Tsxy)
+Add link to config on right click tokens in mover (Credit: Tsxy)
+Update README.md (Credit: Tsxy)
+Update tokens.lua (Credit: Tsxy)
+
 2.29 - Jul 4, 2025
 Update for MoP. Credit: Tsxy
 
