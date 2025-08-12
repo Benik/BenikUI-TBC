@@ -37,7 +37,7 @@ local DecorAddonSkins = {
 
 local SupportedProfiles = {
 	{'AddOnSkins', 'AddOnSkins'},
-	{'BigWigs', 'BigWigs'},
+	--{'BigWigs', 'BigWigs'},
 	{'DBM-Core', 'Deadly Boss Mods'},
 	{'Details', 'Details'},
 	{'ElvUI_LocPlus', 'Location Plus'},
