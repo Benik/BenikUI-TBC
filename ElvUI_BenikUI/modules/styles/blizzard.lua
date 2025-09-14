@@ -181,6 +181,11 @@ local function LoadSkin()
 			end
 		end
 	end
+	if db.battlefield then
+		if E.Classic then
+			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
+		end
+	end
 
 	if db.quest then
 		if not E.Mists then
