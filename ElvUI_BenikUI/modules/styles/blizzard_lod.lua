@@ -211,6 +211,18 @@ S:AddCallbackForAddon("Blizzard_Calendar", "BenikUI_Calendar", style_Calendar)
 end
 S:AddCallbackForAddon("Blizzard_ChallengesUI", "BenikUI_ChallengesUI", style_ChallengesUI)]]--
 
+local function style_LFGListingFrame()
+	if E.private.skins.blizzard.lfg ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+
+	_G.LFGListingFrame.backdrop:BuiStyle("Outside")
+	_G.LFGBrowseFrame.backdrop:BuiStyle("Outside")
+end
+S:AddCallbackForAddon("Blizzard_GroupFinder_VanillaStyle", "BenikUI_GroupFinder_VanillaStyle", style_LFGListingFrame)
+
 -- Channels
 local function style_Channels()
 	if E.private.skins.blizzard.channels ~= true or E.private.skins.blizzard.enable ~= true or
