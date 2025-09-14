@@ -85,7 +85,7 @@ function BUI:LuaError(msg)
 	if switch == 'on' or switch == '1' then
 		for i=1, GetNumAddOns() do
 			local name = GetAddOnInfo(i)
-			if (name ~= 'ElvUI' and name ~= 'ElvUI_Options' and name ~= 'ElvUI_Libraries' and name ~= 'ElvUI_BenikUI') and E:IsAddOnEnabled(name) then
+			if (name ~= 'ElvUI' and name ~= 'ElvUI_Options' and name ~= 'ElvUI_Libraries' and name ~= 'ElvUI_BenikUI' and (switch == '1' or not bugsack[name])) and E:IsAddOnEnabled(name) then
 				DisableAddOn(name, E.myguid)
 				ElvDB.BuiErrorDisabledAddOns[name] = i
 			end
