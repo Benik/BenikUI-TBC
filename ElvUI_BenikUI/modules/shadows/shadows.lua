@@ -125,7 +125,7 @@ local function SpellBookFrameShadows()
 		i = i + 1
 		tab = _G['SpellBookFrameTabButton'..i]
 	end
-	if not E.Mists then
+--[[	if not E.Mists then
 		for j = 1, MAX_SKILLLINE_TABS do
 			local tab = _G['SpellBookSkillLineTab'..j]
 			tab:CreateSoftShadow()
@@ -138,7 +138,7 @@ local function SpellBookFrameShadows()
 						tab:CreateSoftShadow()
 					end
 			end)
-	end
+	end]]--
 end
 
 local function FriendsFrameShadows()
