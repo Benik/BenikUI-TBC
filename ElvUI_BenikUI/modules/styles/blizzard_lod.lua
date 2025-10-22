@@ -617,11 +617,8 @@ local function style_InspectUI()
 	then
 		return
 	end
-	if E.Mists then
-		_G.InspectFrame:BuiStyle("Outside")
-	else
-		_G.InspectFrame.backdrop:BuiStyle("Outside")
-	end
+	_G.InspectFrame:BuiStyle("Outside")
+	
 end
 S:AddCallbackForAddon("Blizzard_InspectUI", "BenikUI_InspectUI", style_InspectUI)
 
