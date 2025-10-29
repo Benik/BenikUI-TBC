@@ -1,4 +1,4 @@
-## Interface: 50501
+## Interface: 50502
 ## Author: Benik
 ## Version: 2.30
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bMists|r
