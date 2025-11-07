@@ -69,6 +69,7 @@ hooksecurefunc(S, "HandleTab", mod.TabShadows)
 function mod:ItemButtonShadows(button)
 	if not BUI.ShadowMode then return end
 	if not button then return end
+	if Baganator then return end
 
 	if button.backdrop then
 		button.backdrop:SetTemplate("Transparent")
@@ -124,19 +125,20 @@ local function SpellBookFrameShadows()
 		i = i + 1
 		tab = _G['SpellBookFrameTabButton'..i]
 	end
+--[[	if not E.Mists then
+		for j = 1, MAX_SKILLLINE_TABS do
+			local tab = _G['SpellBookSkillLineTab'..j]
+			tab:CreateSoftShadow()
+		end
 
-	for j = 1, MAX_SKILLLINE_TABS do
-		local tab = _G['SpellBookSkillLineTab'..j]
-		tab:CreateSoftShadow()
-	end
-
-	hooksecurefunc("SpellBookFrame_UpdateSkillLineTabs",
-			function()
-				for i = 1, MAX_SKILLLINE_TABS do
-					local tab = _G['SpellBookSkillLineTab'..i]
-					tab:CreateSoftShadow()
-				end
+		hooksecurefunc("SpellBookFrame_UpdateSkillLineTabs",
+				function()
+					for i = 1, MAX_SKILLLINE_TABS do
+						local tab = _G['SpellBookSkillLineTab'..i]
+						tab:CreateSoftShadow()
+					end
 			end)
+	end]]--
 end
 
 local function FriendsFrameShadows()

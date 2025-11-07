@@ -36,7 +36,7 @@ local Bui_dchat = CreateFrame('Frame', 'BuiDummyChat', E.UIParent, 'BackdropTemp
 local Bui_deb = CreateFrame('Frame', 'BuiDummyEditBoxHolder', E.UIParent, 'BackdropTemplate')
 
 local menuList
-if E.Cata then
+if not E.Classic then
 	menuList = BUI.MenuList
 elseif E.Classic then
 	menuList = BUI.MenuListClassic

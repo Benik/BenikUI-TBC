@@ -5,8 +5,8 @@ local LSM = E.Libs.LSM
 local _G = _G
 local pairs, print, tinsert, strjoin, lower, next, wipe = pairs, print, table.insert, strjoin, strlower, next, wipe
 local format = string.format
-local GetAddOnMetadata = GetAddOnMetadata
-local GetAddOnEnableState = GetAddOnEnableState
+local GetAddOnMetadata = C_AddOns.GetAddOnMetadata
+local GetAddOnEnableState = C_AddOns.GetAddOnEnableState
 local DisableAddOn = DisableAddOn
 local EnableAddOn = EnableAddOn
 local GetAddOnInfo = GetAddOnInfo
@@ -26,7 +26,7 @@ BUI.AddonProfileKey = '';
 BINDING_HEADER_BENIKUI = BUI.Title
 
 function BUI:IsAddOnEnabled(addon) -- Credit: Azilroka
-	return GetAddOnEnableState(E.myname, addon) == 2
+	return C_AddOns.GetAddOnEnableState(addon, E.myguid) == 2
 end
 
 -- Check other addons
@@ -47,6 +47,9 @@ if E.Classic then
 elseif E.Cata then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Cataclysm"
+elseif E.Mists then
+	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
+	versionString = "for Mists of Pandaria"
 end
 
 local classColor = E:ClassColor(E.myclass, true)
@@ -82,8 +85,8 @@ function BUI:LuaError(msg)
 	if switch == 'on' or switch == '1' then
 		for i=1, GetNumAddOns() do
 			local name = GetAddOnInfo(i)
-			if (name ~= 'ElvUI' and name ~= 'ElvUI_Options' and name ~= 'ElvUI_Libraries' and name ~= 'ElvUI_BenikUI') and E:IsAddOnEnabled(name) then
-				DisableAddOn(name, E.myname)
+			if (name ~= 'ElvUI' and name ~= 'ElvUI_Options' and name ~= 'ElvUI_Libraries' and name ~= 'ElvUI_BenikUI' and (switch == '1' or not bugsack[name])) and E:IsAddOnEnabled(name) then
+				DisableAddOn(name, E.myguid)
 				ElvDB.BuiErrorDisabledAddOns[name] = i
 			end
 		end
@@ -98,7 +101,7 @@ function BUI:LuaError(msg)
 
 		if next(ElvDB.BuiErrorDisabledAddOns) then
 			for name in pairs(ElvDB.BuiErrorDisabledAddOns) do
-				EnableAddOn(name, E.myname)
+				EnableAddOn(name, E.myguid)
 			end
 
 			wipe(ElvDB.BuiErrorDisabledAddOns)

@@ -33,6 +33,10 @@ local dungeonTokens = {
 	396, -- Valor Points
 	3148, -- Fissure Stone Fragment
 	3281, -- Obsidian Fragment
+	697, -- Elder Charm of Good Fortune (msv/hof/toes Coinroll)
+	752, -- Mogu Rune of Fate (ToT Coinroll)
+	776, -- Warforged Seal (SoO Coinroll)
+	3350, -- August Stone Fragment (Celestial Dungeon Finder)
 }
 
 local pvpTokens = {
@@ -50,6 +54,7 @@ local pvpTokens = {
 	125, -- Warsong Gulch Mark of Honor
 	126, -- Wintergrasp Mark of Honor
 	391, -- Tol Barad Commendation
+	789, -- Bloody Coins
 }
 
 local miscTokens = {
@@ -59,6 +64,11 @@ local miscTokens = {
 	61, -- Dalaran Jewelcrafter's Token
 	361, -- Illustrious Jewelcrafter's Token
 	402, -- Chef's Award
+	416, -- Mark of the World Tree
+	515, -- Darkmoon Prize Ticket
+	698, -- Zen Jewelcrafter's Token
+	738, -- Lesser Charm of Good Fortune
+	777, -- Timeless Coin
 }
 
 local currencyTables = {
@@ -141,7 +151,7 @@ local function UpdateProfessionOptions()
 		args = {
 		},
 	}
-	if E.Cata then
+	if not E.Classic then
 		local proftable = { GetProfessions() }
 		for _, id in pairs(proftable) do
 			local pname, icon = GetProfessionInfo(id)
@@ -225,7 +235,7 @@ end
 
 local function UpdateAllDashboards()
 	if E.db.benikui.dashboards.professions.enableProfessions then BUID:UpdateCataProfessionSettings(); end
-	if E.Cata and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
+	if not E.Classic and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
 	if E.db.benikui.dashboards.system.enableSystem then BUID:UpdateSystemSettings(); end
 	if E.db.benikui.dashboards.reputations.enableReputations then BUID:UpdateReputationSettings(); end
 end
@@ -784,7 +794,7 @@ tinsert(BUI.Config, UpdateReputationOptions)
 
 tinsert(BUI.Config, dashboardsTable)
 tinsert(BUI.Config, UpdateSystemOptions)
-if E.Cata then
+if not E.Classic then
 	tinsert(BUI.Config, injectTokenSettings)
 	tinsert(BUI.Config, UpdateTokenOptions)
 end

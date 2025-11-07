@@ -5,6 +5,7 @@ local S = E:GetModule('Skins')
 local _G = _G
 local pairs = pairs
 local C_TimerAfter = C_Timer.After
+local IsAddOnLoaded = (C_AddOns and C_AddOns.IsAddOnLoaded) or IsAddOnLoaded
 
 local MAX_STATIC_POPUPS = 4
 
@@ -35,10 +36,9 @@ local function LoadSkin()
 	end
 
 	if db.character then
-		if E.Cata then
+		if not E.Classic then
 			_G.CharacterFrame:BuiStyle("Outside")
-		end
-		if not E.Cata then
+		else
 			_G.CharacterFrame.backdrop:BuiStyle("Outside")
 		end
 		hooksecurefunc('ReputationFrame_Update', repUpdate)
@@ -68,7 +68,11 @@ local function LoadSkin()
 
 	if db.gossip then
 		_G.GossipFrame.backdrop:BuiStyle("Outside")
-		_G.ItemTextFrame.backdrop:BuiStyle("Outside")
+--		if not E.Mists then
+--			_G.ItemTextFrame.backdrop:BuiStyle("Outside")
+--		else
+			_G.ItemTextFrame:BuiStyle("Outside")
+--		end
 	end
 
 	if db.guildregistrar then
@@ -80,7 +84,7 @@ local function LoadSkin()
 	end
 
 	if db.lfg then
-		if E.Cata then
+		if not E.Classic then
 			_G.PVEFrame:BuiStyle("Outside")
 		end
 	end
@@ -91,8 +95,8 @@ local function LoadSkin()
 	end
 
 	if db.mail then
-		_G.MailFrame.backdrop:BuiStyle("Outside")
-		_G.OpenMailFrame:BuiStyle("Outside")
+			_G.MailFrame:BuiStyle("Outside")
+			_G.OpenMailFrame:BuiStyle("Outside")
 	end
 
 	if db.merchant then
@@ -156,12 +160,12 @@ local function LoadSkin()
 	end
 
 	if db.petition then
-		_G.PetitionFrame.backdrop:BuiStyle("Outside")
+		_G.PetitionFrame:BuiStyle("Outside")
 	end
 
 	if db.pvp then
 		_G.PVPReadyDialog:BuiStyle("Outside")
-		if E.Cata then
+		if not E.Classic then
 			_G.PVPFrame:BuiStyle("Outside")
 --			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
 			for i = 1, 2 do
@@ -173,17 +177,30 @@ local function LoadSkin()
 			end
 		end
 	end
+	if db.battlefield then
+		if E.Classic then
+			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
+		end
+	end
 
 	if db.quest then
-		_G.QuestFrame.backdrop:BuiStyle("Outside")
-		_G.QuestLogFrame.backdrop:BuiStyle("Outside")
-		if E.Cata then
+		if not E.Mists then
+			_G.QuestFrame.backdrop:BuiStyle("Outside")
+		end
+		if E.Mists then
+			_G.QuestFrame:BuiStyle("Outside")
+			_G.QuestLogFrame:BuiStyle("Outside")
+		end
+		if not E.Mists then
+			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
+		end
+		if not E.Classic then
 			_G.QuestLogDetailFrame.backdrop:BuiStyle("Outside")
 		end
 	end
 
 	if db.stable then
-		if E.Cata then
+		if not E.Classic then
 			_G.PetStableFrame:BuiStyle("Outside")
 		else	
 			_G.PetStableFrame.backdrop:BuiStyle("Outside")
@@ -191,7 +208,7 @@ local function LoadSkin()
 	end
 
 	if db.spellbook then
-		if E.Cata then
+		if not E.Classic then
 			_G.SpellBookFrame:BuiStyle("Outside")
 		else
 			_G.SpellBookFrame.backdrop:BuiStyle("Outside")
@@ -203,7 +220,11 @@ local function LoadSkin()
 	end
 
 	if db.taxi then
-		_G.TaxiFrame.backdrop:BuiStyle("Outside")
+		if E.Mists then
+			_G.TaxiFrame:BuiStyle("Outside")
+		else 
+			_G.TaxiFrame.backdrop:BuiStyle("Outside")
+		end
 	end
 
 	if db.trade then

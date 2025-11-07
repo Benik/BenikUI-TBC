@@ -1,12 +1,13 @@
-## Interface: 40402
+## Interface: 50502
 ## Author: Benik
-## Version: 2.28
-## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r
-## Notes: an ElvUI Cataclysm decorative/enhancement edit
+## Version: 2.31
+## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bMists|r
+## Notes: an ElvUI Mists of Pandaria decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
-## X-ElvuiVersion: 13.84
+## X-ElvuiVersion: 14.03
+## X-Wago-ID: anKWx3GE
 
 locales\load_locales.xml
 media\load_media.xml

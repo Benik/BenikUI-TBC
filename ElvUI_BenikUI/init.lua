@@ -3,6 +3,7 @@ local EP = LibStub("LibElvUIPlugin-1.0")
 local addon, Engine = ...
 
 local BUI = E.Libs.AceAddon:NewAddon(addon, "AceConsole-3.0", "AceEvent-3.0", "AceHook-3.0")
+local GetAddOnMetadata = C_AddOns.GetAddOnMetadata
 
 Engine[1] = BUI
 Engine[2] = E
@@ -89,8 +90,8 @@ E.PopupDialogs["BENIKUI_VERSION_MISMATCH"] = {
 		self.editBox.width = self.editBox:GetWidth()
 		self.editBox:Width(280)
 		self.editBox:AddHistoryLine("text")
-		self.editBox.temptxt = "https://www.tukui.org/classic-wotlk-addons.php?id=2"
-		self.editBox:SetText("https://www.tukui.org/classic-wotlk-addons.php?id=2")
+		self.editBox.temptxt = "https://tukui.org/elvui"
+		self.editBox:SetText("https://tukui.org/elvui")
 		self.editBox:HighlightText()
 		self.editBox:SetJustifyH("CENTER")
 	end,
