@@ -1,6 +1,6 @@
 ## Interface: 50502
 ## Author: Benik
-## Version: 2.30
+## Version: 2.31
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bMists|r
 ## Notes: an ElvUI Mists of Pandaria decorative/enhancement edit
 ## RequiredDeps: ElvUI

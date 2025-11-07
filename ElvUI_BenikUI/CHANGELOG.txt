@@ -1,3 +1,12 @@
+2.31 - Nov 7, 2025
+inspect frame
+mailframe
+fix for 1.15.8
+fix aurabars
+add decor for battlefield & FroupFinder frame on era
+Update options.lua
+Update install.lua
+
 2.30 - Aug 9, 2025
 Various fixes (Credit: Tsxy)
 Fix mailbox skin on era (Credit: Tsxy)
