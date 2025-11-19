@@ -82,6 +82,7 @@ end
 
 function BUI:LuaError(msg)
 	local switch = lower(msg)
+	local bugsack = E.Status_Bugsack
 	if switch == 'on' or switch == '1' then
 		for i=1, GetNumAddOns() do
 			local name = GetAddOnInfo(i)
