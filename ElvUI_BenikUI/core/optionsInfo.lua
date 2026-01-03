@@ -89,7 +89,7 @@ local CODING = {
 	'Repooc',
 	'Pristie (frFR)',
 	'|cffff005athurin|r',
-	'|TInterface/AddOns/ElvUI/Core/Media/ChatLogos/Hibiscus:15:15:0:0:64:64:5:59:5:59|t Simpy',
+	'|TInterface/AddOns/ElvUI/Game/Shared/Media/ChatLogos/Hibiscus:15:15:0:0:64:64:5:59:5:59|t Simpy',
 	'Cara (ptBR)',
 	'nadugi (koKR)',
 }

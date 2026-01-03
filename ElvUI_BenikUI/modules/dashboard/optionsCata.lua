@@ -37,6 +37,7 @@ local dungeonTokens = {
 	752, -- Mogu Rune of Fate (ToT Coinroll)
 	776, -- Warforged Seal (SoO Coinroll)
 	3350, -- August Stone Fragment (Celestial Dungeon Finder)
+	3414, -- August Stone Shard
 }
 
 local pvpTokens = {
