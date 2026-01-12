@@ -110,15 +110,39 @@ BUI.MenuListClassic = {
 	end},
 	{text = HELP_BUTTON, func = function() ToggleHelpFrame() end},
 }
-
+BUI.MenuListTBC = {
+	{text = CHARACTER_BUTTON, func = function() ToggleCharacter("PaperDollFrame") end},
+	{text = SPELLBOOK_ABILITIES_BUTTON, func = function() if not SpellBookFrame:IsShown() then ShowUIPanel(SpellBookFrame) else HideUIPanel(SpellBookFrame) end end},
+	{text = REPUTATION, func = function() ToggleCharacter('ReputationFrame') end},
+	{text = COMMUNITIES_FRAME_TITLE, func = function() ToggleGuildFrame() end},
+	{text = MACROS, func = function() UIParentLoadAddOn("Blizzard_MacroUI") MacroFrame_Show() end},
+	{text = SOCIAL_BUTTON, func = function() ToggleFriendsFrame() end},
+	{text = TALENTS, func = function() _G.ToggleTalentFrame() end},
+	{text = MAINMENU_BUTTON,
+	func = function()
+		if not _G.GameMenuFrame:IsShown() then
+			CloseMenus()
+			CloseAllWindows()
+			PlaySound(850) --IG_MAINMENU_OPEN
+			ShowUIPanel(_G.GameMenuFrame)
+		else
+			PlaySound(854) --IG_MAINMENU_QUIT
+			HideUIPanel(_G.GameMenuFrame)
+			MainMenuMicroButton_SetNormal();
+		end
+	end},
+	{text = HELP_BUTTON, func = function() ToggleHelpFrame() end},
+}
 local function sortFunction(a, b)
 	return a.text < b.text
 end
 
-if not E.Classic then
+if E.Mists then
 	table.sort(BUI.MenuList, sortFunction)
 elseif E.Classic then
 	table.sort(BUI.MenuListClassic, sortFunction)
+elseif E.TBC then
+	table.sort(BUI.MenuListTBC, sortFunction)
 end
 
 local function OnClick(btn)

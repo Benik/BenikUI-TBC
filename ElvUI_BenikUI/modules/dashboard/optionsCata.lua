@@ -152,7 +152,7 @@ local function UpdateProfessionOptions()
 		args = {
 		},
 	}
-	if not E.Classic then
+	if E.Mists then
 		local proftable = { GetProfessions() }
 		for _, id in pairs(proftable) do
 			local pname, icon = GetProfessionInfo(id)
@@ -236,7 +236,7 @@ end
 
 local function UpdateAllDashboards()
 	if E.db.benikui.dashboards.professions.enableProfessions then BUID:UpdateCataProfessionSettings(); end
-	if not E.Classic and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
+	if E.Mists and E.db.benikui.dashboards.tokens.enableTokens then BUID:UpdateTokenSettings(); end
 	if E.db.benikui.dashboards.system.enableSystem then BUID:UpdateSystemSettings(); end
 	if E.db.benikui.dashboards.reputations.enableReputations then BUID:UpdateReputationSettings(); end
 end
@@ -795,7 +795,7 @@ tinsert(BUI.Config, UpdateReputationOptions)
 
 tinsert(BUI.Config, dashboardsTable)
 tinsert(BUI.Config, UpdateSystemOptions)
-if not E.Classic then
+if E.Mists then
 	tinsert(BUI.Config, injectTokenSettings)
 	tinsert(BUI.Config, UpdateTokenOptions)
 end
