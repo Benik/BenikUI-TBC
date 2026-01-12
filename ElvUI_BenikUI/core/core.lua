@@ -44,6 +44,9 @@ local versionString
 if E.Classic then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Classic"
+elseif E.TBC then
+	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
+	versionString = "for TBC"
 elseif E.Cata then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Cataclysm"

@@ -1,7 +1,7 @@
 # BenikUI-TBC
 BenikUI is an external ElvUI mod, adding different frame style and new features like detatched portraits, dashboards and many more, also available for WoW Classic and MoP. 
 
-All game versions require ElvUI v13.93+ installed.
+All game versions require ElvUI v14.05+ installed.
 
 Installation:
 

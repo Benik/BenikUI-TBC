@@ -36,7 +36,7 @@ local function LoadSkin()
 	end
 
 	if db.character then
-		if not E.Classic then
+		if not (E.Classic or E.TBC) then
 			_G.CharacterFrame:BuiStyle("Outside")
 		else
 			_G.CharacterFrame.backdrop:BuiStyle("Outside")
@@ -84,7 +84,7 @@ local function LoadSkin()
 	end
 
 	if db.lfg then
-		if not E.Classic then
+		if E.Mists then
 			_G.PVEFrame:BuiStyle("Outside")
 		end
 	end
@@ -121,7 +121,7 @@ local function LoadSkin()
 
 		_G.BNToastFrame:BuiStyle("Outside")
 		_G.GameMenuFrame:BuiStyle("Outside")
-		if not E.Classic then
+		if E.Mists then
 			_G.QueueStatusFrame:BuiStyle("Outside")
 			_G.ReportFrame:BuiStyle("Outside")
 		end
@@ -165,7 +165,7 @@ local function LoadSkin()
 
 	if db.pvp then
 		_G.PVPReadyDialog:BuiStyle("Outside")
-		if not E.Classic then
+		if E.Mists then
 			_G.PVPFrame:BuiStyle("Outside")
 --			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
 			for i = 1, 2 do
@@ -178,29 +178,29 @@ local function LoadSkin()
 		end
 	end
 	if db.battlefield then
-		if E.Classic then
+		if not E.Mists then
 			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
 		end
 	end
 
 	if db.quest then
-		if not E.Mists then
+		if E.Classic then
 			_G.QuestFrame.backdrop:BuiStyle("Outside")
+			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
+		end
+		if E.TBC then
+			_G.QuestFrame:BuiStyle("Outside")
+			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
 		end
 		if E.Mists then
 			_G.QuestFrame:BuiStyle("Outside")
 			_G.QuestLogFrame:BuiStyle("Outside")
-		end
-		if not E.Mists then
-			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
-		end
-		if not E.Classic then
 			_G.QuestLogDetailFrame.backdrop:BuiStyle("Outside")
 		end
 	end
 
 	if db.stable then
-		if not E.Classic then
+		if E.Mists then
 			_G.PetStableFrame:BuiStyle("Outside")
 		else	
 			_G.PetStableFrame.backdrop:BuiStyle("Outside")
@@ -208,7 +208,7 @@ local function LoadSkin()
 	end
 
 	if db.spellbook then
-		if not E.Classic then
+		if E.Mists then
 			_G.SpellBookFrame:BuiStyle("Outside")
 		else
 			_G.SpellBookFrame.backdrop:BuiStyle("Outside")

@@ -1,8 +1,8 @@
-## Interface: 11508
+## Interface: 20505
 ## Author: Benik
 ## Version: 2.31
-## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bClassic|r
-## Notes: an ElvUI Classic decorative/enhancement edit
+## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bTBC|r
+## Notes: an ElvUI TBC decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
