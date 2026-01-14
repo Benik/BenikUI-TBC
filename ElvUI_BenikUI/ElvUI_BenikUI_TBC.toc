@@ -1,12 +1,12 @@
-## Interface: 50502
+## Interface: 20505
 ## Author: Benik
-## Version: 2.32
-## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bMists|r
-## Notes: an ElvUI Mists of Pandaria decorative/enhancement edit
+## Version: 2.31
+## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bTBC|r
+## Notes: an ElvUI TBC decorative/enhancement edit
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
-## X-ElvuiVersion: 14.06
+## X-ElvuiVersion: 14.05
 ## X-Wago-ID: anKWx3GE
 
 locales\load_locales.xml
@@ -15,4 +15,4 @@ defaults\load_defaults.xml
 init.lua
 core\load_core.xml
 layout\load_layout.xml
-modules\load_modules.xml
+modules\load_modules_classic.xml

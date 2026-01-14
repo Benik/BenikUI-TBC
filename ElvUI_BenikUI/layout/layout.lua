@@ -36,10 +36,12 @@ local Bui_dchat = CreateFrame('Frame', 'BuiDummyChat', E.UIParent, 'BackdropTemp
 local Bui_deb = CreateFrame('Frame', 'BuiDummyEditBoxHolder', E.UIParent, 'BackdropTemplate')
 
 local menuList
-if not E.Classic then
+if E.Mists then
 	menuList = BUI.MenuList
 elseif E.Classic then
 	menuList = BUI.MenuListClassic
+elseif E.TBC then
+	menuList = BUI.MenuListTBC
 end
 
 local menuFrame = CreateFrame('Frame', 'BuiGameClickMenu', E.UIParent)
@@ -458,9 +460,38 @@ end
 tinsert(BUI.Config, InjectMinimapOption)
 
 function mod:CreateMiddlePanel(forceReset)
-	if forceReset and E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"] or not E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"] then
+	if not DT:FetchFrame("BuiMiddleDTPanel") then	
 		DT:BuildPanelFrame("BuiMiddleDTPanel")
+		DT:UpdatePanelInfo('BuiMiddleDTPanel')
+	end
+
+	E.db["datatexts"]["panels"]["BuiMiddleDTPanel"] = E.db["datatexts"]["panels"]["BuiMiddleDTPanel"] or {}
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"] or {}
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipYOffset"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipYOffset"] or 4
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["numPoints"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["numPoints"] or 3
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipAnchor"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipAnchor"] or "ANCHOR_TOPLEFT"
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["width"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["width"] or 416
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["height"] = PANEL_HEIGHT
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipXOffset"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipXOffset"] or 3
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["panelTransparency"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["panelTransparency"] or false
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["benikuiStyle"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["benikuiStyle"] or false
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["textJustify"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["textJustify"] or 'CENTER'
+	E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["growth"] = 'HORIZONTAL'
+
+	if E.db["datatexts"]["panels"]["BuiMiddleDTPanel"][1] == '' and E.db["datatexts"]["panels"]["BuiMiddleDTPanel"][2] == '' and E.db["datatexts"]["panels"]["BuiMiddleDTPanel"][3] == '' then
+		E.db["datatexts"]["panels"]["BuiMiddleDTPanel"] = {
+			[1] = "Haste",
+			[2] = "Mastery",
+			[3] = "Crit",
+			["enable"] = true,
+		}
+	end
+
+	if forceReset then
+		E.db["datatexts"]["panels"]["BuiMiddleDTPanel"] = E.db["datatexts"]["panels"]["BuiMiddleDTPanel"] or {}
 		E.db["datatexts"]["panels"]["BuiMiddleDTPanel"]["enable"] = true
+
+		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"] = E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"] or {}
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["border"] = true
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipYOffset"] = 4
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["numPoints"] = 3
@@ -471,14 +502,8 @@ function mod:CreateMiddlePanel(forceReset)
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["tooltipXOffset"] = 3
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["panelTransparency"] = false
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["benikuiStyle"] = false
+		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["textJustify"] = 'CENTER'
 		E.global["datatexts"]["customPanels"]["BuiMiddleDTPanel"]["growth"] = 'HORIZONTAL'
-
-		E.db["datatexts"]["panels"]["BuiMiddleDTPanel"] = {
-			[1] = "Haste",
-			[2] = "Mastery",
-			[3] = "Crit",
-			["enable"] = true,
-		}
 
 		if E.db["movers"] == nil then E.db["movers"] = {} end
 
@@ -488,6 +513,8 @@ function mod:CreateMiddlePanel(forceReset)
 		dt:SetPoint("CENTER", dt.mover, "CENTER", 0, 0) -- just in case
 		E.db["movers"]["DTPanelBuiMiddleDTPanelMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,2"
 		E:SaveMoverPosition("DTPanelBuiMiddleDTPanelMover")
+
+		DT:BuildPanelFrame('BuiMiddleDTPanel')
 	end
 end
 

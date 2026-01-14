@@ -44,6 +44,9 @@ local versionString
 if E.Classic then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Classic"
+elseif E.TBC then
+	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
+	versionString = "for TBC"
 elseif E.Cata then
 	linkString = 'https://github.com/Benik/BenikUI-TBC/issues'
 	versionString = "for Cataclysm"
@@ -82,6 +85,7 @@ end
 
 function BUI:LuaError(msg)
 	local switch = lower(msg)
+	local bugsack = E.Status_Bugsack
 	if switch == 'on' or switch == '1' then
 		for i=1, GetNumAddOns() do
 			local name = GetAddOnInfo(i)

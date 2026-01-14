@@ -1,3 +1,6 @@
+2.32 - Jan 14, 2026
+Compatible with TBC Anniversary. Credit: Tsxy
+
 2.31 - Nov 7, 2025
 inspect frame
 mailframe
