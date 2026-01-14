@@ -1,6 +1,6 @@
 ## Interface: 20505
 ## Author: Benik
-## Version: 2.31
+## Version: 2.33
 ## Title: |cff1784d1ElvUI|r |cff00c0faBenikUI|r |cfd9b9b9bTBC|r
 ## Notes: an ElvUI TBC decorative/enhancement edit
 ## RequiredDeps: ElvUI
