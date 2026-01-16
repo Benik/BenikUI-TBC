@@ -5,12 +5,12 @@ local LSM = E.Libs.LSM
 local _G = _G
 local pairs, print, tinsert, strjoin, lower, next, wipe = pairs, print, table.insert, strjoin, strlower, next, wipe
 local format = string.format
-local GetAddOnMetadata = C_AddOns.GetAddOnMetadata
 local GetAddOnEnableState = C_AddOns.GetAddOnEnableState
-local DisableAddOn = DisableAddOn
-local EnableAddOn = EnableAddOn
-local GetAddOnInfo = GetAddOnInfo
-local GetNumAddOns = GetNumAddOns
+local GetAddOnMetadata = (C_AddOns and C_AddOns.GetAddOnMetadata) or GetAddOnMetadata
+local DisableAddOn = (C_AddOns and C_AddOns.DisableAddOn) or DisableAddOn
+local EnableAddOn = (C_AddOns and C_AddOns.EnableAddOn) or EnableAddOn
+local GetAddOnInfo = (C_AddOns and C_AddOns.GetAddOnInfo) or GetAddOnInfo
+local GetNumAddOns = (C_AddOns and C_AddOns.GetNumAddOns) or GetNumAddOns
 local ReloadUI = ReloadUI
 local SetCVar = SetCVar
 
