@@ -29,10 +29,12 @@ local UNKNOWN = UNKNOWN
 -- GLOBALS: ObjectiveTrackerFrame, ZoneTextFrame
 
 local menuList
-if not E.Classic then
+if E.Mists then
 	menuList = BUI.MenuList
 elseif E.Classic then
 	menuList = BUI.MenuListClassic
+elseif E.TBC then
+	menuList = BUI.MenuListTBC
 end
 
 local menuFrame = CreateFrame('Frame', 'BuiGameClickMenu', E.UIParent, 'BackdropTemplate')

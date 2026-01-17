@@ -7,6 +7,7 @@
 ## DefaultState: Enabled
 ## OptionalDeps: SharedMedia, AddOnSkins, ProjectAzilroka
 ## X-ElvuiVersion: 14.05
+## IconTexture: Interface\AddOns\ElvUI_BenikUI\media\textures\AddonLogo
 ## X-Wago-ID: anKWx3GE
 
 locales\load_locales.xml
