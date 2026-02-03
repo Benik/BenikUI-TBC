@@ -10,10 +10,10 @@ local CreateFrame = CreateFrame
 function BU:Construct_FocusFrame()
 	local frame = _G["ElvUF_Focus"]
 
---	if not frame.Portrait.backdrop.shadow then
---		frame.Portrait.backdrop:CreateSoftShadow()
---		frame.Portrait.backdrop.shadow:Hide()
---	end
+	if not frame.Portrait.backdrop.shadow then
+		frame.Portrait.backdrop:CreateSoftShadow()
+		frame.Portrait.backdrop.shadow:Hide()
+	end
 
 	local f = CreateFrame("Frame", nil, frame)
 	frame.portraitmover = f
@@ -24,19 +24,19 @@ end
 function BU:ArrangeFocus()
 	local frame = _G["ElvUF_Focus"]
 
---	do
---		frame.PORTRAIT_DETACHED = E.db.benikui.unitframes.focus.detachPortrait
---		frame.PORTRAIT_TRANSPARENCY = E.db.benikui.unitframes.focus.portraitTransparent
---		frame.PORTRAIT_SHADOW = E.db.benikui.unitframes.focus.portraitShadow
---		frame.DETACHED_PORTRAIT_STRATA = E.db.benikui.unitframes.focus.portraitFrameStrata
---		frame.PORTRAIT_BACKDROP = E.db.benikui.unitframes.focus.portraitBackdrop
+	do
+		frame.PORTRAIT_DETACHED = E.db.benikui.unitframes.focus.detachPortrait
+		frame.PORTRAIT_TRANSPARENCY = E.db.benikui.unitframes.focus.portraitTransparent
+		frame.PORTRAIT_SHADOW = E.db.benikui.unitframes.focus.portraitShadow
+		frame.DETACHED_PORTRAIT_STRATA = E.db.benikui.unitframes.focus.portraitFrameStrata
+		frame.PORTRAIT_BACKDROP = E.db.benikui.unitframes.focus.portraitBackdrop
 
---		frame.DETACHED_PORTRAIT_WIDTH = E.db.benikui.unitframes.focus.portraitWidth
---		frame.DETACHED_PORTRAIT_HEIGHT = E.db.benikui.unitframes.focus.portraitHeight	
---	end
+		frame.DETACHED_PORTRAIT_WIDTH = E.db.benikui.unitframes.focus.portraitWidth
+		frame.DETACHED_PORTRAIT_HEIGHT = E.db.benikui.unitframes.focus.portraitHeight	
+	end
 	
 	-- Portrait
---	BU:Configure_Portrait(frame)
+	BU:Configure_Portrait(frame)
 	
 	-- AuraBars shadows
 	BU:Configure_AuraBars(frame)
@@ -50,11 +50,11 @@ function BU:InitFocus()
 	hooksecurefunc(UF, 'Update_FocusFrame', BU.ArrangeFocus)
 
 	-- Needed for some post updates
---	hooksecurefunc(UF, "Configure_Portrait", function(self, frame)
---		local unitframeType = frame.unitframeType
---
---		if unitframeType == "focus" then
---			BU:Configure_Portrait(frame, false)
---		end
---	end)
+	hooksecurefunc(UF, "Configure_Portrait", function(self, frame)
+		local unitframeType = frame.unitframeType
+
+		if unitframeType == "focus" then
+			BU:Configure_Portrait(frame, false)
+		end
+	end)
 end
