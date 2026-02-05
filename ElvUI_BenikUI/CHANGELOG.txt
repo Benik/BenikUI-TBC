@@ -1,3 +1,9 @@
+2.40 - Feb 05, 2026
+portraits. Credit: Tsxy
+fix error in threat bar/targetglow. Credit: Tsxy
+add icon to toc. Credit: Tsxy
+fix buierror. Credit: Tsxy
+
 2.33 - Jan 14, 2026
 toc fixes
 
