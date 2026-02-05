@@ -49,7 +49,7 @@ function BU:RecolorTargetDetachedPortraitStyle()
 		if frame.USE_PORTRAIT and portrait.backdrop.style and E.db.benikui.unitframes.target.portraitStyle then
 			local maxValue = UnitPowerMax("target")
 			local _, _, altR, altG, altB = UnitPowerType("target")
-			local mu = power.BG.multiplier or 1
+			local mu = power.bg.multiplier or 1
 			local isPlayer = UnitIsPlayer("target")
 			local classColor = (CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[targetClass] or RAID_CLASS_COLORS[targetClass])
 
