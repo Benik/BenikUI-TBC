@@ -11,6 +11,7 @@ local DisableAddOn = (C_AddOns and C_AddOns.DisableAddOn) or DisableAddOn
 local EnableAddOn = (C_AddOns and C_AddOns.EnableAddOn) or EnableAddOn
 local GetAddOnInfo = (C_AddOns and C_AddOns.GetAddOnInfo) or GetAddOnInfo
 local GetNumAddOns = (C_AddOns and C_AddOns.GetNumAddOns) or GetNumAddOns
+local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
 local ReloadUI = ReloadUI
 local SetCVar = SetCVar
 
@@ -25,8 +26,8 @@ BUI.ShadowMode = false;
 BUI.AddonProfileKey = '';
 BINDING_HEADER_BENIKUI = BUI.Title
 
-function BUI:IsAddOnEnabled(addon) -- Credit: Azilroka
-	return C_AddOns.GetAddOnEnableState(addon, E.myguid) == 2
+function BUI:IsAddOnEnabled(addon)
+	return IsAddOnLoaded(addon)
 end
 
 -- Check other addons

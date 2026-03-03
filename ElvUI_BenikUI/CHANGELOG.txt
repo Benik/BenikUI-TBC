@@ -1,3 +1,6 @@
+2.41 - Mar 03, 2026
+Check if out of date addons are actually loaded. Credit: Tsxy
+
 2.40 - Feb 05, 2026
 portraits. Credit: Tsxy
 fix error in threat bar/targetglow. Credit: Tsxy
