@@ -2,6 +2,7 @@ local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Dashboards');
 local DT = E:GetModule('DataTexts');
 local DB = E:GetModule('DataBars');
+local ElvUF = E.oUF
 local LSM = E.Libs.LSM
 
 local _G = _G
@@ -107,7 +108,7 @@ function mod:UpdateReputations()
 					bar.Status:SetValue(barValue)
 
 					standingLabel = _G['FACTION_STANDING_LABEL'..standingID]
-					local color = _G.FACTION_BAR_COLORS[standingID]
+					local color = ElvUF.colors.reaction[standingID]
 					local hexColor = E:RGBToHex(color.r, color.g, color.b)
 
 					if E.db.benikui.dashboards.dashfont.useDTfont then
@@ -145,9 +146,9 @@ function mod:UpdateReputations()
 
 					bar:SetScript('OnEnter', function(self)
 						if isCapped then
-							self.Text:SetFormattedText('%s(%s)|r', hexColor, isFriend and friendText or standingLabel)
+							self.Text:SetFormattedText('%s(%s)|r', hexColor, standingLabel)
 						else
-							self.Text:SetFormattedText('%s / %s %s(%s)|r', BreakUpLargeNumbers(barValue), BreakUpLargeNumbers(barMax), hexColor, isFriend and friendText or standingLabel)
+							self.Text:SetFormattedText('%s / %s %s(%s)|r', BreakUpLargeNumbers(barValue), BreakUpLargeNumbers(barMax), hexColor, standingLabel)
 						end
 
 						if db.mouseover then
@@ -155,18 +156,18 @@ function mod:UpdateReputations()
 						end
 
 						if db.tooltip then
-							_G.GameTooltip:SetOwner(self, 'ANCHOR_RIGHT', 3, 0);
-							_G.GameTooltip:AddLine(name)
-							_G.GameTooltip:AddLine(' ')
-							_G.GameTooltip:AddDoubleLine(STANDING..':', format('%s%s|r', hexColor, standingLabel), 1, 1, 1)
+							GameTooltip:SetOwner(self, 'ANCHOR_RIGHT', 3, 0);
+							GameTooltip:AddLine(name)
+							GameTooltip:AddLine(' ')
+							GameTooltip:AddDoubleLine(STANDING..':', format('%s%s|r', hexColor, standingLabel), 1, 1, 1)
 
 							if standingID ~= _G.MAX_REPUTATION_REACTION then
-								_G.GameTooltip:AddDoubleLine(REPUTATION..':', format('%d / %d (%d%%)', barValue - barMin, barMax - barMin, (barValue - barMin) / ((barMax - barMin == 0) and barMax or (barMax - barMin)) * 100), 1, 1, 1)
+								GameTooltip:AddDoubleLine(REPUTATION..':', format('%d / %d (%d%%)', barValue - barMin, barMax - barMin, (barValue - barMin) / ((barMax - barMin == 0) and barMax or (barMax - barMin)) * 100), 1, 1, 1)
 							end
 
-							_G.GameTooltip:AddLine(' ')
-							_G.GameTooltip:AddDoubleLine(L['Shift+RightClick to remove'], format('|cffff0000%s |r%s','ID', factionID), 0.7, 0.7, 1)
-							_G.GameTooltip:Show()
+							GameTooltip:AddLine(' ')
+							GameTooltip:AddDoubleLine(L['Shift+RightClick to remove'], format('|cffff0000%s |r%s','ID', factionID), 0.7, 0.7, 1)
+							GameTooltip:Show()
 						end
 					end)
 
@@ -176,7 +177,7 @@ function mod:UpdateReputations()
 						else
 							self.Text:SetFormattedText('%s: %d%%|r', name, ((barValue - barMin) / (maxMinDiff) * 100))
 						end
-						if db.tooltip then _G.GameTooltip:Hide() end
+						if db.tooltip then GameTooltip:Hide() end
 
 						if db.mouseover then
 							E:UIFrameFadeOut(holder, 0.2, holder:GetAlpha(), 0)
