@@ -108,7 +108,8 @@ function mod:UpdateReputations()
 					bar.Status:SetValue(barValue)
 
 					standingLabel = _G['FACTION_STANDING_LABEL'..standingID]
-					local color = ElvUF.colors.reaction[standingID]
+					local customColors = DB.db.colors.useCustomFactionColors
+					local color = customColors and DB.db.colors.factionColors[standingID] or ElvUF.colors.reaction[standingID]
 					local hexColor = E:RGBToHex(color.r, color.g, color.b)
 
 					if E.db.benikui.dashboards.dashfont.useDTfont then
