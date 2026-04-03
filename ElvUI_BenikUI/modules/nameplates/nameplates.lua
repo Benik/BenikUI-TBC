@@ -21,7 +21,7 @@ function mod:NameplateShadows(nameplate)
 end
 
 function mod:Initialize()
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 	hooksecurefunc(NP, 'StylePlate', mod.NameplateShadows)
 end
 

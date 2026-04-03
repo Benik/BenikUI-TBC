@@ -86,7 +86,7 @@ function mod:CreatePanel()
 			panel:SetTemplate('Transparent')
 			panel:Point('CENTER', E.UIParent, 'CENTER', -600, 0)
 			panel:BuiStyle('Outside', false, true, true)
-			if BUI.ShadowMode then panel:CreateSoftShadow() end
+			if E.db.benikui.general.shadows then panel:CreateSoftShadow() end
 			panel:SetScript("OnEnter", OnEnter)
 			panel:SetScript("OnLeave", OnLeave)
 
@@ -200,7 +200,7 @@ function mod:SetupPanels()
 				_G[panel]:SetTemplate("Default", true)
 			end
 
-			if BUI.ShadowMode then
+			if E.db.benikui.general.shadows then
 				_G[panel].shadow:SetShown(db.shadow)
 				_G[panel].style.styleShadow:SetShown(db.shadow)
 			end
@@ -211,12 +211,12 @@ function mod:SetupPanels()
 
 				if db.stylePosition == 'BOTTOM' then
 					_G[panel].style:ClearAllPoints()
-					if BUI.ShadowMode then _G[panel].style.styleShadow:Hide() end
+					if E.db.benikui.general.shadows then _G[panel].style.styleShadow:Hide() end
 					_G[panel].style:Point('TOPRIGHT', _G[panel], 'BOTTOMRIGHT', 0, (E.PixelMode and 5 or 7))
 					_G[panel].style:Point('BOTTOMLEFT', _G[panel], 'BOTTOMLEFT', 0, (E.PixelMode and 0 or 1))
 				else
 					_G[panel].style:ClearAllPoints()
-					if BUI.ShadowMode and db.shadow then _G[panel].style.styleShadow:Show() end
+					if E.db.benikui.general.shadows and db.shadow then _G[panel].style.styleShadow:Show() end
 					_G[panel].style:Point('TOPLEFT', _G[panel], 'TOPLEFT', 0, (E.PixelMode and 4 or 7))
 					_G[panel].style:Point('BOTTOMRIGHT', _G[panel], 'TOPRIGHT', 0, (E.PixelMode and -1 or 1))
 				end

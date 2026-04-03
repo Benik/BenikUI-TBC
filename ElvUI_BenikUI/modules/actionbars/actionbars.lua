@@ -26,7 +26,7 @@ function mod:StyleBackdrops()
 		if bar then
 			bar.backdrop:BuiStyle('Outside', nil, true, true)
 
-			if BUI.ShadowMode and not MasqueGroup then
+			if E.db.benikui.general.shadows and not MasqueGroup then
 				for _, button in ipairs(bar.buttons) do
 					if button then
 						button:CreateSoftShadow()
@@ -121,7 +121,7 @@ function mod:PetShadows()
 		local petButtons = {_G['PetActionButton'..i]}
 		for _, button in pairs(petButtons) do
 			if button.backdrop then
-				if BUI.ShadowMode and not MasqueGroup then
+				if E.db.benikui.general.shadows and not MasqueGroup then
 					if not button.backdrop.shadow then
 						button.backdrop:CreateSoftShadow()
 					end
@@ -134,7 +134,7 @@ end
 function mod:StancebarShadows()
 	for i = 1, MAX_STANCES do
 		local button = _G['ElvUI_StanceBarButton'..i]
-		if BUI.ShadowMode and not MasqueGroup then
+		if E.db.benikui.general.shadows and not MasqueGroup then
 			if button and not button.shadow then
 				button:CreateSoftShadow()
 			end
@@ -143,7 +143,7 @@ function mod:StancebarShadows()
 end
 
 function mod:TotemShadows()
-	if not BUI.ShadowMode or MasqueGroup then return end
+	if not E.db.benikui.general.shadows or MasqueGroup then return end
 
 	for i=1, MAX_TOTEMS do
 		local button = _G["ElvUI_TotemBarTotem"..i];

@@ -15,7 +15,7 @@ local headers = {
 }
 
 local function ObjectiveTrackerShadows()
-	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.objectiveTracker ~= true or not BUI.ShadowMode then return end
+	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.objectiveTracker ~= true or not E.db.benikui.general.shadows then return end
 
 	_G.ObjectiveTrackerFrame.HeaderMenu.MinimizeButton:CreateSoftShadow()
 	_G.ObjectiveTrackerFrame.HeaderMenu.MinimizeButton.shadow:SetOutside()

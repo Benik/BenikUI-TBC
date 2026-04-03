@@ -20,7 +20,7 @@ function BU:Construct_PlayerFrame()
 		frame.Portrait.backdrop.style:Hide()
 	end
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.shadows then
 		frame.Power.backdrop:CreateSoftShadow()
 		frame.Power.backdrop.shadow:Hide()
 	end

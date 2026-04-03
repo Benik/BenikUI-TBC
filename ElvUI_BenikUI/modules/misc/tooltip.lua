@@ -161,7 +161,7 @@ function mod:SetupStyleAndShadow(tt)
 		end
 	end
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.shadows then
 		if not tt.StatusBar.backdrop.shadow then
 			tt.StatusBar.backdrop:CreateSoftShadow()
 		end

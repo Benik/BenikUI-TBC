@@ -73,7 +73,7 @@ local function RXPGuides()
 	ScrollFrame:SetPoint("TOPLEFT", BottomFrame, 2, -3)
 	ScrollFrame:SetPoint("BOTTOMRIGHT", BottomFrame, -20, 5)
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.shadows then
 		local shadows = {GuideName, BottomFrame, Footer}
 		for _, frame in pairs(shadows) do
 			frame:CreateSoftShadow()
@@ -87,7 +87,7 @@ local function RXPGuides()
 			S:HandleFrame(ItemFrame)
 			S:HandleFrame(ItemFrame.title, false, 'Default')
 
-			if BUI.ShadowMode then
+			if E.db.benikui.general.shadows then
 				ItemFrame:CreateSoftShadow()
 				ItemFrame.title:CreateSoftShadow()
 			end
@@ -107,7 +107,7 @@ local function RXPGuides()
 				S:HandleFrame(stepframe)
 				S:HandleFrame(stepframe.number, false, 'Default')
 
-				if BUI.ShadowMode then
+				if E.db.benikui.general.shadows then
 					stepframe:CreateSoftShadow()
 					stepframe.number:CreateSoftShadow()
 				end

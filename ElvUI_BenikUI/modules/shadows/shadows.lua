@@ -55,7 +55,7 @@ end
 
 -- ElvUI tabs
 function mod:TabShadows(tab)
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 	if not tab then return end
 
 	if tab.backdrop then
@@ -67,7 +67,7 @@ hooksecurefunc(S, "HandleTab", mod.TabShadows)
 
 -- ElvUI item buttons
 function mod:ItemButtonShadows(button)
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 	if not button then return end
 	if Baganator then return end
 
@@ -171,7 +171,7 @@ function mod:ChatBubbles(frame, holder)
 end
 
 function mod:Initialize()
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 
 	raidUtilityShadows()
 	mirrorTimersShadows()

@@ -198,7 +198,7 @@ function mod:Setup()
 
 	mod:Configure_RoleIcons()
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.shadows then
 		mod:UnitShadows()
 		mod:PartyShadows()
 		mod:RaidShadows()
