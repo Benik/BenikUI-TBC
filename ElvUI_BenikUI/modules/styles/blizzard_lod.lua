@@ -118,7 +118,7 @@ local function style_AzeriteRespecUI()
 	frame.ButtonFrame.AzeriteRespecButton:ClearAllPoints()
 	frame.ButtonFrame.AzeriteRespecButton:Point("TOP", frame.ItemSlot, "BOTTOM", 0, -20)
 end
-S:AddCallbackForAddon("Blizzard_AzeriteRespecUI", "BenikUI_AzeriteRespecUI", style_AzeriteRespecUI)
+S:AddCallbackForAddon("Blizzard_AzeriteRespecUI", "BenikUI_AzeriteRespecUI", style_AzeriteRespecUI)]]--
 
 -- ReforgingFrame
 local function style_ReforgingUI()
@@ -130,7 +130,7 @@ local function style_ReforgingUI()
 
 	_G.ReforgingFrame:BuiStyle("Outside")
 end
-S:AddCallbackForAddon("Blizzard_ReforgingUI", "BenikUI_ReforgingUI", style_ReforgingUI)]]--
+S:AddCallbackForAddon("Blizzard_ReforgingUI", "BenikUI_ReforgingUI", style_ReforgingUI)
 
 -- BarberShop
 local function style_BarberShop()
@@ -951,6 +951,18 @@ local function style_TrainerUI()
 	_G.ClassTrainerFrame.backdrop:BuiStyle("Outside")
 end
 S:AddCallbackForAddon("Blizzard_TrainerUI", "BenikUI_TrainerUI", style_TrainerUI)
+
+-- Transmog
+local function style_Transmog()
+	if E.private.skins.blizzard.transmogrify ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+
+	_G.TransmogFrame:BuiStyle("Outside")
+end
+S:AddCallbackForAddon("Blizzard_Transmog", "BenikUI_Transmog", style_Transmog)
 
 -- VoidStorageUI Seems this won't be in mop, and probably never as it's gone in Retail.
 --[[local function style_VoidStorageUI()

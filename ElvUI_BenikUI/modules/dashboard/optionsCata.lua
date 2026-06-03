@@ -36,8 +36,10 @@ local dungeonTokens = {
 	697, -- Elder Charm of Good Fortune (msv/hof/toes Coinroll)
 	752, -- Mogu Rune of Fate (ToT Coinroll)
 	776, -- Warforged Seal (SoO Coinroll)
-	3350, -- August Stone Fragment (Celestial Dungeon Finder)
-	3414, -- August Stone Shard
+	3350, -- August Stone Fragment (MsV/HoF/ToES + Celestial Dungeon Finder)
+	3414, -- August Stone Shard (ToT Raid + Celestial Dungeon Finder)
+	3416, -- August Stone Cluster (SoO Raid + Celestial Dungeon Finder)
+	3407, -- Platinum Coins (CM)
 }
 
 local pvpTokens = {
