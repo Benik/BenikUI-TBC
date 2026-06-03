@@ -2,6 +2,9 @@ local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Shadows')
 local S = E:GetModule('Skins')
 local M = E:GetModule('Misc')
+local B = E:GetModule('Blizzard')
+local AB = E:GetModule('ActionBars')
+
 
 local _G = _G
 
@@ -80,9 +83,9 @@ hooksecurefunc(S, "HandleItemButton", mod.ItemButtonShadows)
 
 -- MicroBar
 local function MicroBarShadows()
-	for i=1, #MICRO_BUTTONS do
-		if _G[MICRO_BUTTONS[i]].backdrop then
-			_G[MICRO_BUTTONS[i]].backdrop:CreateSoftShadow()
+	for _, x in pairs(AB.MICRO_BUTTONS) do
+		if _G[x] then
+			_G[x]:CreateSoftShadow()
 		end
 	end
 end
