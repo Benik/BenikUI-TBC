@@ -79,7 +79,7 @@ function mod:ItemButtonShadows(button)
 		button.backdrop:CreateSoftShadow()
 	end
 end
-hooksecurefunc(S, "HandleItemButton", mod.ItemButtonShadows)
+--hooksecurefunc(S, "HandleItemButton", mod.ItemButtonShadows) --maybe borked?
 
 -- MicroBar
 local function MicroBarShadows()
