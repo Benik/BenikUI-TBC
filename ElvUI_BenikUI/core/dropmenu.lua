@@ -55,7 +55,7 @@ BUI.MenuList = {
 	{text = ENCOUNTER_JOURNAL, func = function() if not IsAddOnLoaded('Blizzard_EncounterJournal') then EncounterJournal_LoadUI() end ToggleFrame(_G.EncounterJournal) end},
 	{text = REPUTATION, func = function() ToggleCharacter('ReputationFrame') end},
 	{text = COMMUNITIES_FRAME_TITLE, func = function() ToggleGuildFrame() end},
-	{text = MACROS, func = function() GameMenuButtonMacros:Click() end},
+	{text = MACROS, func = function() UIParentLoadAddOn("Blizzard_MacroUI") MacroFrame_Show() end},
 	{text = TIMEMANAGER_TITLE, func = function() ToggleFrame(TimeManagerFrame) end},
 	{text = SOCIAL_BUTTON, func = function() ToggleFriendsFrame() end},
 	{text = LFG_TITLE, func = function() PVEFrame_ToggleFrame('GroupFinderFrame', _G.LFDParentFrame); end},
