@@ -28,7 +28,7 @@ BINDING_HEADER_BENIKUI = BUI.Title
 
 local function IsAddonIncompatible(addon)
 	local loadable, reason = IsAddOnLoadable(addon)
-	return loadable == false and reason == "INCOMPATIBLE"
+	return loadable == false and reason == "INCOMPATIBLE" or "MISSING"
 end
 
 function BUI:IsAddOnEnabled(addon) -- Credit: Azilroka
