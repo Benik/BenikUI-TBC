@@ -86,6 +86,7 @@ local function LoadSkin()
 	if db.lfg then
 		if E.Mists then
 			_G.PVEFrame:BuiStyle("Outside")
+			_G.LFGDungeonReadyDialog:BuiStyle("Outside")
 		end
 	end
 
