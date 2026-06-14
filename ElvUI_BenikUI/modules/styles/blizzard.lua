@@ -35,6 +35,10 @@ local function LoadSkin()
 		end
 	end
 
+	if db.catalogShop then
+		_G.CatalogShopFrame:BuiStyle("Outside")
+	end
+
 	if db.character then
 		if not (E.Classic or E.TBC) then
 			_G.CharacterFrame:BuiStyle("Outside")
