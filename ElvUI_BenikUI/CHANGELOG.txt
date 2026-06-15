@@ -1,3 +1,10 @@
+2.43 - Jun 15, 2026
+add shop decor (Credit: Tsxy)
+fix shadows (Credit: Tsxy)
+Update core.lua (Credit: Tsxy)
+fix incompat check (Credit: Tsxy)
+fix locplus styling (Credit: Tsxy)
+
 2.42 - Jun 08, 2026
 Update dropmenu.lua (Credit: Tsxy)
 fix macromenu link (Credit: Tsxy)
