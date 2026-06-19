@@ -99,6 +99,7 @@ function mod:UpdateCataProfessions()
 						displayString = format('%s: %s / %s', name, rank, maxRank)
 					end
 
+					bar.Text:SetJustifyH('CENTER')
 					bar.Text:SetText(displayString)
 					bar.Text:SetTextColor(TextColor.r, TextColor.g, TextColor.b)
 					bar.IconBG.Icon:SetTexture(icon)
