@@ -200,11 +200,6 @@ function mod:SetupPanels()
 				_G[panel]:SetTemplate("Default", true)
 			end
 
-			if E.db.benikui.general.shadows then
-				_G[panel].shadow:SetShown(db.shadow)
-				_G[panel].style.styleShadow:SetShown(db.shadow)
-			end
-
 			if _G[panel].style then
 				local r, g, b
 				_G[panel].style:SetShown(db.style)
@@ -231,6 +226,11 @@ function mod:SetupPanels()
 					r, g, b = BUI:unpackColor(E.db.general.backdropcolor)
 				end
 				_G[panel].style:SetBackdropColor(r, g, b, E.db.benikui.colors.styleAlpha or 1)
+
+				if E.db.benikui.general.shadows then
+					_G[panel].shadow:SetShown(db.shadow)
+					_G[panel].style.styleShadow:SetShown(db.shadow)
+				end
 			end
 		end
 	end
