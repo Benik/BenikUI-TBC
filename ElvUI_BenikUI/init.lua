@@ -69,13 +69,17 @@ function BUI:Init()
 		E:Delay(2, function() E:StaticPopup_Show("BENIKUI_VERSION_MISMATCH") end)
 		return
 	end
+
+	E.data:RegisterDefaults(E.DF)
+	E.charSettings:RegisterDefaults(E.privateVars)
+	
 	self.initialized = true
 	self:Initialize()
 	self:InitializeModules()
 	EP:RegisterPlugin(addon, self.AddOptions)
 end
 
-E.Libs.EP:HookInitialize(BUI, BUI.Init)
+--E.Libs.EP:HookInitialize(BUI, BUI.Init)
 
 --Version check
 E.PopupDialogs["BENIKUI_VERSION_MISMATCH"] = {
@@ -114,3 +118,7 @@ E.PopupDialogs["BENIKUI_VERSION_MISMATCH"] = {
 		self:ClearFocus()
 	end,
 }
+
+function BUI:OnInitialize()
+	BUI:Init()
+end
