@@ -443,7 +443,7 @@ function mod:CreateLayout()
 
 	if CopyChatFrame then CopyChatFrame:BuiStyle('Outside') end
 
-	self:ToggleTransparency()
+	mod:ToggleTransparency()
 end
 
 -- Add minimap styling option in ElvUI minimap options
@@ -525,22 +525,11 @@ function mod:ToggleMinimapStyle()
 	end
 end
 
-function mod:regEvents()
-	mod:ToggleTransparency()
-end
-
 function mod:LoadDataTexts(...)
 	DT:UpdatePanelInfo('BuiLeftChatDTPanel')
 	DT:UpdatePanelInfo('BuiRightChatDTPanel')
 	DT:UpdatePanelInfo('BuiMiddleDTPanel')
 	updateButtonFont()
-end
-
-function mod:PLAYER_ENTERING_WORLD(...)
-	mod:ToggleBuiDts()
-	mod:regEvents()
-
-	mod:UnregisterEvent("PLAYER_ENTERING_WORLD")
 end
 
 local function InjectDatatextOptions()
@@ -561,6 +550,9 @@ function mod:PLAYER_LOGIN()
 	mod:CreateLayout()
 	mod:CreateMiddlePanel()
 	mod:ToggleMinimapStyle()
+	mod:ToggleBuiDts()
+	mod:ToggleTransparency()
+
 	C_TimerAfter(0.5, mod.ChatStyles)
 	tinsert(BUI.Config, InjectDatatextOptions)
 
@@ -575,7 +567,6 @@ end
 
 function mod:Initialize()
 	mod:RegisterEvent('PLAYER_LOGIN')
-	mod:RegisterEvent('PLAYER_ENTERING_WORLD')
 end
 
 BUI:RegisterModule(mod:GetName())
