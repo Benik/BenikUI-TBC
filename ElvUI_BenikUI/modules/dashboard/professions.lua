@@ -1,7 +1,6 @@
 local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Dashboards');
 local DT = E:GetModule('DataTexts');
-local LSM = E.Libs.LSM
 
 local getn = getn
 local pairs, ipairs = pairs, ipairs
@@ -89,7 +88,7 @@ function mod:UpdateProfessions()
 						bar.Status:SetStatusBarColor(E.db.benikui.dashboards.customBarColor.r, E.db.benikui.dashboards.customBarColor.g, E.db.benikui.dashboards.customBarColor.b)
 					end
 
-					bar.Text:FontTemplate(LSM:Fetch('font', E.db.benikui.dashboards.dashfont.dbfont), E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
+					bar.Text:FontTemplate(E.db.benikui.dashboards.dashfont.dbfont, E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
 
 					if (skillModifier and skillModifier > 0) then
 						bar.Text:SetFormattedText('%s: %s |cFF6b8df4+%s|r / %s', skillName, skillRank, skillModifier, skillMaxRank)

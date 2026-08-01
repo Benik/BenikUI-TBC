@@ -79,7 +79,7 @@ local function BuiStyle(f, template, name, ignoreColor, ignoreVisibility)
 	if not template then
 		style:CreateBackdrop('Transparent', true)
 	else
-		style:SetTemplate('Transparent', true)
+		style:SetTemplate('Transparent')
 	end
 
 	if style.eltruismbgtexture then style.eltruismbgtexture:Hide() end --Hide Eltruism's Skin if it exists
