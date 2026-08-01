@@ -3,7 +3,6 @@ local mod = BUI:GetModule('Layout')
 local LO = E:GetModule('Layout')
 local DT = E:GetModule('DataTexts')
 local M = E:GetModule('Minimap')
-local LSM = E.Libs.LSM
 
 local _G = _G
 local unpack = unpack
@@ -202,7 +201,7 @@ local function updateButtonFont()
 	for panelName, panel in pairs(dts) do
 		for i = 1, panel.numPoints do
 			if panel.dataPanels[i] then
-				panel.dataPanels[i].text:FontTemplate(LSM:Fetch('font', db.font), db.fontSize, db.fontOutline)
+				panel.dataPanels[i].text:FontTemplate(db.font, db.fontSize, db.fontOutline)
 			end
 		end
 		DT:UpdatePanelInfo(panelName, panel)
@@ -558,7 +557,7 @@ local function InjectDatatextOptions()
 	E.Options.args.datatexts.args.panels.args.BuiMiddleDTPanel.args.panelOptions.args.growth.hidden = true
 end
 
-function mod:Initialize()
+function mod:PLAYER_LOGIN()
 	mod:CreateLayout()
 	mod:CreateMiddlePanel()
 	mod:ToggleMinimapStyle()
@@ -572,7 +571,10 @@ function mod:Initialize()
 	hooksecurefunc(DT, 'UpdatePanelInfo', mod.ToggleTransparency)
 	hooksecurefunc(DT, 'LoadDataTexts', mod.LoadDataTexts)
 	hooksecurefunc(E, 'UpdateMedia', updateButtons)
+end
 
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 	mod:RegisterEvent('PLAYER_ENTERING_WORLD')
 end
 

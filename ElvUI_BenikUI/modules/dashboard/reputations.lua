@@ -3,7 +3,6 @@ local mod = BUI:GetModule('Dashboards');
 local DT = E:GetModule('DataTexts');
 local DB = E:GetModule('DataBars');
 local ElvUF = E.oUF
-local LSM = E.Libs.LSM
 
 local _G = _G
 local getn = getn
@@ -113,9 +112,9 @@ function mod:UpdateReputations()
 					local hexColor = E:RGBToHex(color.r, color.g, color.b)
 
 					if E.db.benikui.dashboards.dashfont.useDTfont then
-						bar.Text:FontTemplate(LSM:Fetch('font', E.db.datatexts.font), E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
+						bar.Text:FontTemplate(E.db.datatexts.font, E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
 					else
-						bar.Text:FontTemplate(LSM:Fetch('font', E.db.benikui.dashboards.dashfont.dbfont), E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
+						bar.Text:FontTemplate(E.db.benikui.dashboards.dashfont.dbfont, E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
 					end
 
 					if not db.barFactionColors then
@@ -143,7 +142,7 @@ function mod:UpdateReputations()
 					bar.Text:Point(db.textAlign, bar, db.textAlign, ((db.textAlign == 'LEFT' and 4) or (db.textAlign == 'CENTER' and 0) or (db.textAlign == 'RIGHT' and -2)), (E.PixelMode and 1 or 3))
 					bar.Text:SetJustifyH(db.textAlign)
 
-					bar.Text:FontTemplate(LSM:Fetch('font', E.db.benikui.dashboards.dashfont.dbfont), E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
+					bar.Text:FontTemplate(E.db.benikui.dashboards.dashfont.dbfont, E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
 
 					bar:SetScript('OnEnter', function(self)
 						if isCapped then

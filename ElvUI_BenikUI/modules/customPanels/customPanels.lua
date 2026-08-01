@@ -161,9 +161,9 @@ function mod:UpdatePanelTitle()
 			
 			-- Fonts
 			if db.useDTfont then
-				_G[panel].titleText:FontTemplate(LSM:Fetch('font', E.db.datatexts.font), E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
+				_G[panel].titleText:FontTemplate(E.db.datatexts.font, E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
 			else
-				_G[panel].titleText:FontTemplate(LSM:Fetch('font', db.font), db.fontsize, db.fontflags)
+				_G[panel].titleText:FontTemplate(db.font, db.fontsize, db.fontflags)
 			end
 			
 			_G[panel].titleText:SetTextColor(BUI:unpackColor(db.fontColor))
