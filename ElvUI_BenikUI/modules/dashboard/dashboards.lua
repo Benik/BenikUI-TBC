@@ -219,7 +219,7 @@ function mod:CreateDashboard(barHolder, option, hasIcon, isRep)
 	return bar
 end
 
-function mod:Initialize()
+function mod:Init()
 	mod:LoadSystem()
 	mod:LoadReputations()
 	if E.Mists then
@@ -228,6 +228,14 @@ function mod:Initialize()
 	else
 		mod:LoadProfessions()
 	end
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())
