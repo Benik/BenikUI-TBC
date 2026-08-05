@@ -292,10 +292,20 @@ function mod:UpdatePanels()
 	mod:UpdatePanelTitle()
 end
 
-function mod:Initialize()
+function mod:Init()
 	mod:UpdatePanels()
 	mod:RegisterEvent("PLAYER_REGEN_DISABLED", "OnEvent")
 	mod:RegisterEvent("PLAYER_REGEN_ENABLED", "OnEvent")
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

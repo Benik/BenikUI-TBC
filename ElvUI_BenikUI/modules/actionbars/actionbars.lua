@@ -170,7 +170,7 @@ local function VehicleExit()
 	f:GetPushedTexture():SetTexCoord(0, 1, 0, 1)
 end
 
-function mod:Initialize()
+function mod:Init()
 	C_TimerAfter(1, mod.StyleBackdrops)
 	C_TimerAfter(1, mod.PetShadows)
 	C_TimerAfter(2, mod.StyleColor)
@@ -181,6 +181,16 @@ function mod:Initialize()
 	VehicleExit()
 
 	hooksecurefunc(BUI, "SetupColorThemes", mod.StyleColor)
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

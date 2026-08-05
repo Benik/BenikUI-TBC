@@ -20,7 +20,7 @@ BUI.Eversion = tonumber(E.version)
 BUI.Erelease = tonumber(GetAddOnMetadata("ElvUI_BenikUI", "X-ElvuiVersion"))
 
 BUI.Actionbars = BUI:NewModule('Actionbars', 'AceEvent-3.0')
-BUI.Bags = BUI:NewModule('Bags', 'AceHook-3.0')
+BUI.Bags = BUI:NewModule('Bags', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.Chat = BUI:NewModule('Chat', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.CustomPanels = BUI:NewModule('CustomPanels', 'AceEvent-3.0')
 BUI.Dashboards = BUI:NewModule('Dashboards', 'AceEvent-3.0', 'AceHook-3.0')
@@ -28,11 +28,11 @@ BUI.Databars = BUI:NewModule('Databars', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.DataTexts = BUI:NewModule('DataTexts', 'AceEvent-3.0')
 BUI.FlightMode = BUI:NewModule('FlightMode', 'AceHook-3.0', 'AceTimer-3.0', 'AceEvent-3.0')
 BUI.Layout = BUI:NewModule('Layout', 'AceHook-3.0', 'AceEvent-3.0')
-BUI.Nameplates = BUI:NewModule('Nameplates', 'AceHook-3.0')
+BUI.Nameplates = BUI:NewModule('Nameplates', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.Shadows = BUI:NewModule('Shadows', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.Skins = BUI:NewModule('Skins', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.Styles = BUI:NewModule('Styles', 'AceHook-3.0', 'AceEvent-3.0')
-BUI.Tooltip = BUI:NewModule('Tooltip', 'AceHook-3.0')
+BUI.Tooltip = BUI:NewModule('Tooltip', 'AceHook-3.0', 'AceEvent-3.0')
 BUI.Units = BUI:NewModule('Units', 'AceHook-3.0', 'AceEvent-3.0', 'AceTimer-3.0')
 
 function BUI:RegisterModule(name)
@@ -63,6 +63,10 @@ function BUI:AddOptions()
 	end
 end
 
+function BUI:PLAYER_LOGIN()
+	self:Initialize()
+end
+
 function BUI:Init()
 	--ElvUI's version check
 	if BUI.Eversion < 1 or (BUI.Eversion < BUI.Erelease) then
@@ -70,17 +74,16 @@ function BUI:Init()
 		return
 	end
 
-	-- Copied from Mera <3
-	for _, data in next, { { E.db, P.benikui }, { E.global, G.benikui }, { E.private, V.benikui } } do
-		local target, defaults = data[1], data[2]
-		if target and defaults then
-			target.benikui = E:CopyTable(target.benikui, defaults, true)
-		end
-	end
+--	-- Copied from Mera <3
+--	for _, data in next, { { E.db, P.benikui }, { E.global, G.benikui }, { E.private, V.benikui } } do
+--		local target, defaults = data[1], data[2]
+--		if target and defaults then
+--			target.benikui = E:CopyTable(target.benikui, defaults, true)
+--		end
+--	end
 	
-	self.initialized = true
-	self:Initialize()
 	self:InitializeModules()
+	self:RegisterEvent('PLAYER_LOGIN')
 	EP:RegisterPlugin(addon, self.AddOptions)
 end
 

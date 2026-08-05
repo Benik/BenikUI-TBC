@@ -120,13 +120,23 @@ function mod:StyleBar(bar, onClick)
 	bar.holder:BuiStyle('Outside', nil, false, true)
 end
 
-function mod:Initialize()
-	self:LoadXP()
-	self:LoadRep()
-	self:LoadThreat()
+function mod:Init()
+	mod:LoadXP()
+	mod:LoadRep()
+	mod:LoadThreat()
 	if (E.myclass == 'HUNTER' and (E.Classic or E.TBC)) then
-		self:LoadPetXP()
+		mod:LoadPetXP()
 	end
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

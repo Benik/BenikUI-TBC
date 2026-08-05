@@ -78,10 +78,20 @@ local function Style_SetButtonColor(self, btn, disabled)
 	end
 end
 
-function mod:Initialize()
+function mod:Init()
 	if E.db.benikui.Skins.elvuiAddons.elv ~= true then return end
 	hooksecurefunc(E, 'Config_SetButtonColor', Style_SetButtonColor)
 	hooksecurefunc(S, 'Ace3_TabSetSelected', Style_Ace3TabSelected)
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())
