@@ -228,6 +228,8 @@ function mod:Init()
 	else
 		mod:LoadProfessions()
 	end
+
+	mod.initialized = true
 end
 
 function mod:PLAYER_LOGIN()

@@ -32,6 +32,8 @@ function mod:Initialize()
 	hooksecurefunc(DT, "BuildPanelFrame", mod.BuildPanelFrame)
 	hooksecurefunc(DT, "UpdatePanelInfo", mod.UpdatePanelInfo)
 	hooksecurefunc(DT, "SetupTooltip", mod.SetupTooltip)
+
+	mod.initialized = true
 end
 
 BUI:RegisterModule(mod:GetName())

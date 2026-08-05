@@ -173,7 +173,7 @@ function mod:ChatBubbles(frame, holder)
 	end
 end
 
-function mod:Initialize()
+function mod:Init()
 	if not E.db.benikui.general.shadows then return end
 
 	raidUtilityShadows()
@@ -183,6 +183,7 @@ function mod:Initialize()
 	CharacterFrameShadows()
 	SpellBookFrameShadows()
 	FriendsFrameShadows()
+	mod:AuraShadows()
 
 	-- AddonSkins
 	mod:AddonSkins()
@@ -190,6 +191,16 @@ function mod:Initialize()
 	-- Callbacks
 	S:AddCallbackForAddon("Blizzard_Calendar", "BenikUI_CalendarEventButtonShadows", CalendarEventButtonShadows)
 	hooksecurefunc(M, "SkinBubble", mod.ChatBubbles)
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())
