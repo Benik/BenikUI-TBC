@@ -96,7 +96,6 @@ function mod:UpdateProfessions()
 						bar.Text:SetFormattedText('%s: %s / %s', skillName, skillRank, skillMaxRank)
 					end
 
-					bar.Text:SetJustifyH('CENTER')
 					if E.db.benikui.dashboards.textColor == 1 then
 						bar.Text:SetTextColor(classColor.r, classColor.g, classColor.b)
 					else
