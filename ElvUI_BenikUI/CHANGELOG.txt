@@ -1,3 +1,12 @@
+2.44 - Aug 12, 2026
+init fixes (Credit: Tsxy)
+Fixed Dashboards login error
+fix afkm fix fonts, fix template stuff (Credit: Tsxy)
+template stuff (Credit: Tsxy)
+adjust for changes in elvui (Credit: Tsxy)
+update toc (Credit: Tsxy)
+Prevent a Custom Panel error
+
 2.43 - Jun 15, 2026
 add shop decor (Credit: Tsxy)
 fix shadows (Credit: Tsxy)
