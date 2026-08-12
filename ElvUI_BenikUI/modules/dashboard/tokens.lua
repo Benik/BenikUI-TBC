@@ -205,7 +205,6 @@ function mod:UpdateTokens()
 						end
 					end
 
-					self.tokenFrame.Text:SetJustifyH('CENTER')
 					if E.db.benikui.dashboards.textColor == 1 then
 						self.tokenFrame.Text:SetTextColor(classColor.r, classColor.g, classColor.b)
 					else
