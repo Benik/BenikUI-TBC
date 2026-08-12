@@ -505,17 +505,16 @@ function mod:Toggle()
 		mod:RegisterEvent("LFG_PROPOSAL_SHOW", "OnEvent")
 		mod:RegisterEvent("UPDATE_BATTLEFIELD_STATUS", "OnEvent")
 		mod:RegisterEvent("PLAYER_ENTERING_WORLD", "OnEvent")
-		BUI:LoadInFlightProfile(true)
 	else
 		mod:UnregisterEvent("UPDATE_BONUS_ACTIONBAR")
 		mod:UnregisterEvent("LFG_PROPOSAL_SHOW")
 		mod:UnregisterEvent("UPDATE_BATTLEFIELD_STATUS")
 		mod:UnregisterEvent("PLAYER_ENTERING_WORLD")
-		BUI:LoadInFlightProfile(false)
 	end
 end
 
-function mod:Initialize()
+function mod:CreateFlightMode()
+	if E.db.benikui.misc.flightMode.enable ~= true then return end
 	local db = E.db.benikui.colors
 	local currentExpansionLevel = GetClampedCurrentExpansionLevel()
 	local expansionDisplayInfo
@@ -836,6 +835,21 @@ function mod:Initialize()
 --	E.FrameLocks['ElvUI_ReputationBar'] = { parent = E.UIParent }
 --	E.FrameLocks['ElvUI_HonorBar'] = { parent = E.UIParent }
 --	E.FrameLocks['ElvUI_AzeriteBar'] = { parent = E.UIParent }
+end
+
+function mod:Init()
+	mod:CreateFlightMode()
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

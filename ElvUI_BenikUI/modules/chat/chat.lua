@@ -102,8 +102,13 @@ end
 function mod:ToggleChatStyle()
 	if not E.db.benikui.general.benikuiStyle then return end
 	local db = E.db.chat.benikuiStyle
-	LeftChatPanel.backdrop.style:SetShown(db)
-	RightChatPanel.backdrop.style:SetShown(db)
+	if _G.LeftChatPanel.backdrop.style then
+		_G.LeftChatPanel.backdrop.style:SetShown(db)
+	end
+
+	if _G.RightChatPanel.backdrop.style then
+		_G.RightChatPanel.backdrop.style:SetShown(db)
+	end
 end
 
 local function InjectChatPanelOption()
@@ -118,13 +123,23 @@ local function InjectChatPanelOption()
 end
 tinsert(BUI.Config, InjectChatPanelOption)
 
-function mod:Initialize()
+function mod:Init()
 	mod:UpdateEditboxAnchors()
 	mod:ToggleChatStyle()
 	hooksecurefunc(CH, "PositionChats", PositionChat)
 	hooksecurefunc(CH, "UpdateEditboxAnchors", mod.UpdateEditboxAnchors)
 	hooksecurefunc(CH, "StyleChat", Style)
 	hooksecurefunc(FM, "SetFlightMode", PositionChat)
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

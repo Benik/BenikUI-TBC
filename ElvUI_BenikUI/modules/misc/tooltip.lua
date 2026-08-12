@@ -6,7 +6,7 @@ local S = E:GetModule('Skins')
 local _G = _G
 local pairs = pairs
 local GameTooltip, GameTooltipStatusBar = _G.GameTooltip, _G.GameTooltipStatusBar
-local IsAddOnLoaded = IsAddOnLoaded
+local IsAddOnLoaded = (C_AddOns and C_AddOns.IsAddOnLoaded) or IsAddOnLoaded
 
 local function StyleTooltip()
 	if GameTooltip.style then return end
@@ -161,7 +161,7 @@ function mod:SetupStyleAndShadow(tt)
 		end
 	end
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.shadows then
 		if not tt.StatusBar.backdrop.shadow then
 			tt.StatusBar.backdrop:CreateSoftShadow()
 		end
@@ -179,7 +179,7 @@ function mod:StyleAceTooltip()
 	end
 end
 
-function mod:Initialize()
+function mod:Init()
 	if E.db.benikui.general.benikuiStyle ~= true or E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.tooltip ~= true then return end
 
 	if BUI:IsAddOnEnabled('TinyTooltip') then return end
@@ -191,6 +191,16 @@ function mod:Initialize()
 	mod:SecureHookScript(GameTooltip, 'OnUpdate', 'RecolorTooltipStyle')
 	hooksecurefunc(TT, "GameTooltip_SetDefaultAnchor", mod.SetupStyleAndShadow)
 	hooksecurefunc(S, "Ace3_StyleTooltip", mod.StyleAceTooltip)
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

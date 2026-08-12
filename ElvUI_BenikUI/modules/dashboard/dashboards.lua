@@ -1,6 +1,5 @@
 local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Dashboards')
-local LSM = E.LSM
 
 local CreateFrame = CreateFrame
 local SECONDARY_SKILLS = SECONDARY_SKILLS
@@ -68,9 +67,9 @@ end
 function mod:FontStyle(tableName)
 	for _, bar in pairs(tableName) do
 		if E.db.benikui.dashboards.dashfont.useDTfont then
-			bar.Text:FontTemplate(LSM:Fetch('font', E.db.datatexts.font), E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
+			bar.Text:FontTemplate(E.db.datatexts.font, E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
 		else
-			bar.Text:FontTemplate(LSM:Fetch('font', E.db.benikui.dashboards.dashfont.dbfont), E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
+			bar.Text:FontTemplate(E.db.benikui.dashboards.dashfont.dbfont, E.db.benikui.dashboards.dashfont.dbfontsize, E.db.benikui.dashboards.dashfont.dbfontflags)
 		end
 	end
 end
@@ -220,7 +219,7 @@ function mod:CreateDashboard(barHolder, option, hasIcon, isRep)
 	return bar
 end
 
-function mod:Initialize()
+function mod:Init()
 	mod:LoadSystem()
 	mod:LoadReputations()
 	if E.Mists then
@@ -229,6 +228,16 @@ function mod:Initialize()
 	else
 		mod:LoadProfessions()
 	end
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

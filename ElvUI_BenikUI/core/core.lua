@@ -12,6 +12,7 @@ local EnableAddOn = (C_AddOns and C_AddOns.EnableAddOn) or EnableAddOn
 local GetAddOnInfo = (C_AddOns and C_AddOns.GetAddOnInfo) or GetAddOnInfo
 local GetNumAddOns = (C_AddOns and C_AddOns.GetNumAddOns) or GetNumAddOns
 local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
+local IsAddOnLoadable = C_AddOns.IsAddOnLoadable
 local ReloadUI = ReloadUI
 local SetCVar = SetCVar
 
@@ -22,12 +23,17 @@ BUI["softGlow"] = {}
 BUI["shadows"] = {}
 BUI.TexCoords = {.08, 0.92, -.04, 0.92}
 BUI.Version = GetAddOnMetadata('ElvUI_BenikUI', 'Version')
-BUI.ShadowMode = false;
 BUI.AddonProfileKey = '';
 BINDING_HEADER_BENIKUI = BUI.Title
 
-function BUI:IsAddOnEnabled(addon)
-	return IsAddOnLoaded(addon)
+local function IsAddonIncompatible(addon)
+	local loadable, reason = IsAddOnLoadable(addon)
+	return loadable == false -- and reason == "INCOMPATIBLE" or "MISSING"
+end
+
+function BUI:IsAddOnEnabled(addon) -- Credit: Azilroka
+	if IsAddonIncompatible(addon) then return end
+	return IsAddOnLoaded and E:GetAddOnEnableState(addon, E.myguid) == 2
 end
 
 -- Check other addons
@@ -221,10 +227,6 @@ function BUI:Initialize()
 
 	if E.db.benikui.general.loginMessage then
 		print(format('%s%s %s%s %s', BUI.Title, versionString, BUI:cOption('v'..BUI.Version, "orange"), L['is loaded. For any issues or suggestions, please visit'], PrintURL(linkString)))
-	end
-
-	if E.db.benikui.general.benikuiStyle and E.db.benikui.general.shadows then
-		BUI.ShadowMode = true
 	end
 
 	tinsert(E.ConfigModeLayouts, #(E.ConfigModeLayouts)+1, "BENIKUI")

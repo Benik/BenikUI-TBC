@@ -3,6 +3,7 @@
 -- args: menuList, menuFrame, parentButtonName, position, xOffset, yOffset, delay
 local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local tinsert, unpack = table.insert, unpack
+local IsAddOnLoaded = (C_AddOns and C_AddOns.IsAddOnLoaded) or IsAddOnLoaded
 
 local PADDING = 10
 local BUTTON_HEIGHT = 16
@@ -51,10 +52,10 @@ BUI.MenuList = {
 	{text = TOY_BOX, func = function() ToggleCollectionsJournal(3) end},
 	{text = HEIRLOOMS, func = function() ToggleCollectionsJournal(4) end},
 	{text = WARDROBE, func = function() ToggleCollectionsJournal(5) end},
-	{text = ENCOUNTER_JOURNAL, func = function() if not IsAddOnLoaded('Blizzard_EncounterJournal') then UIParentLoadAddOn('Blizzard_EncounterJournal') end ToggleFrame(_G.EncounterJournal) end},
+	{text = ENCOUNTER_JOURNAL, func = function() if not IsAddOnLoaded('Blizzard_EncounterJournal') then EncounterJournal_LoadUI() end ToggleFrame(_G.EncounterJournal) end},
 	{text = REPUTATION, func = function() ToggleCharacter('ReputationFrame') end},
 	{text = COMMUNITIES_FRAME_TITLE, func = function() ToggleGuildFrame() end},
-	{text = MACROS, func = function() GameMenuButtonMacros:Click() end},
+	{text = MACROS, func = function() UIParentLoadAddOn("Blizzard_MacroUI") MacroFrame_Show() end},
 	{text = TIMEMANAGER_TITLE, func = function() ToggleFrame(TimeManagerFrame) end},
 	{text = SOCIAL_BUTTON, func = function() ToggleFriendsFrame() end},
 	{text = LFG_TITLE, func = function() PVEFrame_ToggleFrame('GroupFinderFrame', _G.LFDParentFrame); end},

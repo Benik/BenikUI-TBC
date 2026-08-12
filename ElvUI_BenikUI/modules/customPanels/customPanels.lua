@@ -86,7 +86,7 @@ function mod:CreatePanel()
 			panel:SetTemplate('Transparent')
 			panel:Point('CENTER', E.UIParent, 'CENTER', -600, 0)
 			panel:BuiStyle('Outside', false, true, true)
-			if BUI.ShadowMode then panel:CreateSoftShadow() end
+			if E.db.benikui.general.shadows then panel:CreateSoftShadow() end
 			panel:SetScript("OnEnter", OnEnter)
 			panel:SetScript("OnLeave", OnLeave)
 
@@ -161,9 +161,9 @@ function mod:UpdatePanelTitle()
 			
 			-- Fonts
 			if db.useDTfont then
-				_G[panel].titleText:FontTemplate(LSM:Fetch('font', E.db.datatexts.font), E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
+				_G[panel].titleText:FontTemplate(E.db.datatexts.font, E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
 			else
-				_G[panel].titleText:FontTemplate(LSM:Fetch('font', db.font), db.fontsize, db.fontflags)
+				_G[panel].titleText:FontTemplate(db.font, db.fontsize, db.fontflags)
 			end
 			
 			_G[panel].titleText:SetTextColor(BUI:unpackColor(db.fontColor))
@@ -200,23 +200,18 @@ function mod:SetupPanels()
 				_G[panel]:SetTemplate("Default", true)
 			end
 
-			if BUI.ShadowMode then
-				_G[panel].shadow:SetShown(db.shadow)
-				_G[panel].style.styleShadow:SetShown(db.shadow)
-			end
-
 			if _G[panel].style then
 				local r, g, b
 				_G[panel].style:SetShown(db.style)
 
 				if db.stylePosition == 'BOTTOM' then
 					_G[panel].style:ClearAllPoints()
-					if BUI.ShadowMode then _G[panel].style.styleShadow:Hide() end
+					if E.db.benikui.general.shadows then _G[panel].style.styleShadow:Hide() end
 					_G[panel].style:Point('TOPRIGHT', _G[panel], 'BOTTOMRIGHT', 0, (E.PixelMode and 5 or 7))
 					_G[panel].style:Point('BOTTOMLEFT', _G[panel], 'BOTTOMLEFT', 0, (E.PixelMode and 0 or 1))
 				else
 					_G[panel].style:ClearAllPoints()
-					if BUI.ShadowMode and db.shadow then _G[panel].style.styleShadow:Show() end
+					if E.db.benikui.general.shadows and db.shadow then _G[panel].style.styleShadow:Show() end
 					_G[panel].style:Point('TOPLEFT', _G[panel], 'TOPLEFT', 0, (E.PixelMode and 4 or 7))
 					_G[panel].style:Point('BOTTOMRIGHT', _G[panel], 'TOPRIGHT', 0, (E.PixelMode and -1 or 1))
 				end
@@ -231,6 +226,11 @@ function mod:SetupPanels()
 					r, g, b = BUI:unpackColor(E.db.general.backdropcolor)
 				end
 				_G[panel].style:SetBackdropColor(r, g, b, E.db.benikui.colors.styleAlpha or 1)
+
+				if E.db.benikui.general.shadows then
+					_G[panel].shadow:SetShown(db.shadow)
+					_G[panel].style.styleShadow:SetShown(db.shadow)
+				end
 			end
 		end
 	end
@@ -292,10 +292,20 @@ function mod:UpdatePanels()
 	mod:UpdatePanelTitle()
 end
 
-function mod:Initialize()
+function mod:Init()
 	mod:UpdatePanels()
 	mod:RegisterEvent("PLAYER_REGEN_DISABLED", "OnEvent")
 	mod:RegisterEvent("PLAYER_REGEN_ENABLED", "OnEvent")
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

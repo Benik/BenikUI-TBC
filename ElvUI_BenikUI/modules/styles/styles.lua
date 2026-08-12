@@ -61,7 +61,7 @@ function mod:PLAYER_ENTERING_WORLD(...)
 	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 end
 
-function mod:Initialize()
+function mod:Init()
 	--mod:InitializeObjectiveTracker()
 	mod:StyleAddons()
 	StyleElvUIBindPopup()
@@ -71,6 +71,16 @@ function mod:Initialize()
 
 	mod:RegisterEvent("PLAYER_ENTERING_WORLD")
 	mod:RegisterEvent("ADDON_LOADED", "LoD_AddOns")
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

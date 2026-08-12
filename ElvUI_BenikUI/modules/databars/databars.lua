@@ -1,7 +1,6 @@
 local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Databars')
 local S = E:GetModule('Skins')
-local LSM = E.Libs.LSM
 
 local SPACING = (E.PixelMode and 1 or 3)
 
@@ -68,7 +67,7 @@ function mod:UpdateNotifierPositions(bar, option)
 		(E.db.databars[option].orientation == 'HORIZONTAL' and (db.position == 'LEFT' or db.position == 'RIGHT'))
 	bar.f.arrow:SetShown(toggleCondition)
 	bar.f.txt:SetShown(toggleCondition)
-	bar.f.txt:FontTemplate(LSM:Fetch('font', E.db.datatexts.font), E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
+	bar.f.txt:FontTemplate(E.db.datatexts.font, E.db.datatexts.fontSize, E.db.datatexts.fontOutline)
 end
 
 function mod:ToggleBackdrop(bar, option)
@@ -113,7 +112,7 @@ function mod:StyleBar(bar, onClick)
 
 	bar.fb:SetScript('OnClick', onClick)
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.shadows then
 		bar.fb:CreateSoftShadow()
 	end
 
@@ -121,13 +120,23 @@ function mod:StyleBar(bar, onClick)
 	bar.holder:BuiStyle('Outside', nil, false, true)
 end
 
-function mod:Initialize()
-	self:LoadXP()
-	self:LoadRep()
-	self:LoadThreat()
+function mod:Init()
+	mod:LoadXP()
+	mod:LoadRep()
+	mod:LoadThreat()
 	if (E.myclass == 'HUNTER' and (E.Classic or E.TBC)) then
-		self:LoadPetXP()
+		mod:LoadPetXP()
 	end
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

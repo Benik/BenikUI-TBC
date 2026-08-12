@@ -2,6 +2,9 @@ local BUI, E, L, V, P, G = unpack((select(2, ...)))
 local mod = BUI:GetModule('Shadows')
 local S = E:GetModule('Skins')
 local M = E:GetModule('Misc')
+local B = E:GetModule('Blizzard')
+local AB = E:GetModule('ActionBars')
+
 
 local _G = _G
 
@@ -55,7 +58,7 @@ end
 
 -- ElvUI tabs
 function mod:TabShadows(tab)
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 	if not tab then return end
 
 	if tab.backdrop then
@@ -67,7 +70,7 @@ hooksecurefunc(S, "HandleTab", mod.TabShadows)
 
 -- ElvUI item buttons
 function mod:ItemButtonShadows(button)
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 	if not button then return end
 	if Baganator then return end
 
@@ -76,13 +79,13 @@ function mod:ItemButtonShadows(button)
 		button.backdrop:CreateSoftShadow()
 	end
 end
-hooksecurefunc(S, "HandleItemButton", mod.ItemButtonShadows)
+--hooksecurefunc(S, "HandleItemButton", mod.ItemButtonShadows) --maybe borked?
 
 -- MicroBar
 local function MicroBarShadows()
-	for i=1, #MICRO_BUTTONS do
-		if _G[MICRO_BUTTONS[i]].backdrop then
-			_G[MICRO_BUTTONS[i]].backdrop:CreateSoftShadow()
+	for _, x in pairs(AB.MICRO_BUTTONS) do
+		if _G[x] then
+			_G[x]:CreateSoftShadow()
 		end
 	end
 end
@@ -170,8 +173,8 @@ function mod:ChatBubbles(frame, holder)
 	end
 end
 
-function mod:Initialize()
-	if not BUI.ShadowMode then return end
+function mod:Init()
+	if not E.db.benikui.general.shadows then return end
 
 	raidUtilityShadows()
 	mirrorTimersShadows()
@@ -180,6 +183,7 @@ function mod:Initialize()
 	CharacterFrameShadows()
 	SpellBookFrameShadows()
 	FriendsFrameShadows()
+	mod:AuraShadows()
 
 	-- AddonSkins
 	mod:AddonSkins()
@@ -187,6 +191,16 @@ function mod:Initialize()
 	-- Callbacks
 	S:AddCallbackForAddon("Blizzard_Calendar", "BenikUI_CalendarEventButtonShadows", CalendarEventButtonShadows)
 	hooksecurefunc(M, "SkinBubble", mod.ChatBubbles)
+
+	mod.initialized = true
+end
+
+function mod:PLAYER_LOGIN()
+	mod:Init()
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

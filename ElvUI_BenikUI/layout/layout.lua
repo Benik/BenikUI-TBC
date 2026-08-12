@@ -3,7 +3,6 @@ local mod = BUI:GetModule('Layout')
 local LO = E:GetModule('Layout')
 local DT = E:GetModule('DataTexts')
 local M = E:GetModule('Minimap')
-local LSM = E.Libs.LSM
 
 local _G = _G
 local unpack = unpack
@@ -126,6 +125,7 @@ end
 
 function mod:ToggleTransparency()
 	local db = E.db.benikui.datatexts.chat
+	local shadows = E.db.benikui.general.benikuiStyle and E.db.benikui.general.shadows
 	local Bui_ldtp = _G.BuiLeftChatDTPanel
 	local Bui_rdtp = _G.BuiRightChatDTPanel
 
@@ -134,11 +134,11 @@ function mod:ToggleTransparency()
 		Bui_rdtp:SetTemplate('NoBackdrop')
 		for i = 1, BUTTON_NUM do
 			bbuttons[i]:SetTemplate('NoBackdrop')
-			if BUI.ShadowMode then
+			if shadows then
 				bbuttons[i].shadow:Hide()
 			end
 		end
-		if BUI.ShadowMode then
+		if shadows then
 			Bui_ldtp.shadow:Hide()
 			Bui_rdtp.shadow:Hide()
 		end
@@ -156,7 +156,7 @@ function mod:ToggleTransparency()
 				bbuttons[i]:SetTemplate('Default', true)
 			end
 		end
-		if BUI.ShadowMode then
+		if shadows then
 			Bui_ldtp.shadow:Show()
 			Bui_rdtp.shadow:Show()
 			for i = 1, BUTTON_NUM do
@@ -165,7 +165,7 @@ function mod:ToggleTransparency()
 		end
 	end
 
-	if not BUI.ShadowMode then return end
+	if not shadows then return end
 	local lchatToggle = E.db.datatexts.panels.LeftChatDataPanel.backdrop
 	_G.LeftChatDataPanel.shadow:SetShown(lchatToggle)
 	_G.LeftChatToggleButton.shadow:SetShown(lchatToggle)
@@ -201,7 +201,7 @@ local function updateButtonFont()
 	for panelName, panel in pairs(dts) do
 		for i = 1, panel.numPoints do
 			if panel.dataPanels[i] then
-				panel.dataPanels[i].text:FontTemplate(LSM:Fetch('font', db.font), db.fontSize, db.fontOutline)
+				panel.dataPanels[i].text:FontTemplate(db.font, db.fontSize, db.fontOutline)
 			end
 		end
 		DT:UpdatePanelInfo(panelName, panel)
@@ -427,7 +427,7 @@ function mod:CreateLayout()
 	LeftChatPanel.backdrop:BuiStyle('Outside')
 	RightChatPanel.backdrop:BuiStyle('Outside')
 
-	if BUI.ShadowMode then
+	if E.db.benikui.general.benikuiStyle and E.db.benikui.general.shadows then
 		MinimapPanel:CreateSoftShadow()
 		LeftChatDataPanel:CreateSoftShadow()
 		LeftChatToggleButton:CreateSoftShadow()
@@ -443,7 +443,7 @@ function mod:CreateLayout()
 
 	if CopyChatFrame then CopyChatFrame:BuiStyle('Outside') end
 
-	self:ToggleTransparency()
+	mod:ToggleTransparency()
 end
 
 -- Add minimap styling option in ElvUI minimap options
@@ -525,22 +525,11 @@ function mod:ToggleMinimapStyle()
 	end
 end
 
-function mod:regEvents()
-	mod:ToggleTransparency()
-end
-
 function mod:LoadDataTexts(...)
 	DT:UpdatePanelInfo('BuiLeftChatDTPanel')
 	DT:UpdatePanelInfo('BuiRightChatDTPanel')
 	DT:UpdatePanelInfo('BuiMiddleDTPanel')
 	updateButtonFont()
-end
-
-function mod:PLAYER_ENTERING_WORLD(...)
-	mod:ToggleBuiDts()
-	mod:regEvents()
-
-	mod:UnregisterEvent("PLAYER_ENTERING_WORLD")
 end
 
 local function InjectDatatextOptions()
@@ -557,10 +546,13 @@ local function InjectDatatextOptions()
 	E.Options.args.datatexts.args.panels.args.BuiMiddleDTPanel.args.panelOptions.args.growth.hidden = true
 end
 
-function mod:Initialize()
+function mod:PLAYER_LOGIN()
 	mod:CreateLayout()
 	mod:CreateMiddlePanel()
 	mod:ToggleMinimapStyle()
+	mod:ToggleBuiDts()
+	mod:ToggleTransparency()
+
 	C_TimerAfter(0.5, mod.ChatStyles)
 	tinsert(BUI.Config, InjectDatatextOptions)
 
@@ -572,7 +564,11 @@ function mod:Initialize()
 	hooksecurefunc(DT, 'LoadDataTexts', mod.LoadDataTexts)
 	hooksecurefunc(E, 'UpdateMedia', updateButtons)
 
-	mod:RegisterEvent('PLAYER_ENTERING_WORLD')
+	mod.initialized = true
+end
+
+function mod:Initialize()
+	mod:RegisterEvent('PLAYER_LOGIN')
 end
 
 BUI:RegisterModule(mod:GetName())

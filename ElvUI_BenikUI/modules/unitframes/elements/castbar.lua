@@ -53,7 +53,7 @@ local function resetCastbarLevel(unit, unitframe)
 end
 
 local function ConfigureCastbarShadow(unit, unitframe)
-	if not BUI.ShadowMode then return end
+	if not E.db.benikui.general.shadows then return end
 	local castbar = unitframe.Castbar
 	local db = E.db.unitframe.units[unit].castbar;
 
@@ -152,7 +152,7 @@ function mod:CastBarHooks()
 		local unitframe = _G["ElvUF_"..unit];
 		local castbar = unitframe and unitframe.Castbar
 		if castbar then
-			if BUI.ShadowMode then
+			if E.db.benikui.general.shadows then
 				castbar.backdrop:CreateSoftShadow()
 				castbar.backdrop.shadow:SetFrameLevel(castbar.backdrop:GetFrameLevel())
 				castbar.ButtonIcon.bg:CreateSoftShadow()

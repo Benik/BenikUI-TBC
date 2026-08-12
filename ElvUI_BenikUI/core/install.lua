@@ -206,7 +206,7 @@ local function SetupLayout(layout)
 	PluginInstallStepComplete.message = BUI.Title..L['Layout Set']
 	PluginInstallStepComplete:Show()
 
-	E:StaggeredUpdateAll(nil, true)
+	E:UpdateAll()
 end
 
 function BUI:SetupColorThemes(color)
@@ -496,7 +496,7 @@ local function SetupActionbars(layout)
 	PluginInstallStepComplete.message = BUI.Title..L['Actionbars Set']
 	PluginInstallStepComplete:Show()
 
-	E:StaggeredUpdateAll(nil, true)
+	E:UpdateAll()
 end
 
 local function SetupUnitframes(layout)
@@ -1746,7 +1746,7 @@ local function SetupUnitframes(layout)
 	PluginInstallStepComplete.message = BUI.Title..L['Unitframes Set']
 	PluginInstallStepComplete:Show()
 
-	E:StaggeredUpdateAll(nil, true)
+	E:UpdateAll()
 end
 
 local addonNames = {}
@@ -1882,7 +1882,7 @@ local function SetupDataTexts(role)
 	PluginInstallStepComplete.message = BUI.Title..L['DataTexts Set']
 	PluginInstallStepComplete:Show()
 
-	E:StaggeredUpdateAll(nil, true)
+	E:UpdateAll()
 end
 
 local function InstallComplete()
