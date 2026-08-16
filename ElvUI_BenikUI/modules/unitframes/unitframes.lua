@@ -357,9 +357,8 @@ end
 function mod:Init()
 	if E.private.unitframe.enable ~= true then return end
 
-	--mod:Setup()
+	mod:Setup()
 
-	hooksecurefunc(UF, "LoadUnits", mod.Setup)
 	hooksecurefunc(UF, "Configure_ReadyCheckIcon", mod.Configure_ReadyCheckIcon)
 
 	self:RegisterEvent("ADDON_LOADED")
