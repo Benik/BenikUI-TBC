@@ -1,3 +1,7 @@
+2.45 - Aug 19, 2026
+fix movers for detached portraits
+Fixed UF shadows
+
 2.44 - Aug 12, 2026
 init fixes (Credit: Tsxy)
 Fixed Dashboards login error
