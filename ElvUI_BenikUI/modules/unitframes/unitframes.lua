@@ -366,12 +366,12 @@ function mod:Init()
 	mod.initialized = true
 end
 
-function mod:PLAYER_LOGIN()
+function mod:PLAYER_ENTERING_WORLD()
 	mod:Init()
 end
 
 function mod:Initialize()
-	mod:RegisterEvent('PLAYER_LOGIN')
+	mod:RegisterEvent('PLAYER_ENTERING_WORLD')
 end
 
 BUI:RegisterModule(mod:GetName())
