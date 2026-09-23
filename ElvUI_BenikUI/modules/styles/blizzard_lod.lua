@@ -62,20 +62,20 @@ local function style_ArtifactUI()
 end
 S:AddCallbackForAddon("Blizzard_ArtifactUI", "BenikUI_ArtifactUI", style_ArtifactUI)
 
--- AuctionHouseUI
-local function style_AuctionHouseUI()
+-- AuctionUI
+local function style_AuctionUI()
 	if E.private.skins.blizzard.auctionhouse ~= true or E.private.skins.blizzard.enable ~= true or
 		E.db.benikui.general.benikuiStyle ~= true
 	then
 		return
 	end
 
-	local frame = _G.AuctionHouseFrame
+	local frame = _G.AuctionFrame
 	frame:BuiStyle("Outside")
 	-- todo update this once ElvUI starts skinning it again
 	--frame.WoWTokenResults.GameTimeTutorial:BuiStyle("Outside")
 end
-S:AddCallbackForAddon("Blizzard_AuctionHouseUI", "BenikUI_AuctionHouseUI", style_AuctionHouseUI)
+S:AddCallbackForAddon("Blizzard_AuctionUI", "BenikUI_AuctionUI", style_AuctionUI)
 
 --[[-- AzeriteEssenceUI
 local function style_AzeriteEssenceUI()
@@ -356,6 +356,21 @@ local function style_DeathRecap()
 	_G.DeathRecapFrame.backdrop:BuiStyle("Outside")
 end
 S:AddCallbackForAddon("Blizzard_DeathRecap", "BenikUI_DeathRecap", style_DeathRecap)
+
+--EditMode
+local function style_EditMode()
+	if E.private.skins.blizzard.editor ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	_G.EditModeManagerFrame.backdrop:BuiStyle("Outside")
+	_G.EditModeUnsavedChangesDialog.backdrop:BuiStyle("Outside")
+	_G.EditModeImportLayoutDialog.backdrop:BuiStyle("Outside")
+	_G.EditModeSystemSettingsDialog.backdrop:BuiStyle("Outside")
+	_G.EditModeLayoutDialog.backdrop:BuiStyle("Outside")
+end
+S:AddCallbackForAddon("Blizzard_EditMode", "BenikUI_EditMode", style_EditMode)
 
 -- EncounterJournal
 local function style_EncounterJournal()
@@ -822,6 +837,122 @@ local function style_QuestChoice()
 	_G.QuestChoiceFrame:BuiStyle("Small")
 end
 S:AddCallbackForAddon("Blizzard_QuestChoice", "BenikUI_QuestChoice", style_QuestChoice)
+
+--HelpFrame
+local function style_HelpFrame()
+	if E.private.skins.blizzard.help ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	_G.HelpFrame.backdrop:BuiStyle("Outside")
+end
+S:AddCallbackForAddon("Blizzard_UIPanels_Game", "BenikUI_HelpFrame",style_HelpFrame)
+
+--QuestLogFrame
+local function style_QuestLogFrame()
+	if E.private.skins.blizzard.quest  ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	if E.Classic then
+		_G.QuestFrame.backdrop:BuiStyle("Outside")
+		_G.QuestLogFrame.backdrop:BuiStyle("Outside")
+	end
+	if E.TBC then
+		_G.QuestFrame:BuiStyle("Outside")
+		_G.QuestLogFrame.backdrop:BuiStyle("Outside")
+	end
+	if E.Mists then
+		_G.QuestFrame:BuiStyle("Outside")
+		_G.QuestLogFrame:BuiStyle("Outside")
+		_G.QuestLogDetailFrame.backdrop:BuiStyle("Outside")
+	end
+end
+S:AddCallbackForAddon("Blizzard_UIPanels_Game", "BenikUI_QuestLogFrame",style_QuestLogFrame)
+
+--FriendsFrame
+local function style_FriendsFrame()
+	if E.private.skins.blizzard.friends ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	_G.AddFriendFrame:BuiStyle("Outside")
+	_G.FriendsFrame.backdrop:BuiStyle("Outside")
+	_G.FriendsFriendsFrame:BuiStyle("Outside")
+end
+S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_FriendsFrame', style_FriendsFrame)
+
+--GossipFrame
+local function style_GossipFrame()
+	if E.private.skins.blizzard.gossip ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	_G.GossipFrame.backdrop:BuiStyle("Outside")
+	_G.ItemTextFrame:BuiStyle("Outside")
+end
+S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_GossipFrame', style_GossipFrame)
+
+local function style_MerchantFrame()
+	if E.private.skins.blizzard.merchant  ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	if _G.MerchantFrame then
+		_G.MerchantFrame.backdrop:BuiStyle("Outside")
+	end
+end
+S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_MerchantFrame', style_MerchantFrame)
+
+--SpellBookFrame
+local function style_SpellBookFrame()
+	if E.private.skins.blizzard.spellbook  ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	if E.Mists then
+		_G.SpellBookFrame:BuiStyle("Outside")
+	else
+		_G.SpellBookFrame.backdrop:BuiStyle("Outside")
+	end
+end
+S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_SpellBookFrame', style_SpellBookFrame)
+
+--PetStableFrame
+local function style_PetStableFrame()
+	if E.private.skins.blizzard.stable  ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then
+		return
+	end
+	if E.Mists then
+		_G.PetStableFrame:BuiStyle("Outside")
+	else
+		_G.PetStableFrame.backdrop:BuiStyle("Outside")
+	end
+end
+S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_PetStableFrame', style_PetStableFrame)
+
+--TaxiFrame
+local function style_TaxiFrame()
+	if E.private.skins.blizzard.taxi  ~= true or E.private.skins.blizzard.enable ~= true or
+		E.db.benikui.general.benikuiStyle ~= true
+	then 
+		return
+	end
+	if E.Mists then
+		_G.TaxiFrame:BuiStyle("Outside")
+	else
+		_G.TaxiFrame.backdrop:BuiStyle("Outside")
+	end
+end
+S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_TaxiFrame', style_TaxiFrame)
 
 -- ScrappingMachine
 local function style_ScrappingMachineUI()

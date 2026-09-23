@@ -23,7 +23,7 @@ local function LoadSkin()
 	end
 
 	if db.blizzardOptions then
-		_G.SettingsPanel.backdrop:BuiStyle("Outside")
+		_G.SettingsPanel:BuiStyle("Outside")
 		_G.ChatConfigFrame:BuiStyle("Outside")
 		_G.ReadyCheckFrame:BuiStyle("Outside")
 		_G.ReadyCheckListenerFrame:BuiStyle("Outside")
@@ -61,30 +61,12 @@ local function LoadSkin()
 	end
 
 	if db.dressingroom then
-		_G.DressUpFrame.backdrop:BuiStyle("Outside")
+		_G.DressUpFrame:BuiStyle("Outside")
 	end
 
-	if db.friends then
-		_G.AddFriendFrame:BuiStyle("Outside")
-		_G.FriendsFrame.backdrop:BuiStyle("Outside")
-		_G.FriendsFriendsFrame.backdrop:BuiStyle("Outside")
-	end
-
-	if db.gossip then
-		_G.GossipFrame.backdrop:BuiStyle("Outside")
---		if not E.Mists then
---			_G.ItemTextFrame.backdrop:BuiStyle("Outside")
---		else
-			_G.ItemTextFrame:BuiStyle("Outside")
---		end
-	end
 
 	if db.guildregistrar then
 		_G.GuildRegistrarFrame:BuiStyle("Outside")
-	end
-
-	if db.help then
-		_G.HelpFrame.backdrop:BuiStyle("Outside")
 	end
 
 	if db.lfg then
@@ -104,11 +86,6 @@ local function LoadSkin()
 			_G.OpenMailFrame:BuiStyle("Outside")
 	end
 
-	if db.merchant then
-		if _G.MerchantFrame then
-			_G.MerchantFrame.backdrop:BuiStyle("Outside")
-		end
-	end
 
 	if db.misc then
 		local ChatMenus = {
@@ -130,7 +107,6 @@ local function LoadSkin()
 			_G.QueueStatusFrame:BuiStyle("Outside")
 			_G.ReportFrame:BuiStyle("Outside")
 		end
-		_G.ReportCheatingDialog.backdrop:BuiStyle("Outside")
 		_G.SideDressUpFrame:BuiStyle("Outside")
 		_G.StackSplitFrame:BuiStyle("Outside")
 		_G.StaticPopup1:BuiStyle("Outside")
@@ -184,52 +160,12 @@ local function LoadSkin()
 	end
 	if db.battlefield then
 		if not E.Mists then
-			_G.BattlefieldFrame.backdrop:BuiStyle("Outside")
-		end
-	end
-
-	if db.quest then
-		if E.Classic then
-			_G.QuestFrame.backdrop:BuiStyle("Outside")
-			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
-		end
-		if E.TBC then
-			_G.QuestFrame:BuiStyle("Outside")
-			_G.QuestLogFrame.backdrop:BuiStyle("Outside")
-		end
-		if E.Mists then
-			_G.QuestFrame:BuiStyle("Outside")
-			_G.QuestLogFrame:BuiStyle("Outside")
-			_G.QuestLogDetailFrame.backdrop:BuiStyle("Outside")
-		end
-	end
-
-	if db.stable then
-		if E.Mists then
-			_G.PetStableFrame:BuiStyle("Outside")
-		else	
-			_G.PetStableFrame.backdrop:BuiStyle("Outside")
-		end
-	end
-
-	if db.spellbook then
-		if E.Mists then
-			_G.SpellBookFrame:BuiStyle("Outside")
-		else
-			_G.SpellBookFrame.backdrop:BuiStyle("Outside")
+			_G.BattlefieldFrame:BuiStyle("Outside")
 		end
 	end
 
 	if db.tabard then
 		_G.TabardFrame:BuiStyle("Outside")
-	end
-
-	if db.taxi then
-		if E.Mists then
-			_G.TaxiFrame:BuiStyle("Outside")
-		else 
-			_G.TaxiFrame.backdrop:BuiStyle("Outside")
-		end
 	end
 
 	if db.trade then

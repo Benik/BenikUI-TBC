@@ -128,20 +128,20 @@ local function SpellBookFrameShadows()
 		i = i + 1
 		tab = _G['SpellBookFrameTabButton'..i]
 	end
---[[	if not E.Mists then
 		for j = 1, MAX_SKILLLINE_TABS do
 			local tab = _G['SpellBookSkillLineTab'..j]
 			tab:CreateSoftShadow()
 		end
 
-		hooksecurefunc("SpellBookFrame_UpdateSkillLineTabs",
+	if E.Mists then
+		hooksecurefunc("SpellBook_UpdateCoreAbilitiesTab",
 				function()
-					for i = 1, MAX_SKILLLINE_TABS do
-						local tab = _G['SpellBookSkillLineTab'..i]
-						tab:CreateSoftShadow()
-					end
-			end)
-	end]]--
+				local SpellBookCoreAbilitiesFrame = _G.SpellBookCoreAbilitiesFrame
+				for i, tab in next, SpellBookCoreAbilitiesFrame.SpecTabs do
+				tab:CreateSoftShadow()
+			end
+		end)
+	end
 end
 
 local function FriendsFrameShadows()
