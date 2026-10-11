@@ -231,8 +231,8 @@ local function style_Channels()
 		return
 	end
 
-	_G.ChannelFrame.backdrop:BuiStyle("Outside")
-	_G.CreateChannelPopup.backdrop:BuiStyle("Outside")
+	_G.ChannelFrame:BuiStyle("Outside")
+	_G.CreateChannelPopup:BuiStyle("Outside")
 end
 S:AddCallbackForAddon("Blizzard_Channels", "BenikUI_Channels", style_Channels)
 
@@ -904,7 +904,7 @@ local function style_MerchantFrame()
 		return
 	end
 	if _G.MerchantFrame then
-		_G.MerchantFrame.backdrop:BuiStyle("Outside")
+		_G.MerchantFrame:BuiStyle("Outside")
 	end
 end
 S:AddCallbackForAddon('Blizzard_UIPanels_Game', 'BenikUI_MerchantFrame', style_MerchantFrame)
