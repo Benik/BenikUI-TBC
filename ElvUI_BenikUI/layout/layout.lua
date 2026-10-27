@@ -14,7 +14,6 @@ local IsShiftKeyDown = IsShiftKeyDown
 local InCombatLockdown = InCombatLockdown
 local PVEFrame_ToggleFrame = PVEFrame_ToggleFrame
 local C_TimerAfter = C_Timer.After
-local GameMenuButtonAddons = GameMenuButtonAddons
 
 -- GLOBALS: hooksecurefunc, selectioncolor
 -- GLOBALS: AddOnSkins, MAINMENU_BUTTON, BuiLeftChatDTPanel
@@ -372,7 +371,7 @@ function mod:CreateLayout()
 					self:SetScript('OnClick', ChatButton_OnClick)
 				else
 					self:SetScript('OnClick', function(self)
-						GameMenuButtonAddons:Click()
+						ShowUIPanel(_G.AddonList)
 					end)
 				end
 				GameTooltip:SetOwner(self, 'ANCHOR_TOP', 64, 2 )
